@@ -1,0 +1,122 @@
+<?php TPL::output('global/header.tpl.htm'); ?>
+<?php TPL::output('block/itui-nav_discover_top.tpl.htm'); ?>
+<div class="aw-container-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="aw-content-wrap clearfix">
+				<div class="col-sm-12 col-md-9 aw-main-content">
+					<!-- 新消息通知 -->
+					<div class="aw-mod aw-notification-box hide" id="index_notification">
+						<div class="mod-head common-head">
+							<h2>
+								<span class="pull-right"><a href="account/setting/privacy/#notifications" class="text-color-999"><i class="icon icon-setting"></i> <?php _e('通知设置'); ?></a></span>
+								<i class="icon icon-bell"></i><?php _e('新通知'); ?><em class="badge badge-important" name="notification_unread_num"><?php echo $this->user_info['notification_unread']; ?></em>
+							</h2>
+						</div>
+						<div class="mod-body">
+							<ul id="notification_list"></ul>
+						</div>
+						<div class="mod-footer clearfix">
+							<a href="javascript:;" onclick="AWS.Message.read_notification(false, 0, false);" class="pull-left btn btn-mini btn-default"><?php _e('我知道了'); ?></a>
+							<a href="notifications/" class="pull-right btn btn-mini btn-success"><?php _e('查看所有'); ?></a>
+						</div>
+					</div>
+					<!-- end 新消息通知 -->
+
+					<a name="c_contents"></a>
+					<div class="aw-mod clearfix">
+						<div class="mod-head common-head">
+							<h2 id="main_title"><?php _e('推荐的话题'); ?></h2>
+						</div>
+
+						<div class="mod-body aw-feed-list clearfix itui-home" id="main_contents">
+
+						</div>
+
+						<div class="mod-footer">
+							<!-- 加载更多内容 -->
+							<a id="bp_more" class="aw-load-more-content" data-page="0">
+								<span><?php _e('更多'); ?></span>
+							</a>
+							<!-- end 加载更多内容 -->
+						</div>
+					</div>
+					 <!-- 推荐关注的话题 -->
+                    <div class="itui-recommend-attention-topic" style="display:none;">
+                        <div class="itui-recommend-p">
+                            <span>推荐关注的话题</span>
+                            <a href="javascript:;" class="itui-for-change">换一换</a>
+                        </div>
+                       
+                        <!-- 推荐关注的话题三个 --> 
+                        <?php if ($this->recommend_topic_list) {?>
+                        <?php foreach ($this->recommend_topic_list as $key => $value) {?>
+						<div class="new-recommend-topic">
+    						<div class="aw-item attention-topic itui-attention-topic02 recommend--topic-item">
+        					<!-- 话题图片 -->
+        						<a class="img aw-border-radius-5" href="topic/<?php echo $value['url_token']; ?>" data-id="<?php echo $value['topic_id']; ?>">
+            						<img src="<?php echo get_topic_pic_url('mid', $value['topic_pic']); ?>" alt="" />
+        						</a>
+        					<!-- end 话题图片 -->
+        					<div class="clearfix itui-recommend-topic-name">
+                            <!-- 话题内容 -->
+            					<span class="topic-tag topic-classify">
+                					<a href="topic/<?php echo $value['url_token']; ?>" class="itui-recommend-classify"><?php echo $value['topic_title']; ?></a>
+            					</span>
+            					<!-- 关注按钮 -->
+            					<div class="aw-topic-operate text-color-999 itui-follow-div">
+                					<?php if ($this->user_id) { ?>
+                						<a href="javascript:;" onclick="AWS.User.follow($(this), 'topic', <?php echo $this->topic_info['topic_id']; ?>);" class="follow-btn follow btn btn-normal btn-success<?php if ($this->topic_info['has_focus']) { ?> active<?php } ?>"><span><?php if ($this->topic_info['has_focus']) { ?><?php _e('取消关注'); ?><?php } else { ?><?php _e('关注'); ?><?php } ?></span> <em>|</em> <b><?php echo $this->topic_info['focus_count']; ?></b></a>
+                                    <?php } ?>
+            					</div>
+            					<!-- end关注按钮 -->
+            				<!-- end 话题内容 -->
+        					</div>
+            				<div class="itui-topic-title">
+                				<p><a href="">已获硕士学位或博士学位的人员，可以再次报考硕士生，但只能报考委托培养或自筹经费的硕士?</a></p>
+                				<p><a href="">国家承认学历的本科结业生和成人高校应届本科毕业生，按本科毕业生同等学力身份报考?</a></p>
+                				<p><a href="">拥护中国共产党的领导，愿为社会主义现代化建设服务，品德良好，遵纪守法?</a></p>              
+            				</div>
+                          
+    						</div>
+						</div>
+						<?php }?>
+						<?php }?>
+                        <!-- end推荐关注的话题三个 -->
+
+                    </div>
+				</div>
+				<!-- 侧边栏 -->
+				<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs hidden-sm">
+					<?php TPL::output('block/sidebar_announce.tpl.htm'); ?>
+					<!-- 此处原引入block/sidebar_menu.tpl.htm -->
+					
+					<!-- 引入话题广场侧边栏 -->
+					<?php TPL::output('block/itui_sidebar_topic_square.tpl.htm'); ?>
+					<!-- 可能感兴趣的人/或话题 -->
+					<?php TPL::output('block/sidebar_recommend_users_topics.tpl.htm'); ?>
+					<?php TPL::output('block/sidebar_hot_users.tpl.htm'); ?>
+				</div>
+				<!-- end 侧边栏 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php if ($_GET['first_login'] && $this->user_info['is_first_login'] == 1) { ?>
+<script type="text/javascript" src="<?php echo G_STATIC_URL; ?>/js/fileupload.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$.get(G_BASE_URL+'/account/ajax/welcome_message_template/', function (template) {
+		$('#aw-ajax-box').html(template);
+		$('body').addClass('modal-open');
+		welcome_step('1');
+	});
+});
+
+
+
+</script>
+<?php } ?>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>

@@ -1,0 +1,14 @@
+
+<!-- 顶部默认tab切换笔记、发现 -->
+<div class="nav-top-discover">
+	<ul class="nav nav-tabs aw-nav-tabs active hidden-xs">
+						<li id="wait-replay" <?php if ($_GET['sort_type'] == 'unresponsive') { ?> class="active"<?php } ?>><a href="<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>category-<?php echo $this->category_info['id']; ?>__sort_type-unresponsive"><?php _e('等待回复'); ?></a></li>
+						<li<?php if ($_GET['sort_type'] == 'hot') { ?> class="active"<?php } ?>><a href="<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>category-<?php echo $this->category_info['id']; ?>__sort_type-hot__day-7" id="sort_control_hot"><?php _e('热门'); ?></a></li>
+						<li<?php if ($_GET['is_recommend']) { ?> class="active"<?php } ?>><a href="<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>category-<?php echo $this->category_info['id']; ?>__is_recommend-1"><?php _e('推荐'); ?></a></li>
+						<li<?php if ((!$_GET['sort_type'] OR $_GET['sort_type'] == 'new') AND !$_GET['is_recommend']) { ?> class="bestnew active"<?php } ?>><a href="<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?><?php if ($this->category_info['id']) { ?>category-<?php echo $this->category_info['id']; ?><?php } ?>"><?php _e('最新'); ?></a></li>
+						<p class="notes_p">笔记</p>
+
+					</ul>
+</div>
+
+<!-- end 顶部默认tab切换 笔记、发现 -->

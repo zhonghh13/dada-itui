@@ -1,0 +1,90 @@
+<?php TPL::output('admin/global/header.tpl.htm'); ?>
+<?php TPL::output('admin/global/nav_menu.tpl.htm'); ?>
+
+<div class="aw-content-wrap">
+    <div class="mod">
+        <div class="mod-head">
+            <h3>
+                <ul class="nav nav-tabs">
+                    <li><a href="admin/user/invite_code/"><?php _e('状态'); ?></a></li>
+                    <li class="active"><a href="#generate" data-toggle="tab"><?php _e('生成'); ?></a></li>
+                </ul>
+            </h3>
+        </div>
+
+        <div class="tab-content mod-content">
+            <div class="tab-pane active" id="add">
+            <div class="table-responsive">
+            <form action="admin/ajax/save_admininvitation/" id="diy-form" method="post">
+            <table class="table table-striped">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <span class="col-sm-1 col-xs-1 control-label"><?php _e('邀请码'); ?>:</span>
+                            <div class="col-sm-3 col-xs-5">
+                                <input class="form-control" name="string_input" type="text" value="" />
+                            </div>
+                            <span class="col-sm-1 col-xs-1 control-label"><?php _e('数量'); ?>:</span>
+                            <div class="col-sm-2 col-xs-2">
+                                <input class="form-control" name="diy_count" type="text" value="" />
+                            </div>
+                             <input type="button" value="<?php _e('定制生成'); ?>" class="btn btn-primary btn-diy" onclick="AWS.ajax_post($('#diy-form'));" />
+                        </div>
+                    </td>
+                </tr>
+
+ 
+            </table>
+            </form>
+            <form action="admin/ajax/save_admininvitation_rand/" id="random-form" method="post">
+                <table class="table table-striped">
+                    <tr>
+                    <td>
+                        <div class="form-group">
+                            <span class="col-sm-1 col-xs-1 control-label"><?php _e('数量'); ?>:</span>
+                            <div class="col-sm-2 col-xs-3">
+                                <input class="form-control" name="random_count" type="text" value="" />
+                            </div>
+                            <input type="button" value="<?php _e('随机生成'); ?>" class="btn btn-primary btn-random" onclick="AWS.ajax_post($('#random-form'));" />
+                        </div>
+                    </td>
+                </tr>
+                </table>
+            </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php TPL::output('admin/global/footer.tpl.htm'); ?>
+
+// <script type="text/javascript">
+// $('.btn-diy').click(function(event) {
+//     var string_input=$('input[name="string_input"]').val();
+//     var diy_count=$('input[name="diy_count"]').val();
+//   if(($('input[name="string_input"]').val()=='')||($('input[name="diy_count"]').val()==''))
+//   {
+//     alert('输入框不能为空');
+//        // event.preventDefault();
+//        return false;
+//   }else{
+//     alert('定制生成 - '+string_input+' - 邀请码 '+diy_count+' 个');
+//   }
+//   console.log($('#diy-form').serialize());
+// });
+// $('.btn-random').click(function(event) {
+//     var random_count=$('input[name="random_count"]').val();
+//     if($('input[name="random-count"]').val()=='')
+//     {
+//       alert('数量不能为空');
+//        return false;
+//     }else{
+//         alert('随机生成邀请码 '+random_count+' 个');
+
+//     }
+    
+//    console.log($('#random-form').serialize());
+// });
+   
+// </script>

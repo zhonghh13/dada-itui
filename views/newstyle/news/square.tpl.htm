@@ -1,0 +1,110 @@
+<?php TPL::output('global/news_header.tpl.htm'); ?>
+
+<div class="aw-container-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class="col-sm-12 col-md-12 aw-main-content">
+                    <?php if ($this->headline) {?>
+                    <div class="title-pic">
+                        <img src="<?php $url =FORMAT::parse_attachs($this->headline['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" class="img-responsive" alt="">
+                        <div class="inner">
+                            <div class="gai"></div>
+                            <div class="article-introduce">
+                                <div class="introduce-item">
+                                    <h2><a href="article/<?php echo $this->headline['id']; ?>" target="_blank"><?php echo $this->headline['title']; ?></a></h2>
+                                    <div class="infos">
+                                        <div class="left"><span class="author"><?php echo $this->headline['user_info']['user_name']; ?></span><span>•</span><span class="posted-time"><?php echo date_friendly($this->headline['add_time']); ?></span></div>
+                                        <div class="right">
+                                            <a href="javascript:;" target="_blank">
+                                                <i class="icon icon-agree"></i><span class="argee-count"><?php echo $this->headline['votes']; ?></span>
+                                            </a>
+                                            <a href="javascript:;" target="_blank">
+                                                <i class="icon icon-comment"></i><span class="comment-count"><?php echo $this->headline['comments']; ?></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-right">
+                                <div class="a-inner">
+                                    <div class="inner-top">
+                                        <a href="" class="user-a-pic">
+                                            <img src="<?php echo get_avatar_url($this->headline['user_info']['uid'], 'max'); ?>" alt="">
+                                        </a>
+                                        <p class="author-name"><?php echo $this->headline['user_info']['user_name']; ?></p>
+                                    </div>
+                                    <div class="inner-bottom">
+                                        <p class="preson-des"><?php echo $this->headline['user_info']['signature']; ?></p>
+                                        <div  class="btn-follow"><p>关注</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php }?>
+                    <div class="aw-mod aw-article-list">
+                    <?php echo $this->posts_list_bit;?>                      
+            
+                    </div>
+                   <button class="news_load_more"  disabled="" id="load_more" data-page="0">
+                            加载更多
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var ANSWER_EDIT_TIME = <?php echo get_setting('answer_edit_time'); ?>;
+
+    $(document).ready(function () {
+        if ($('.aw-article-vote.disabled').length)
+        {
+            $('.aw-article-vote.disabled a').attr('onclick', '');
+        }
+
+        AWS.at_user_lists('#wmd-input');
+
+        AWS.Init.init_article_comment_box($('.aw-article-comment'));
+    });
+
+//20150514王金有
+$('.article-introduce').mouseenter(function(event) {
+  $('.gai').css('background-image','linear-gradient(180deg, rgba(0, 0, 0, 0.01) 5%, rgba(0, 0, 0, 0.65) 100%)');
+}).mouseleave(function(event) {
+  $('.gai').css('background-image','linear-gradient(180deg, rgba(0, 0, 0, 0.01) 5%, rgba(0, 0, 0, 0.95) 100%)');
+});
+
+
+var counter=0;
+$('.itui-navbar_left').hide();
+   var news_length= $('.introduce-span').text().length;
+   console.log(news_length);
+   
+function news_lodamore(){
+$.ajax({
+     url: '/path/to/file',
+     type: 'post',
+     dataType: 'html',
+     data: {counter: 'counter'},
+ })
+ .done(function() {
+     console.log("success");
+ })
+ .fail(function() {
+    $('#load_more').text('没有更多');
+    console.log(counter);
+ });
+}
+
+$('#load_more').click(function(event) {
+    counter++;
+     news_lodamore();
+});
+//end20150514王金有
+</script>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>

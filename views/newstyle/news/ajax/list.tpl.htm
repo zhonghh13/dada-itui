@@ -1,0 +1,30 @@
+<?php if ($this->article_list) { ?>
+<?php foreach ($this->article_list AS $key => $val) { ?>
+<div class="aw-item itui-news-aw-item">
+    <div class="itui-news-pic">
+        <a href="" target="_blank"><img class="img-responsive" src="<?php $url =FORMAT::parse_attachs($val['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" alt=""></a>
+    </div>
+    <div class="itui-news-item">
+       <h4>
+           <a href="article/<?php echo $val['id']; ?>" target="_blank"><?php echo $val['title']; ?></a>
+       </h4>
+       <div class="item-infos">
+           <a href="people/<?php echo $val['user_info']['url_token']; ?>" target="_blank"><?php echo $val['user_info']['user_name']; ?></a>
+           <span>•</span>
+           <span><?php echo date_friendly($val['add_time']); ?></span>
+       </div>
+       <p class="item-introduce" id="detail_<?php echo $val['id']; ?>">
+           <?php echo cjk_substr(strip_tags(FORMAT::parse_attachs(nl2br(FORMAT::parse_bbcode($val['message'])))),0,130,'UTF-8','...'); ?>
+       </p>
+       <div class="item-news-tag">
+           <span class="glyphicon glyphicon-tags"></span>
+          <?php foreach($this->article_topics[$val['id']] as $topic_key => $topic_val) { ?>
+
+            <a href="topic/<?php echo $topic_val['url_token']; ?>" class="text" data-id="<?php echo $topic_val['topic_id']; ?>"><?php echo $topic_val['topic_title']; ?></a>
+
+          <?php } ?>
+       </div>
+    </div>
+</div>
+<?php }?>
+<?php }?>

@@ -1,0 +1,1508 @@
+/* 
+* @Author: Administrator
+* @Date:   2015-04-02 12:49:13
+* @Last Modified by:   Administrator
+* @Last Modified time: 2015-04-02 13:18:03
+*/
+/*
+
+@media screen and(max-width:1100px){   
+}*/
+/*顶部导航栏*/
+@media screen and (min-width: 400px) {
+  .itui-navbar_top {
+    display: block;
+  }
+}
+/*顶部导航栏*/
+.aw-user-nav .itui-nav-user-userlogo {
+  float: left;
+}
+.itui-username {
+  float: left;
+  line-height: 36px;
+  padding-left: 6px;
+  overflow: hidden;
+}
+.itui-username span {
+  display: block;
+  float: left;
+}
+.itui-username .itui-username-icon {
+  padding-top: 4px;
+  padding-left: 4px;
+}
+.notes_p {
+  max-width: 50px;
+  font-size: 18px;
+  margin-left: 12%;
+  display: none;
+}
+.aw-container-wrap {
+  margin-top: 10px;
+}
+.aw-top-menu-wrap,
+.btn-primary,
+.aw-publish-btn .dropdown-list a,
+.navbar-collapse {
+  background-color: #ffffff;
+}
+.itui-hide-question,
+.itui-hide-note {
+  display: none;
+}
+.aw-logo a {
+  background: url("img/logo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  width: 126px;
+  height: 40px;
+}
+#global_search_form {
+  border: 1px solid #cbcbcb;
+}
+.aw-top-menu-wrap {
+  border-bottom: 1px solid #cbcbcb;
+}
+.aw-publish-btn,
+.aw-user-nav,
+.aw-top-notification {
+  float: left;
+}
+.itui-search_form input {
+  width: 560px;
+  height: 32px;
+}
+.itui-header_publish {
+  color: #555;
+}
+.itui-header_publish {
+  display: block;
+  width: 100%;
+}
+.aw-publish-btn {
+  border: 1px solid #cbcbcb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.btn-primary:hover {
+  background-color: #f6f6f6;
+}
+.aw-publish-btn .dropdown-list {
+  border: 1px solid #cbcbcb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.aw-publish-btn .dropdown-list a {
+  color: #555;
+}
+.aw-publish-btn .dropdown-list a:hover {
+  background-color: #cecece;
+}
+.aw-top-nav > nav > ul > li > a {
+  color: #555;
+  padding-top: 10px;
+}
+.glyphicon-bell {
+  font-size: 20px;
+}
+.aw-top-nav .badge {
+  background-color: #cb4437;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.aw-top-nav > nav > ul > li > a:hover {
+  background-color: #f6f6f6;
+}
+.icon_ask,
+.glyphicon-bell {
+  color: #737373;
+}
+.icon_ask {
+  padding-right: 6px;
+}
+.aw-top-nav > nav > ul > li > a:hover {
+  background-color: #ffffff;
+}
+.aw-top-nav > nav > ul > li > a.active {
+  background-color: #ffffff;
+}
+.aw-user-nav img {
+  width: 36px;
+  height: 36px;
+}
+.aw-user-nav > a img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.itui-discover_user_name img,
+.aw-border-radius-5 img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.itui-copyright {
+  font-size: 14px;
+}
+.itui-copyright,
+itui-copypower {
+  display: block;
+}
+/*用户设置页*/
+.itui-profile-userlogo {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+/*左侧边栏*/
+.itui-navbar_left {
+  border: 1px solid #cbcbcb;
+  background-color: #ffffff;
+  min-width: 194px;
+}
+.itui-navbar-nav-ul {
+  float: none;
+}
+.navbar-nav > li {
+  float: none;
+}
+.aw-user-nav .btn-primary {
+  background-color: #59b0ff;
+}
+.side-nav {
+  background-color: #ffffff;
+}
+.aw-mod.side-nav ul li a {
+  padding-right: 30px;
+  line-height: 40px;
+}
+.itui-navbar_left {
+  box-shadow: 1px 1px 4px #999;
+  -webkit-box-shadow: 1px 1px 4px #999;
+  -moz-box-shadow: 1px 1px 4px #999;
+}
+.aw-mod.side-nav ul li a.active {
+  background-color: #ffffff;
+  color: #666;
+}
+.aw-mod.side-nav ul li a.active i {
+  color: #666;
+}
+.glyphicon-book {
+  color: #999;
+  margin-right: 4px;
+}
+.side-nav-left-bottom-hide {
+  display: none;
+}
+.new-Dynamic {
+  display: none;
+}
+.draft-png {
+  margin-right: 4px;
+}
+.side-left-bottom {
+  min-width: 180px;
+}
+.slogan {
+  font-size: 16px;
+  line-height: 44px;
+  border-bottom: 1px solid #cbcbcb;
+}
+.slogan span {
+  color: #e67917;
+}
+.manage_rule {
+  padding-left: 24px;
+  padding-bottom: 16px;
+}
+.itui-navbar_left {
+  z-index: 100;
+}
+.glyphicon-fire {
+  font-size: 16px;
+  color: #dd4b39;
+  margin-right: 10px;
+}
+/*左侧边栏结束*/
+/*右侧边栏*/
+.today_topic_des {
+  display: block;
+  max-height: 44px;
+  overflow: hidden;
+  float: left;
+}
+.aw-side-bar .aw-mod dt img {
+  width: 40px;
+  height: 40px;
+}
+.pull-left a img {
+  width: 40px;
+  height: 40px;
+}
+.aw-side-bar .aw-mod dt,
+.aw-side-bar .aw-mod dt img {
+  width: 40px;
+  height: 40px;
+}
+/*热门用户*/
+.itui_user_name {
+  font-size: 16px;
+  line-height: 40px;
+  padding-left: 4px;
+  color: #666;
+}
+.person_des {
+  display: none;
+}
+.hot_agree {
+  margin-top: 44px;
+  color: #666;
+  font-size: 14px;
+}
+.hot_agree b {
+  font-weight: 400;
+}
+/*右侧边栏结束*/
+/*发现页主内容区默认分类隐藏*/
+.default-classify {
+  display: none;
+}
+/*发现页顶部分类tab切换*/
+.nav-top-discover {
+  width: 100%;
+  height: 44px;
+  background-color: #ffffff;
+  margin-top: 4px;
+}
+.nav-top-discover .aw-nav-tabs {
+  padding: 10px 10px 0px;
+  width: 44%;
+  margin-left: 20%;
+  margin-right: 4%;
+}
+.nav-top-discover .aw-nav-tabs li {
+  margin-left: 15%;
+}
+.nav-top-discover .aw-nav-tabs .bestnew {
+  margin-left: -15%;
+}
+.nav-top-discover .aw-nav-tabs {
+  max-height: 30px;
+  padding: 0px;
+  padding-top: 10px;
+  border-bottom: none;
+}
+/*发现页最近一条回复*/
+.aw-common-list .aw-question-content div .itui-username-p {
+  color: #444;
+  font-size: 14px;
+  font-weight: 700;
+}
+.aw-common-list .aw-question-content div .itui-username-des {
+  font-size: 14px;
+  color: #444;
+}
+.itui-near-answer01 {
+  display: block;
+  max-height: 60px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 20px;
+}
+.itui-more-a {
+  float: right;
+}
+/*动态页主内容区域开始*/
+.aw-mod .mod-head h4 a {
+  color: #e67917;
+}
+.aw-user-name {
+  font-weight: 700;
+  display: block;
+}
+.main_area_username {
+  display: block;
+}
+/*动态页右侧边栏下半部分*/
+.icon-inverse {
+  font-size: 18px;
+}
+.new_argee_from {
+  display: none;
+}
+/*动态页主内容区域结束*/
+/*发现页主内容区域开始*/
+.itui-discover_user_name {
+  display: inline;
+}
+/*发现页主内容区域结束*/
+/*新话题页开始*/
+.itui-recommend-topic-name {
+  max-height: 40px;
+}
+.itui-recommend-topic-name .topic-classify {
+  padding-top: 10px;
+}
+.itui-recommend-topic-name .topic-classify .itui-recommend-classify {
+  background-color: #99cfff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.itui-attention-topic02 {
+  position: relative;
+  float: left;
+  width: 46%;
+  min-height: 90px;
+  padding: 20px 5px 20px 65px;
+  margin-left: 4%;
+}
+.itui-attention-topic02 img {
+  position: absolute;
+  left: 5px;
+  top: 20px;
+}
+.no-attention-topic {
+  width: 100%;
+}
+.no-attention-topic p {
+  font-size: 20px;
+  color: #999;
+  text-align: center;
+  line-height: 160px;
+}
+.main-attention-topic {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 10px;
+}
+.main_title_topic02 {
+  color: #999;
+  font-size: 18px;
+  overflow: hidden;
+  padding-top: 16px;
+  padding-bottom: 6px;
+}
+.main_title_topic02 .title_num {
+  float: right;
+  padding-right: 20px;
+  font-size: 14px;
+}
+.main_title_topic02 .title_name {
+  float: left;
+  padding-left: 20px;
+}
+.itui-recommend-p {
+  line-height: 40px;
+  color: #999;
+  font-size: 16px;
+  overflow: hidden;
+}
+.itui-recommend-p span {
+  float: left;
+  padding-left: 20px;
+}
+.itui-recommend-p a {
+  float: right;
+  padding-right: 20px;
+  font-size: 12px;
+  color: #e67713;
+}
+.itui-recommend-p a:hover {
+  color: #f9b978;
+}
+.recommend--topic-item {
+  width: 100%;
+  float: none;
+}
+.recommend--topic-item .topic-tag .text {
+  color: #444;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+.itui-topic-title {
+  max-width: 630px;
+}
+.itui-topic-title p {
+  margin: 0px;
+  line-height: 24px;
+}
+.itui-topic-title p a {
+  color: #666;
+}
+.itui-topic-title p a:hover {
+  color: #666;
+}
+.itui-follow-div {
+  max-width: 76px;
+  float: right;
+  margin-right: 10%;
+  margin-bottom: 24px;
+}
+.follow-btn {
+  background-color: #f5f5f5;
+  border: 1px solid #cbcbcb;
+  color: #555;
+  overflow: hidden;
+}
+.btn-success {
+  border: 1px solid #cbcbcb;
+}
+.btn-success:hover {
+  background-color: #f5f5f5;
+}
+.topic-classify {
+  display: block;
+  max-width: 50%;
+  line-height: 24px;
+  overflow: hidden;
+  float: left;
+}
+.aw-topic-list .itui-attention-topic02 {
+  width: 46%;
+}
+/*新话题页侧边栏*/
+.itui-go-on-square {
+  border: 1px solid #cbcbcb;
+  background-color: #f1f1f1;
+  text-align: center;
+  width: 40%;
+  line-height: 34px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.itui-go-on-square a {
+  color: #666;
+}
+.itui-topic_square-h3 {
+  font-size: 16px;
+}
+.itui-hide-talkabout {
+  display: none;
+}
+.itui-find-your-topic {
+  text-align: center;
+  line-height: 40px;
+  font-size: 14px;
+}
+.itui-topic-more {
+  float: left;
+  width: 100%;
+}
+.itui-topic-more a:hover {
+  background-color: #f6f6f6;
+}
+.itui-topic-more a:hover span {
+  background-color: #f6f6f6;
+  color: #666;
+}
+.itui-attention-topic-already {
+  line-height: 20px;
+}
+.itui-recommend-attention-topic {
+  border-top: 1px solid #E67713;
+}
+/*新话题页结束*/
+/*笔记页主内容区域开始*/
+.aw-article-list .aw-item .mod-body .content-wrap .content .notes-overflow {
+  max-height: 200px;
+}
+.itui-btn-note {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  over-flow: hidden;
+  height: 36px;
+  background-color: #eeeeee;
+}
+.itui-btn-note span {
+  display: block;
+  float: left;
+  line-height: 36px;
+}
+.itui-btn-note .itui-note-form {
+  float: left;
+}
+.itui-btn-note .itui-icon_note {
+  font-size: 24px;
+  color: #e67713;
+  margin-left: 32%;
+  margin-right: 2%;
+}
+.itui-btn-note .itui-note-span {
+  font-size: 16px;
+}
+/*笔记页主内容区域结束*/
+/*个人主页开始*/
+.aw-user-detail-box .mod-head img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.btn-success,
+.btn-gray.active {
+  color: #666;
+}
+.personal-sidebar {
+  display: none;
+}
+.itui-personal-homepage {
+  width: 802px !important;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.aw-user-detail-box .itui-personal-mod-head {
+  border: none;
+}
+.aw-user-detail-box .person-max-img img {
+  top: 40px;
+}
+.itui-personal-mod-head {
+  position: absolute;
+  left: 0px;
+  top: -300px;
+}
+.itui-personal-mod-head h1 {
+  color: #fff;
+  font-size: 20px;
+}
+.itui-personal-mod-head .text-color-999,
+.itui-personal-mod-head .aw-user-flag,
+.itui-personal-mod-head p {
+  color: #fff;
+}
+.itui-personal-mod-head .glyphicon-map-marker {
+  font-size: 16px;
+}
+.itui-personal-mod-head .person-school {
+  line-height: 30px;
+  margin-top: -6px;
+}
+.itui-person-gai {
+  width: 110%;
+  height: 50px;
+  background-color: #ffffff;
+  filter: alpha(opacity=40);
+  -moz-opacity: 0.4;
+  -khtml-opacity: 0.4;
+  opacity: 0.4;
+  margin-left: -90px;
+  position: relative;
+  margin-top: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+#trianle {
+  width: 0;
+  height: 0;
+  border-bottom: 20px solid #fff;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  left: 16px;
+  top: -16px;
+}
+.itui-person-des {
+  max-width: 708px;
+  font-size: 19px;
+  text-align: center;
+  margin-top: -38px;
+  margin-left: -90px;
+  min-height: 24px;
+}
+.itui-person-argee {
+  color: #fff;
+  margin-left: -90px;
+  max-width: 708px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+.itui-person-argee i {
+  color: #fff;
+}
+.itui-person-argee span {
+  font-size: 22px;
+}
+.itui-person-argee span .aw-text-color-orange {
+  font-size: 22px;
+  font-weight: 400;
+}
+.itui-person-argee .person-prestige {
+  display: none;
+}
+.itui-person-argee .person-argee-p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40%;
+  overflow: hidden;
+}
+.aw-user-detail-box .mod-head .aw-user-flag .person-tag {
+  display: block;
+  line-height: 30px;
+}
+.aw-user-flag .icon-job {
+  font-size: 16px;
+}
+.person-contact {
+  margin-top: 16%;
+}
+.person-contact .glyphicon-envelope {
+  font-size: 16px;
+  padding-right: 6px;
+  padding-top: 4px;
+}
+.person-contact a,
+.person-contact .icon-at {
+  font-size: 14px;
+  font-weight: 700;
+}
+.person-contact .person-ask {
+  background-color: #65abd0;
+  padding: 10px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+.person-contact .person-follow {
+  background-color: #24aa98;
+}
+.person-contact .person-follow.active {
+  color: #fff;
+}
+.person-contact .person-follow.active:hover {
+  color: #fff;
+}
+.person-contact .person-follow {
+  color: #fff;
+  height: 38px;
+  border: none;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+.person-contact .person-follow.active:hover {
+  color: #fff;
+  background-color: #24aa98;
+}
+.person-contact .person-follow span {
+  line-height: 38px;
+}
+.person-mod-body {
+  display: none;
+}
+.itui-person-mod-footer {
+  border-bottom: 1px solid #e67713;
+  margin-top: -308px;
+  white-space: nowrap;
+  overflow: auto;
+}
+.itui-person-mod-footer ul {
+  width: 100%;
+  height: 68px;
+}
+.itui-person-mod-footer li a {
+  font-size: 16px;
+}
+.person-ul li {
+  float: none;
+  display: inline-block;
+}
+.itui-person-mod-footer {
+  width: 100%;
+}
+.itui-person-mod-footer ul {
+  width: 100%;
+}
+.itui-person-flag {
+  min-height: 90px;
+}
+.aw-user-detail-box .mod-head .aw-user-flag .itui-hide-person-job {
+  display: none;
+}
+/*个人主页结束*/
+/*登录注册页开始*/
+.itui-btn-login {
+  background-color: #f38f34;
+}
+.itui-btn-login:hover {
+  background-color: #f38f34;
+}
+.itui-btn-login.active,
+.btn-primary:focus {
+  background-color: #f38f34;
+}
+.itui-btn-register {
+  background-color: #f38f34;
+}
+.itui-btn-register:hover {
+  background-color: #f38f34;
+}
+.aw-user-nav .itui-nav-login {
+  background-color: #f38f34;
+}
+/*登录注册页结束*/
+@media screen and (max-width: 1580px) {
+  .nav-top-discover .aw-nav-tabs {
+    width: 54%;
+  }
+}
+@media screen and (max-width: 1425px) {
+  .discover-container {
+    margin-right: 0px;
+  }
+}
+@media screen and (max-width: 1290px) {
+  .nav-top-discover .aw-nav-tabs {
+    width: 64%;
+  }
+  .nav-top-discover .aw-nav-tabs li {
+    margin-left: 12%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .itui-personal-content {
+    margin-top: -40px;
+  }
+}
+@media screen and (max-width: 870px) {
+  .nav-top-discover .aw-nav-tabs li {
+    margin-left: 8%;
+  }
+}
+@media screen and (max-width: 806px) {
+  .itui-personal-homepage {
+    width: 100% !important;
+  }
+  .itui-personal-homepage .row {
+    margin-right: 0px;
+    margin-left: 5px;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 780px) {
+  .aw-top-nav .icon-ba {
+    color: #666;
+  }
+  .aw-mod.side-nav ul li a {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .itui-navbar_left {
+    border: 1px solid #cbcbcb;
+    background-color: #ffffff;
+    min-width: 194px;
+  }
+  .itui-person-bg {
+    float: left;
+  }
+  .aw-user-detail-box .mod-head .person-logo {
+    position: absolute;
+    margin-top: 44%;
+  }
+  .person-item {
+    max-height: 200px;
+    margin-top: 15%;
+    margin-left: 5%;
+  }
+  .person-item .itui-person-des {
+    font-size: 14px;
+    margin-top: -28px;
+  }
+  .person-item .itui-person-gai {
+    height: 30px;
+    margin-top: -10px;
+  }
+  .person-item .itui-person-argee {
+    margin-top: 0px;
+  }
+  .person-item .itui-person-argee span {
+    font-size: 16px;
+  }
+  .person-item .itui-person-argee .aw-text-color-orange {
+    font-size: 14px;
+  }
+  .itui-person-card {
+    z-index: 50;
+    max-height: 200px;
+    width: 100%;
+    float: left;
+  }
+  .itui-person-mod-footer {
+    width: 100%;
+    float: left;
+    margin-top: 0px;
+  }
+  .itui-person-mod-footer ul {
+    width: 100%;
+  }
+  .itui-personal-mod-head {
+    top: -210px;
+  }
+  /*20150427*/
+  .itui-personal-mod-head .preson-name {
+    max-height: 30px;
+    margin-top: 180px;
+  }
+  .person-tag {
+    max-height: 40px;
+  }
+  .itui-user-center-tab {
+    float: left;
+    max-width: 100%;
+  }
+  /*20150427*/
+}
+.itui-contribute {
+  float: left;
+}
+.girl {
+  display: block;
+  padding-left: 40px;
+}
+.preson-name {
+  overflow: hidden;
+}
+.preson-name p {
+  max-width: 40%;
+  float: left;
+}
+.aw-user-detail-box .preson-name .gender {
+  float: left;
+  position: static;
+}
+.itui-news {
+  float: left;
+  margin-left: 2%;
+  margin-top: 12px;
+}
+.title-pic {
+  position: relative;
+  margin-bottom: 30px;
+}
+.title-pic img {
+  width: 100%;
+  height: 100%;
+}
+.title-pic .inner {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.title-pic .inner .gai {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.01) 5%, rgba(0, 0, 0, 0.95) 100%);
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.01) 5%, rgba(0, 0, 0, 0.95) 100%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.01) 5%, rgba(0, 0, 0, 0.95) 100%);
+}
+.title-pic .inner .article-introduce {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.title-pic .inner .article-introduce .introduce-item {
+  width: 100%;
+  height: 50%;
+  margin-top: 30%;
+}
+.title-pic .inner .article-introduce .introduce-item h2 {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: 2%;
+}
+.title-pic .inner .article-introduce .introduce-item h2 a {
+  font-size: 3.6rem;
+  color: #fff;
+}
+.title-pic .inner .article-introduce .introduce-item h2 a:hover {
+  color: #fff;
+}
+.title-pic .inner .article-introduce .introduce-item .infos {
+  width: 100%;
+  max-height: 48px;
+  overflow: hidden;
+}
+.title-pic .inner .article-introduce .introduce-item .infos .left {
+  padding-right: 4%;
+  padding-left: 4%;
+  width: 70%;
+  float: left;
+}
+.title-pic .inner .article-introduce .introduce-item .infos .left span {
+  color: #fff;
+  font-size: 1.4rem;
+  padding-right: 1%;
+  padding-left: 1%;
+}
+.title-pic .inner .article-introduce .introduce-item .infos .right {
+  padding-right: 4%;
+  width: 30%;
+  float: left;
+}
+.title-pic .inner .article-introduce .introduce-item .infos .right a {
+  color: #fff;
+  font-size: 1.4rem;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+.title-pic .inner .article-introduce .introduce-item .infos .right a i {
+  color: #fff;
+  font-size: 1.4rem;
+}
+.title-pic .inner .article-right {
+  width: 30%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.title-pic .inner .article-right .a-inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 66%;
+  margin-top: 24%;
+}
+.title-pic .inner .article-right .a-inner .inner-top {
+  border-bottom: 1px solid #cbcbcb;
+}
+.title-pic .inner .article-right .a-inner .inner-top .user-a-pic {
+  display: block;
+  max-width: 100px;
+  max-height: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4%;
+}
+.title-pic .inner .article-right .a-inner .inner-top p {
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+.title-pic .inner .article-right .a-inner .inner-top .author-name {
+  margin-top: 2%;
+  margin-bottom: 6%;
+}
+.title-pic .inner .article-right .a-inner .inner-bottom .preson-des {
+  text-align: center;
+  line-height: 2rem;
+  padding-top: 10px;
+  color: #fff;
+}
+.title-pic .inner .article-right .a-inner .inner-bottom .btn-follow {
+  border: 1px solid #EE6E50;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+  padding-top: 8px;
+  font-size: 16px;
+  color: #fff;
+  max-width: 40%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10%;
+}
+.aw-article-list .itui-news-aw-item {
+  overflow: hidden;
+  padding: 0px;
+}
+.aw-article-list .itui-news-aw-item h4 a {
+  font-size: 2.4rem;
+  color: #333;
+}
+.aw-article-list .itui-news-aw-item h4 a:hover {
+  color: #333;
+}
+.itui-news-pic {
+  float: left;
+  margin-right: 2%;
+}
+.itui-news-item {
+  float: left;
+  width: 76%;
+}
+.item-infos a {
+  color: #EE6E50;
+}
+.item-infos a:hover {
+  color: #D7583A;
+}
+.item-introduce {
+  color: #808080;
+  font-size: 1.6rem;
+}
+.item-news-tag .glyphicon-tags {
+  padding-right: 10px;
+  color: #EE6E50;
+}
+.news_load_more {
+  max-width: 20%;
+  border: 1px solid #cbcbcb;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+  font-size: 1.4rem;
+  text-align: center;
+  display: block;
+  background-color: #fff;
+}
+.itui-news-col,
+.itui-news-border {
+  border: none;
+}
+.itui-article-side {
+  float: right;
+}
+.itui-news-author-user-name {
+  margin-top: -10px;
+  color: #E67917;
+}
+.itui-news-author-user-name:hover {
+  color: #E67917;
+}
+.topic-tag .itui-news-text {
+  background-color: #f0a766;
+}
+.topic-tag .itui-news-text:hover {
+  background-color: #e67917;
+}
+.itui-news-agree a:hover {
+  background-color: #f08f37;
+}
+.itui-news-agree a:focus {
+  background-color: #f08f37;
+}
+.itui-news-agree a.active {
+  background-color: #f08f37;
+}
+#itui-news-side-bar {
+  display: none;
+}
+.aw-question-detail .itui-news-markitup-box {
+  font-size: 1.8rem;
+  color: #333;
+}
+.itui-news-question,
+.itui-news-bar {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.itui-news-bar {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.aw-question-detail .mod-head .itui-news-h1 {
+  font-size: 3.6rem;
+}
+.itui-news-comment {
+  color: #333;
+  font-size: 1.4rem;
+}
+.itui-news-answer-name a,
+.itui-news-answer-name .itui-news-user-name {
+  color: #E67917;
+}
+.itui-news-answer-name a:hover,
+.itui-news-answer-name .itui-news-user-name:hover {
+  color: #E67917;
+}
+.itui-news-commend01,
+.itui-news-comment02 {
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.itui-news-edit {
+  display: none;
+}
+.itui-news-btn-gray {
+  display: none;
+}
+.itui-news-navbar-nav-ul li {
+  float: left;
+}
+.itui-news-navbar-nav-ul li a {
+  font-size: 1.6rem;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+.itui-news-login-regs {
+  float: right;
+}
+.itui-news-login-regs .itui-news-nav-login {
+  border: none;
+  background-color: #ffffff;
+  color: #333;
+  min-width: 50px;
+  margin: 0px;
+}
+.itui-news-login-regs .itui-news-nav-login:hover {
+  background-color: #ffffff;
+  color: #333;
+}
+.itui-news-login-regs .itui-news-nav-regs {
+  border: none;
+  background-color: #ffffff;
+  color: #333;
+  min-width: 50px;
+  margin: 0px;
+}
+.itui-news-login-regs .itui-news-nav-regs:hover {
+  background-color: #ffffff;
+  color: #333;
+}
+.itui-news-login-regs .itui-news-nav-regs a:hover {
+  background-color: #ffffff;
+}
+.fa-camera {
+  font-size: 14px;
+  color: #999;
+  margin-right: 4px;
+}
+.aw-top-nav > nav > ul > .itui-news-nav-left > a:focus {
+  background-color: #F9F9F9;
+}
+@media screen and (max-width: 940px) {
+  .itui-news-aw-item {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .itui-news-pic {
+    float: none;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .itui-news-pic img {
+    width: 100%;
+  }
+  .itui-news-item {
+    float: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title-pic .inner .article-introduce .introduce-item h2 a {
+    font-size: 2.6rem;
+  }
+}
+@media screen and (min-width: 736px) and (max-width: 780px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    position: absolute;
+    margin-top: 30%;
+    margin-left: 0%;
+  }
+  .itui-person-card {
+    max-height: 280px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .aw-article-list .itui-news-aw-item h4 a {
+    font-size: 1.4em;
+  }
+  .item-introduce {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 740px) {
+  .title-pic .inner .article-right .a-inner {
+    margin-top: 14%;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 780px) {
+  .itui-personal-mod-head .preson-name {
+    max-height: 100px;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 770px) {
+  .itui-person-card .itui-person-bg {
+    margin-top: -40px;
+  }
+}
+@media screen and (min-width: 680px) and (max-width: 720px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 36%;
+  }
+}
+@media screen and (max-width: 680px) {
+  .title-pic .inner .article-right .a-inner {
+    margin-top: 14%;
+  }
+  .title-pic .inner .article-right .a-inner .inner-top .user-a-pic {
+    max-width: 50px;
+    max-height: 50px;
+  }
+}
+@media screen and (max-width: 696px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 36%;
+  }
+  .itui-personal-mod-head .preson-name {
+    margin-top: 230px;
+  }
+}
+@media screen and (min-width: 474px) and (max-width: 690px) {
+  .itui-personal-mod-head .preson-name {
+    margin-top: 230px;
+  }
+  .title-pic .inner .article-introduce .introduce-item .infos .right {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 688px) {
+  .itui-person-card {
+    margin-top: -40px;
+  }
+}
+@media screen and (min-width: 670px) and (max-width: 700px) {
+  .itui-personal-mod-head .preson-name {
+    margin-top: 240px;
+  }
+  .itui-person-card {
+    max-height: 250px;
+    margin-top: -40px;
+  }
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 38%;
+  }
+}
+@media screen and (min-width: 580px) and (max-width: 669px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 43%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 48%;
+  }
+  .itui-person-flag {
+    min-height: 40px;
+  }
+  .itui-person-argee .person-argee-p {
+    width: 100%;
+  }
+  .itui-person-argee .person-argee-p span {
+    font-size: 12px;
+  }
+  .person-contact {
+    margin-top: 70px;
+  }
+  .person-contact .person-follow {
+    height: 24px;
+  }
+  .person-contact .person-follow span {
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 0px;
+  }
+  .person-contact .person-follow span {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .person-school span {
+    line-height: 20px;
+  }
+  .itui-person-flag {
+    margin-top: 10px;
+  }
+  .itui-person-mod-footer li a {
+    font-size: 14px;
+  }
+  .itui-personal-mod-head .person-school {
+    line-height: 20px;
+  }
+  .aw-user-detail-box .mod-head .aw-user-flag .person-tag {
+    line-height: 20px;
+  }
+  .itui-person-flag {
+    margin-top: 0px;
+  }
+  .itui-personal-mod-head h1 {
+    margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .itui-personal-mod-head .preson-name {
+    margin-top: 240px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .title-pic .inner .article-introduce .introduce-item h2 a {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 50%;
+  }
+  .aw-user-detail-box .mod-head .aw-user-flag .person-tag {
+    line-height: 22px;
+  }
+  .itui-person-bg {
+    height: 210px;
+  }
+  .title-pic .inner .article-right .a-inner .inner-bottom .preson-des {
+    font-size: 1.2rem;
+  }
+  .title-pic .inner .article-right .a-inner .inner-top .author-name {
+    font-size: 1.2rem;
+  }
+  .title-pic .inner .article-right .a-inner .inner-bottom .btn-follow {
+    font-size: 1.2rem;
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 525px) {
+  .title-pic .inner .article-introduce .introduce-item h2 a {
+    font-size: 1.2rem;
+  }
+  .title-pic .inner .article-introduce .introduce-item .infos .left span {
+    font-size: 1.2rem;
+  }
+  .title-pic .inner .article-introduce .introduce-item .infos .right a i {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .aw-article-list .itui-news-aw-item h4 a {
+    font-size: 1.0em;
+  }
+  .item-introduce {
+    font-size: 0.8em;
+  }
+  .item-news-tag {
+    font-size: 0.8em;
+  }
+  .item-infos a {
+    color: 0.8em;
+  }
+  .item-infos span {
+    color: 0.8em;
+  }
+  .preson-des {
+    display: none;
+  }
+  .title-pic .inner .article-right .a-inner .inner-bottom .btn-follow {
+    font-size: 1.2rem;
+    max-width: 60%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .title-pic .inner .article-introduce .introduce-item {
+    margin-top: 5%;
+  }
+  .title-pic .inner .article-introduce .introduce-item .infos .right {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 498px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 58%;
+  }
+}
+@media screen and (max-width: 468px) {
+  .aw-user-detail-box .mod-head .person-logo {
+    margin-top: 70%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .itui-person-bg {
+    float: left;
+  }
+}
+.aw-top-nav .icon-bar {
+  color: #666;
+}
+.left-new-collapse {
+  position: absolute;
+  z-index: 9999;
+  border: 1px solid #cbcbcb;
+  border-top: none;
+  box-shadow: 1px 1px 4px #999;
+  -webkit-box-shadow: 1px 1px 4px #999;
+  -moz-box-shadow: 1px 1px 4px #999;
+  padding-right: 0px;
+  padding-left: 12px;
+}
+@media screen and (min-width: 1000px) and (max-width: 1212px) {
+  .aw-search-box input {
+    width: 400px;
+    height: 32px;
+  }
+  .aw-search-box {
+    margin-left: 130px;
+  }
+}
+/*用户管理*/
+.itui-mod-head-old {
+  display: none;
+}

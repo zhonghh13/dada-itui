@@ -1,0 +1,30 @@
+<?php if ($this->posts_list) { ?>
+<?php foreach ($this->posts_list AS $key => $val) { ?>
+<div class="aw-item attention-topic itui-attention-topic02" style="width:100%;">
+     <!-- 话题图片 -->
+    <a class="img aw-border-radius-5" href="topic/<?php echo $val['topics']['url_token']; ?>" data-id="<?php echo $val['topics']['topic_id']; ?>">
+        <img src="<?php echo get_topic_pic_url('mid', $val['topics']['topic_pic']); ?>" alt="" />
+    </a>
+    <!-- end 话题图片 -->
+    <div class="itui-recommend-topic-item">                     		
+        <p class="clearfix">
+        <!-- 话题内容 -->
+            <span class="topic-tag">
+                <a class="text" href="topic/<?php echo $val['topics']['url_token']; ?>" data-id="<?php echo $val['topics']['topic_id']; ?>"><?php echo $val['topics']['topic_title']; ?></a>
+            </span>
+        <!-- end 话题内容 -->
+        </p>
+        <?php foreach ($val['questions'] as $key => $value) {?>
+        <h4 class="question" style="padding-right:20px;"><a href="question/<?php echo $value['question_id']; ?>"><?php echo $value['question_content']; ?></a></h4>
+        <?php }?>                    		
+        <p class="text-color-999 itui-hide-talkabout">
+            <span><?php _e('%s 个讨论', $val['discuss_count']); ?></span>
+            <span><?php _e('%s 个关注', $val['focus_count']); ?></span>
+        </p>
+        <p class="text-color-999 itui-hide-talkabout">
+            <?php _e('7 天新增 %s 个讨论', $val['discuss_count_last_week']); ?>, <?php _e('30 天新增 %s 个讨论'                , $val['discuss_count_last_month']); ?>
+        </p>
+    </div>  
+</div>
+<?php } ?>
+<?php } ?>

@@ -1,0 +1,25 @@
+<?php if ($this->posts_list) { ?>
+<?php foreach ($this->posts_list AS $key => $val) { ?>
+<div class="aw-item attention-topic itui-attention-topic02" style="width:100%;">
+                        		
+    <p class="clearfix">
+    <!-- 话题内容 -->
+        <?php foreach ($val['topics'] as $key => $topic) {?>
+        <span class="topic-tag">
+            <a class="text" href="topic/<?php echo $topic['url_token']; ?>" data-id="<?php echo $topic['topic_id']; ?>"><?php echo $topic['topic_title']; ?></a>
+        </span>
+        <?php }?>
+    <!-- end 话题内容 -->
+    </p>
+    <h4 class="question" style="padding-right:20px;"><a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?></a></h4>
+                        		
+    <p class="text-color-999 itui-hide-talkabout">
+        <span><?php _e('%s 个讨论', $val['discuss_count']); ?></span>
+        <span><?php _e('%s 个关注', $val['focus_count']); ?></span>
+        </p>
+    <p class="text-color-999 itui-hide-talkabout">
+            <?php _e('7 天新增 %s 个讨论', $val['discuss_count_last_week']); ?>, <?php _e('30 天新增 %s 个讨论'                , $val['discuss_count_last_month']); ?>
+    </p>
+</div>
+<?php } ?>
+<?php } ?>

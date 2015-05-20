@@ -1,0 +1,120 @@
+<?php TPL::output('global/header_meta.tpl.htm'); ?>
+
+<body>
+	<div class="aw-top-menu-wrap">
+	<!-- logo -->
+	<div class="aw-logo hidden-xs">
+		<a href="<?php echo base_url(); ?>"></a>
+	</div>
+	<!-- end logo -->
+		<div class="container">
+			<ul class="nav navbar-nav itui-news-navbar-nav-ul">
+				
+				<li><a target="_blank" href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"> <?php _e('发现'); ?></a></li>
+				<li><a target="_blank" href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"> <?php _e('媒体'); ?></a></li>
+				<li><a target="_blank" href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"> <?php _e('院校库'); ?></a></li>
+				
+			</ul>
+			<!-- 用户栏 -->
+			<div class="aw-user-nav itui-news-login-regs">
+				<!-- 登陆&注册栏 -->
+				<?php if ($this->user_id) { ?>
+					<a href="people/<?php echo $this->user_info['url_token']; ?>" class="aw-user-nav-dropdown itui-nav-user-userlogo">
+						<img alt="<?php echo $this->user_info['user_name']; ?>" src="<?php echo get_avatar_url($this->user_info['uid'], 'mid'); ?>" />
+						<?php if ($this->user_info['inbox_unread'] != 0) {?>
+							<span class="badge badge-important"><?php echo $this->user_info['inbox_unread']?></span>
+						<?php } ?>
+
+					</a>
+
+					<div class="aw-dropdown dropdown-list pull-left">
+						<ul class="aw-dropdown-list">
+							<li><a href="inbox/"><i class="icon icon-inbox"></i> <?php _e('私信'); ?><span class="badge badge-important hide" id="inbox_unread">0</span></a></li>
+							<li class="hidden-xs"><a href="account/setting/profile/"><i class="icon icon-setting"></i> <?php _e('设置'); ?></a></li>
+							<?php if ($this->user_info['permission']['is_administortar'] OR $this->user_info['permission']['is_moderator']) { ?>
+							<li class="hidden-xs"><a href="admin/"><i class="icon icon-job"></i> <?php _e('管理'); ?></a></li>
+							<?php } ?>
+							<li><a href="account/logout/"><i class="icon icon-logout"></i> <?php _e('退出'); ?></a></li>
+						</ul>
+
+					</div>
+				<?php } else { ?>
+					<a class="login btn btn-normal btn-primary itui-news-nav-login" href="account/login/"><?php _e('登录'); ?></a>
+					<?php if (get_setting('register_type') == 'open') { ?><a class="register btn btn-normal itui-news-nav-regs" href="account/register/"><?php _e('注册'); ?></a><?php } ?>
+				<?php } ?>
+				<!-- end 登陆&注册栏 -->
+					<div class="itui-username">
+						<span>
+							<?php
+							echo $this->user_info['user_name'];
+							?>
+						</span>
+						<?php if (HTTP::get_cookie("_user_login")) {?>
+						<span class="itui-username-icon">﹀</span>
+						<?php }?>
+					</div>
+			</div>
+			<!-- end 用户栏 -->
+		</div>
+	</div>
+	<!-- 导航 -->
+			<div class="aw-top-nav navbar itui-navbar_left">
+				<div class="navbar-header">
+				  <button  class="navbar-toggle pull-left">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+				<nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse left-new-collapse">
+				  <ul class="nav navbar-nav itui-navbar-nav-ul">
+				  <li><p class="slogan"><span>I</span>deas <span>T</span>ouch <span>U</span>r <span>I</span>deas</p></li>
+					<?php if ($this->user_id) { ?>
+					<li><a> href="home/"<?php if ($_GET['app'] == 'home') { ?> class="active"<?php } ?>><i class="icon icon-home"></i> <?php _e('动态'); ?></a></li>
+					<?php } ?>
+					
+					<li><a href="article/" class="<?php if ($_GET['app'] == 'article') { ?>active<?php } ?>"><span class="glyphicon glyphicon-book"></span><?php _e('笔记'); ?></a></li>
+					<li><a href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"><i class="icon icon-list"></i> <?php _e('发现'); ?></a></li>
+
+
+					<li><a href="topic/" <?php if ($_GET['app'] == 'topic') { ?>class="active"<?php } ?>><i class="icon icon-topic"></i> <?php _e('话题'); ?></a></li>
+					<?php if ($this->user_id) { ?>
+					
+					<?php } ?>
+					<?php if (get_setting('enable_help_center') == 'Y') { ?><li><a href="help/"<?php if ($_GET['app'] == 'help') { ?> class="active"<?php } ?>><i class="icon icon-bulb"></i> <?php _e('帮助'); ?></a></li><?php } ?>
+					<li>
+						<a style="font-weight:bold;">· · ·</a>
+						<div class="dropdown-list pull-right">
+							<ul id="extensions-nav-list">
+								<?php if (check_extension_package('ticket') && get_setting('ticket_enabled') == 'Y' && ($this->user_info['permission']['publish_ticket'] || $this->user_info['permission']['is_administortar'] || $this->user_info['permission']['is_service'])) { ?>
+								<li><a href="ticket/"<?php if ($_GET['app'] == 'ticket') { ?> class="active"<?php } ?>><i class="icon icon-order"></i> <?php _e('工单'); ?></a></li>
+								<?php } ?>
+								<?php if (check_extension_package('project') && get_setting('project_enabled') == 'Y') { ?>
+								<li><a href="project/"<?php if ($_GET['app'] == 'project') { ?> class="active"<?php } ?>><i class="icon icon-activity"></i> <?php _e('活动'); ?></a></li>
+								<?php } ?>
+							</ul>
+						</div>
+					</li>
+				  </ul>
+				  <?php TPL::output('block/sidebar_menu.tpl.htm'); ?>
+				</nav>
+				
+			</div>
+			<!-- end 导航 -->
+	<?php if ($this->user_id AND $this->user_info['email'] AND !$this->user_info['valid_email'] AND get_setting('register_valid_type') != 'N') { ?>
+	<div class="aw-email-verify">
+		<div class="container text-center">
+			<?php _e('你的邮箱 %s 还未验证 , 请尽快查收邮件', $this->user_info['email']); ?>.
+		</div>
+	</div>
+	<?php } ?>
+
+	<script type="text/javascript">
+	$(function(){
+		// var user_cookie=$.cookie("ssg__user_login");
+		// console.log(user_cookie);
+		// tvar user_cookie=documen
+	});
+	
+	</script>
+
