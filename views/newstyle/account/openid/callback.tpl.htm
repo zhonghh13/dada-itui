@@ -17,6 +17,11 @@
 				<li>
 					<input class="aw-register-pwd form-control" type="password" placeholder="<?php _e('密码'); ?>" name="password" />
 				</li>
+				 <?php if (!$this->icode) {?>
+                <li>
+                    <input type="text" class="itui-Invitation-code form-control" name="Invitation-code" placeholder="请输入你收到的邀请码">
+                </li>
+                <?php }?>
 				<li>
 					<button class="btn btn-large btn-blue btn-block" onclick="AWS.ajax_post($('#login_form'));return false;"><?php _e('绑定帐号'); ?></button>
 				</li>

@@ -150,6 +150,11 @@ class main extends AWS_CONTROLLER
 				// {
 				// 	// $posts_list[$key]['message'] = nl2br(FORMAT::parse_bbcode($val['message']));
 				// }
+
+				if ($_GET['sort_type']=='unresponsive' AND !$val['question_id'])
+				{
+					unset($posts_list[$key]);
+				}
 			}
 		}
 

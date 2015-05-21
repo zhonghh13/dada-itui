@@ -1,5 +1,6 @@
 <?php TPL::output('global/header_meta.tpl.htm'); ?>
 
+
 <body>
 	<div class="aw-top-menu-wrap">
 	<!-- logo -->
@@ -95,7 +96,7 @@
 			</div>
 			<!-- end 导航 -->
 			<!-- 用户栏 -->
-			<div class="aw-user-nav">
+			<div class="aw-user-nav itui-news-login-regs">
 				<!-- 登陆&注册栏 -->
 				<?php if ($this->user_id) { ?>
 					<a href="people/<?php echo $this->user_info['url_token']; ?>" class="aw-user-nav-dropdown itui-nav-user-userlogo">
@@ -119,8 +120,8 @@
 
 					</div>
 				<?php } else { ?>
-					<a class="login btn btn-normal btn-primary itui-nav-login" href="account/login/"><?php _e('登录'); ?></a>
-					<?php if (get_setting('register_type') == 'open') { ?><a class="register btn btn-normal btn-success" href="account/register/"><?php _e('注册'); ?></a><?php } ?>
+					<a class="login btn btn-normal btn-primary itui-news-nav-login" href="account/login/"><?php _e('登录'); ?></a>
+					<?php if (get_setting('register_type') == 'open') { ?><a  class="register btn btn-normal btn-success itui-news-nav-regs" href="account/register/"><?php _e('注册'); ?></a><?php } ?>
 				<?php } ?>
 				<!-- end 登陆&注册栏 -->
 					<div class="itui-username">
@@ -152,7 +153,7 @@
 					<?php if ($this->user_id) { ?>
 					<li><a href="home/"<?php if ($_GET['app'] == 'home') { ?> class="active"<?php } ?>><i class="icon icon-home"></i> <?php _e('动态'); ?></a></li>
 					<?php } ?>
-					<!-- <li><a href="" class="active"><span class="glyphicon glyphicon-book"></span>笔记</a></li> -->
+					
 					<li><a href="article/" class="<?php if ($_GET['app'] == 'article') { ?>active<?php } ?>"><span class="glyphicon glyphicon-book"></span><?php _e('笔记'); ?></a></li>
 					<li><a href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"><i class="icon icon-list"></i> <?php _e('发现'); ?></a></li>
 
@@ -161,6 +162,7 @@
 					<li><a href="article/" class="<?php if ($_GET['app'] == 'article') { ?>active<?php } ?>"><?php _e('文章'); ?></a></li> -->
 
 					<li><a href="topic/home/" <?php if ($_GET['app'] == 'topic') { ?>class="active"<?php } ?>><i class="icon icon-topic"></i> <?php _e('话题'); ?></a></li>
+					<li class="itui-news-watch"><a href="news/square/" target="_blank"><span class="fa fa-camera"></span>今日看点</a></li>
 					<?php if ($this->user_id) { ?>
 					
 					<?php } ?>
@@ -193,11 +195,7 @@
 	<?php } ?>
 
 	<script type="text/javascript">
-	$(function(){
-		// var user_cookie=$.cookie("ssg__user_login");
-		// console.log(user_cookie);
-		// tvar user_cookie=documen
-	});
+	$('#itui-nav-regs').css('background-color','#fff');
 	
 	</script>
-
+	

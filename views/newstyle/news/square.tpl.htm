@@ -1,18 +1,19 @@
 <?php TPL::output('global/news_header.tpl.htm'); ?>
 
 <div class="aw-container-wrap">
-    <div class="container">
+    <div class="container itui-news-container">
         <div class="row">
             <div class="aw-content-wrap clearfix">
                 <div class="col-sm-12 col-md-12 aw-main-content">
                     <?php if ($this->headline) {?>
                     <div class="title-pic">
-                        <img src="<?php $url =FORMAT::parse_attachs($this->headline['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" class="img-responsive" alt="">
+                       <img src="<?php $url =FORMAT::parse_attachs($this->headline['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" class="img-responsive" alt="">
+                        <!-- <img src="http://42.96.190.127:8081/uploads/article/20150516/29a1c464a1c4ce3732ad719494966f66.jpg" alt=""> -->
                         <div class="inner">
                             <div class="gai"></div>
                             <div class="article-introduce">
                                 <div class="introduce-item">
-                                    <h2><a href="article/<?php echo $this->headline['id']; ?>" target="_blank"><?php echo $this->headline['title']; ?></a></h2>
+                                    <h2><a href="news/<?php echo $this->headline['id']; ?>" target="_blank"><?php echo $this->headline['title']; ?></a></h2>
                                     <div class="infos">
                                         <div class="left"><span class="author"><?php echo $this->headline['user_info']['user_name']; ?></span><span>•</span><span class="posted-time"><?php echo date_friendly($this->headline['add_time']); ?></span></div>
                                         <div class="right">

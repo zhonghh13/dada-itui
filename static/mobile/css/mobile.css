@@ -483,4 +483,7 @@ footer p{margin:0;}
 /*20150430王倩修改部分开始*/
 /*顶部导航栏*/
 .border-radius-4, .aw-question-list li .mod-footer img, .aw-explore-hot-topic ul li img, .img, .img img,.pull-right img {border-radius: 50%;}
+@media screen and (max-width: 740px) {
+  .visit-desktop{display: none;}
+}
 /*王倩修改部分结束*/

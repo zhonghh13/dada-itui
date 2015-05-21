@@ -574,15 +574,19 @@ class publish_class extends AWS_MODEL
 			// Fix 2.0 attach time zone bug
 			$date_dir = gmdate('Ymd', $data['add_time']);
 
+			// echo get_setting('upload_dir') . '/' . $item_type . '/' . $date_dir . '/' . $data['file_location'];
+
 			if (! file_exists(get_setting('upload_dir') . '/' . $item_type . '/' . $date_dir . '/' . $data['file_location']))
 			{
-				$date_dir = gmdate('Ymd', ($data['add_time'] + 86400));
+				// $date_dir = gmdate('Ymd', ($data['add_time'] + 86400));
 			}
 
 			if (! file_exists(get_setting('upload_dir') . '/' . $item_type . '/' . $date_dir . '/' . $data['file_location']))
 			{
-				$date_dir = gmdate('Ymd', ($data['add_time'] - 86400));
+				// $date_dir = gmdate('Ymd', ($data['add_time'] - 86400));
 			}
+
+
 
 			$attach_url = get_setting('upload_url') . '/' . $item_type . '/' . $date_dir . '/';
 
