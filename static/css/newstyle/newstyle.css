@@ -1130,6 +1130,11 @@ itui-copypower {
   text-align: center;
   display: block;
   background-color: #fff;
+  outline:none;
+}
+.read_node{
+  /*-webkit-width:80px;*/
+  width:80px;
 }
 .itui-news-col,
 .itui-news-border {

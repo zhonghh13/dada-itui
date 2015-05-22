@@ -3,8 +3,8 @@
 <div class="aw-container-wrap">
     <div class="container itui-news-container">
         <div class="row">
-            <div class="aw-content-wrap clearfix">
-                <div class="col-sm-12 col-md-12 aw-main-content">
+            <div class="aw-content-wrap clearfix" style="border:none;">
+                <div class="col-sm-12 col-md-12 aw-main-content" style="border-right:none;">
                     <?php if ($this->headline) {?>
                     <div class="title-pic">
                        <img src="<?php $url =FORMAT::parse_attachs($this->headline['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" class="img-responsive" alt="">
@@ -74,6 +74,7 @@
     });
 
 //20150514王金有
+$('body').css('background', '#fff');
 $('.article-introduce').mouseenter(function(event) {
   $('.gai').css('background-image','linear-gradient(180deg, rgba(0, 0, 0, 0.01) 5%, rgba(0, 0, 0, 0.65) 100%)');
 }).mouseleave(function(event) {
