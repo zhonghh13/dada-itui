@@ -1088,3 +1088,7 @@ blockquote {margin: 0 0 16px;padding: 0 15px;font-size: 14px;color: #777;border-
 /*.btn.follow.btn-gray em, .btn.follow.btn-gray.active em, .btn.follow.btn-success.active em{color: #e0e0e0;}
 .btn.follow.btn-success em{color: #78c779;}*/
 .itui-border-clearfix{border-top-left-radius:12px;border-top-right-radius:12px;}
+#itui-nav-regs:hover{
+    background-color: transparent;
+    background-color: #fff;
+}
