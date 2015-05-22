@@ -16,13 +16,18 @@ class ajax extends AWS_CONTROLLER
 	{
 		$rule_action['rule_type'] = 'white'; //'black'黑名单,黑名单中的检查  'white'白名单,白名单以外的检查
 
+		$rule_action['actions'] = array(
+			'news_actions'
+		);
+
 		return $rule_action;
 	}
 
 
 	public function news_actions_action()
 	{
-		$article_list = $this->model('article')->get_articles_list($category_info['id'], $_GET['page'], get_setting('contents_per_page'), 'add_time DESC');
+		echo $_GET['page']."qwertyuiofayhfihaeluhfliahflhalfhwiuahflahfniuwahflnh";
+		$article_list = $this->model('article')->get_articles_list($category_info['id'], intval($_GET['page']), get_setting('contents_per_page'), 'add_time DESC');
 
 		if ($article_list)
 		{
