@@ -1205,8 +1205,10 @@ itui-copypower {
 .itui-news-btn-gray {
   display: none;
 }
+.itui-news-navbar-nav-ul{margin-left: 20px;}
 .itui-news-navbar-nav-ul li {
   float: left;
+
 }
 .itui-news-navbar-nav-ul li a {
   font-size: 1.6rem;
@@ -1352,6 +1354,12 @@ itui-copypower {
     max-height: 280px;
   }
 }
+@media screen and (max-width: 766px){
+  .itui-topic-li .dropdown #dropdownMenu1{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
 @media screen and (max-width: 760px) {
   .aw-article-list .itui-news-aw-item h4 a {
     font-size: 1.4em;
@@ -1359,6 +1367,7 @@ itui-copypower {
   .item-introduce {
     font-size: 1.2em;
   }
+  
 }
 @media screen and (max-width: 740px) {
   .title-pic .inner .article-right .a-inner {

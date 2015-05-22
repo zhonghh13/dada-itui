@@ -23,11 +23,11 @@
                             <?php echo $this->user['user_name']; ?> <?php if ($this->user['verified']) { ?><i class="icon-v <?php if ($this->user['verified'] == 'enterprise') { ?> i-ve<?php } ?>" title="<?php if ($this->user['verified'] == 'enterprise') { ?>企业认证<?php } else { ?>个人认证<?php } ?>"></i><?php } ?> </span>
                            <?php if ($this->user['sex']==1) 
                            { 
-                                echo "<span class='itui-sex'>Boy</span>";
+                                echo "<span style='color:#499EF3;' class='itui-sex'>Boy</span>";
                             }
                            else if ($this->user['sex'] == 2)
                            {
-                                echo "<span class='itui-sex'>Girl</span>";
+                                echo "<span style='color:#BD70B7;' class='itui-sex'>Girl</span>";
                             }
                             ?>
                                  <span class="itui-binding-p">
