@@ -19,7 +19,8 @@
                             </span>
                             <div class="person-item">
                             <h1 class="itui-people-head">
-                            <?php echo $this->user['user_name']; ?> <?php if ($this->user['verified']) { ?><i class="icon-v <?php if ($this->user['verified'] == 'enterprise') { ?> i-ve<?php } ?>" title="<?php if ($this->user['verified'] == 'enterprise') { ?>企业认证<?php } else { ?>个人认证<?php } ?>"></i><?php } ?> 
+                            <span>
+                            <?php echo $this->user['user_name']; ?> <?php if ($this->user['verified']) { ?><i class="icon-v <?php if ($this->user['verified'] == 'enterprise') { ?> i-ve<?php } ?>" title="<?php if ($this->user['verified'] == 'enterprise') { ?>企业认证<?php } else { ?>个人认证<?php } ?>"></i><?php } ?> </span>
                            <?php if ($this->user['sex']==1) 
                            { 
                                 echo "<span class='itui-sex'>Boy</span>";
@@ -29,18 +30,18 @@
                                 echo "<span class='itui-sex'>Girl</span>";
                             }
                             ?>
-                           
-                            </h1>
-                            <p class="itui-binding-p">
-                            <?php if (get_setting('sina_weibo_enabled') == 'Y' AND $this->sina_weibo_url) { ?>
+                                 <span class="itui-binding-p">
+                                    <?php if (get_setting('sina_weibo_enabled') == 'Y' AND $this->sina_weibo_url) { ?>
                               
-                                <span class="person-tag itui-binding">
+                                    <span class="person-tag itui-binding">
                                     <?php _e('绑定认证'); ?>
                                     <?php if ($this->sina_weibo_url AND get_setting('sina_weibo_enabled') == 'Y') { ?><a href="<?php if ($this->sina_weibo_url) { ?><?php echo $this->sina_weibo_url; ?><?php } else { ?>javascript:;<?php } ?>" title="<?php _e('微博'); ?>"><i class="icon icon-weibo"></i></a><?php } ?>
-                                </span>
-                                <?php } ?>
+                                    </span>
+                                    <?php } ?>
                          
-                           </p>
+                                </span>
+                            </h1>
+                           
                             <p class="aw-user-flag itui-person-flag">
                                 <?php if ($this->user['province']) { ?>
                                 <span class="person-tag">
@@ -51,7 +52,7 @@
                                 <?php } ?>
                                 <?php if ($this->job_name) { ?>
                                 <span class="person-tag itui-hide-person-job">
-                                    <i class="icon icon-job" ></i>
+                                    <span class="icon icon-job" ></span>
                                     <?php echo $this->job_name; ?>
                                 </span>
                                 <?php } ?>

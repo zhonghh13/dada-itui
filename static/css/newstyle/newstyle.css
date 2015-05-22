@@ -333,7 +333,6 @@ itui-copypower {
 }
 .aw-user-name {
   font-weight: 700;
-  display: block;
 }
 .main_area_username {
   display: block;
@@ -555,13 +554,14 @@ itui-copypower {
   float: left;
 }
 .itui-btn-note .itui-icon_note {
-  font-size: 24px;
-  color: #e67713;
+  font-size: 18px;
+  color: #555;
   margin-left: 32%;
   margin-right: 2%;
 }
 .itui-btn-note .itui-note-span {
-  font-size: 16px;
+  font-size: 15px;
+  color: #555;
 }
 /*笔记页主内容区域结束*/
 /*个人主页开始*/
@@ -970,7 +970,7 @@ itui-copypower {
 .title-pic .inner .article-introduce .introduce-item h2 {
   padding-right: 10px;
   padding-left: 10px;
-  max-width: 
+ margin-top: 10%; 
 }
 .title-pic .inner .article-introduce .introduce-item h2 a {
   font-size: 3.6rem;
@@ -1254,9 +1254,47 @@ itui-copypower {
 }
 .itui-news-item{margin-left: 5%;}
 .itui-news-container{margin-left: auto;margin-right: auto;}
+.itui-topic-li{
+
+}
+.itui-topic-li .dropdown{
+   background-color: #fff;
+}
+.itui-topic-li .dropdown-menu{
+  min-width: 320px;
+  background-color: #fff;
+  border: 1px solid #cbcbcb;
+}
+.itui-topic-li .dropdown-menu a{padding-left: 15%;padding-right: 15%;}
+.itui-topic-li .dropdown #dropdownMenu1{ color: #499EF3;padding-top: 10px;}
+.itui-topic-li .dropdown .btn-default{
+  border: none;
+}
+.itui-topic-li .dropdown .btn{font-size: 1.6rem;}
+.itui-topic-li .dropdown .btn-default:hover{background-color: #fff;}
+.itui-topic-li .dropdown .btn-default:focus{background-color: #fff;}
+.itui-topic-li .dropdown .btn-default:active{background-color: #fff;}
+.open > .dropdown-toggle.btn-default{background-color: #fff;}
+/*20150522*/
+.more_read{
+  padding-left: 15px;
+  font-size: 2rem;
+  color:#333;
+}
+.aw-question-detail .mod-head .itui-news-h1{
+  line-height: 50px;
+}
+.itui-binding{float: right;}
+.itui-binding-p{font-size: 14px;float: right;margin-left: 20%;}
+.itui-binding-p .icon{color:#fff;}
+
+.ul-topic-list{border:1px solid red;}
+.ul-topic-list li{width: 100%;}
+.clear{clear:both;}
+/*end20150522*/
 @media screen and (max-width: 1000px) {
   .title-pic .inner .article-introduce .introduce-item h2 a{
-   font-size:  3.2rem;
+   font-size:  2.6rem;
   }
   .title-pic .inner .article-introduce .introduce-item{
     height: 50%;
@@ -1287,12 +1325,20 @@ itui-copypower {
   }
   .itui-news-item{width:60%; }
 }
+@media screen and(max-width: 850px) {
+  .title-pic .inner .article-introduce .introduce-item h2{
+    margin-top: 10%;
+  }
+   .title-pic .inner .article-introduce .introduce-item h2 a{
+   font-size:  2.6rem;
+  }
+}
 @media screen and (max-width: 830px){
     .itui-news-item{width:50%; }
 }
 @media screen and (max-width: 800px) {
   .title-pic .inner .article-introduce .introduce-item h2 a {
-    font-size: 2.6rem;
+    font-size: 2rem;
   }
 
 }
@@ -1444,7 +1490,16 @@ itui-copypower {
 }
 @media screen and (max-width: 600px) {
   .title-pic .inner .article-introduce .introduce-item h2 a {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .title-pic .inner .article-introduce .introduce-item h2{margin-top: 0%;}
+  .aw-question-detail .mod-head .itui-news-h1{font-size: 2.8rem;}
+  .title-pic .inner .article-right .a-inner .inner-bottom .preson-des{font-size: 1.2rem;}
+  
+}
+@media screen and (max-width: 562px) {
+.title-pic .inner .article-right .a-inner .inner-bottom .preson-des {
+    font-size: 1.0rem;
   }
 }
 @media screen and (max-width: 550px) {
@@ -1457,9 +1512,7 @@ itui-copypower {
   .itui-person-bg {
     height: 210px;
   }
-  .title-pic .inner .article-right .a-inner .inner-bottom .preson-des {
-    font-size: 1.2rem;
-  }
+  
   .title-pic .inner .article-right .a-inner .inner-top .author-name {
     font-size: 1.2rem;
   }
@@ -1467,6 +1520,9 @@ itui-copypower {
     font-size: 1.2rem;
     padding: 0px;
   }
+}
+@media screen and (max-width:535px) {
+ .inner-bottom .preson-des{display: none;}
 }
 @media screen and (max-width: 525px) {
   .title-pic .inner .article-introduce .introduce-item h2 a {
@@ -1478,6 +1534,7 @@ itui-copypower {
   .title-pic .inner .article-introduce .introduce-item .infos .right a i {
     font-size: 1.2rem;
   }
+  
 }
 @media screen and (max-width: 500px) {
   .aw-article-list .itui-news-aw-item h4 a {
@@ -1502,6 +1559,9 @@ itui-copypower {
     font-size: 1.2rem;
     max-width: 60%;
   }
+
+  .itui-topic-li .dropdown-menu{min-width: 200px;}
+
 }
 @media screen and (max-width: 480px) {
   .title-pic .inner .article-introduce .introduce-item {
@@ -1520,6 +1580,7 @@ itui-copypower {
   .aw-user-detail-box .mod-head .person-logo {
     margin-top: 70%;
   }
+  .title-pic .inner .article-introduce .introduce-item{height: 60%;}
 }
 @media screen and (max-width: 400px) {
   .itui-person-bg {

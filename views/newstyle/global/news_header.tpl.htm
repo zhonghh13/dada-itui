@@ -9,10 +9,36 @@
 	<!-- end logo -->
 		<div class="container">
 			<ul class="nav navbar-nav itui-news-navbar-nav-ul">
+
+				<li>
+					<a target="_blank" href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"> <?php _e('读点'); ?></a>
+				</li> 
 				
-				<li><a target="_blank" href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"> <?php _e('发现'); ?></a></li>
-				<li><a target="_blank" href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"> <?php _e('媒体'); ?></a></li>
-				<li><a target="_blank" href="<?php echo get_setting('base_url'); ?>" class="<?php if (!$_GET['app'] OR $_GET['app'] == 'explore') { ?>active<?php } ?>"> <?php _e('院校库'); ?></a></li>
+				<li class="itui-topic-li">
+					<div class="dropdown">
+   						<button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenu1" 
+      						data-toggle="dropdown">
+      						精选话题
+      						<span class="caret"></span>
+   						</button>
+   						<ul class="dropdown-menu dropdown-menu-news" role="menu" aria-labelledby="dropdownMenu1">
+      						<li role="presentation">
+         						<a role="menuitem" tabindex="-1" href="">话题1</a>
+      						</li>
+      						<li role="presentation">
+         						<a role="menuitem" tabindex="-1" href="">话题2</a>
+      						</li>
+      						<li role="presentation">
+         						<a role="menuitem" tabindex="-1" href="">话题3</a>
+      						</li>
+      						<li role="presentation" class="divider"></li>
+      						<li role="presentation">
+         						<a role="menuitem" tabindex="-1" href="#">话题4</a>
+      						</li>
+      						<div class="clear"></div>
+   						</ul>
+					</div>
+				</li>
 				
 			</ul>
 			<!-- 用户栏 -->
@@ -29,6 +55,7 @@
 
 					<div class="aw-dropdown dropdown-list pull-left">
 						<ul class="aw-dropdown-list">
+							<li><a href="people/<?php echo $this->user_info['url_token']; ?>"><span class="glyphicon glyphicon-user"></span> <?php _e('个人主页'); ?><span class="badge badge-important hide" id="">0</span></a></li>
 							<li><a href="inbox/"><i class="icon icon-inbox"></i> <?php _e('私信'); ?><span class="badge badge-important hide" id="inbox_unread">0</span></a></li>
 							<li class="hidden-xs"><a href="account/setting/profile/"><i class="icon icon-setting"></i> <?php _e('设置'); ?></a></li>
 							<?php if ($this->user_info['permission']['is_administortar'] OR $this->user_info['permission']['is_moderator']) { ?>
