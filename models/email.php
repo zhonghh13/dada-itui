@@ -60,7 +60,11 @@ class email_class extends AWS_MODEL
 		{
 			$$key = str_replace('[#user_name#]', $data['user_name'], $val);
 			$$key = str_replace('[#site_name#]', get_setting('site_name'), $$key);
-						foreach ($data AS $k => $v)			{				$$key = str_replace('[#' . $k . '#]', $data[$k], $$key);			}
+			
+			foreach ($data AS $k => $v)
+			{
+				$$key = str_replace('[#' . $k . '#]', $data[$k], $$key);
+			}
 		}
 
 		if (in_array($action, array(
@@ -69,6 +73,7 @@ class email_class extends AWS_MODEL
 			'FIND_PASSWORD',
 		)))
 		{
+			// echo "valid_email";
 			return $this->send($email, $subject, $message, $link, null, $server);
 		}
 		else

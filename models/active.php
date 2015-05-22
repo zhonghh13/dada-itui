@@ -97,6 +97,7 @@ class active_class extends AWS_MODEL
 			$uid = $email;
 		}
 
+		// echo "string";
 		return $this->model('email')->action_email('VALID_EMAIL', $uid, get_js_url('/account/valid_email_active/key-' . $active_code_hash), $server);
 	}
 

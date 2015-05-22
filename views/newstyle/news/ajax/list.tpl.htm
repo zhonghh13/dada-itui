@@ -2,7 +2,7 @@
 <?php foreach ($this->article_list AS $key => $val) { ?>
 <div class="aw-item itui-news-aw-item">
     <div class="itui-news-pic">
-        <a href="" target="_blank"><img class="img-responsive" src="<?php $url =FORMAT::parse_attachs($val['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" alt=""></a>
+        <a href="news/<?php echo $val['id']; ?>" target="_blank"><img class="img-responsive" src="<?php $url =FORMAT::parse_attachs($val['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" alt=""></a>
     </div>
     <div class="itui-news-item">
        <h4>
