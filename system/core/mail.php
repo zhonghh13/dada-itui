@@ -183,6 +183,7 @@ class core_mail
         {
             try
             {
+                // echo "?????";
                 $zend_mail = new Zend_Mail($mail_config['charset']);
                 $zend_mail->setBodyHtml($body);
                 $zend_mail->setFrom(get_setting('from_email'), $from_name);
