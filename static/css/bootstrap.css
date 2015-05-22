@@ -76,3 +76,19 @@
 	background-color: #D77A11;
 	border-color:#D77A11;
 }
+
+.itui-topic-li .dropdown-menu{
+  min-width: 320px;
+  background-color: #fff;
+  border: 1px solid #cbcbcb;
+}
+
+.navbar-nav .open .dropdown-menu-news{
+	position: absolute;
+	background-color: #fff;
+  border: 1px solid #cbcbcb;
+}
+
+@media screen and(max-width: 500px) {
+	.navbar-nav .open .dropdown-menu-news{width: 200px;}
+}
