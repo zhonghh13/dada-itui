@@ -1,0 +1,786 @@
+/* 
+* @Author: Administrator
+* @Date:   2015-04-02 12:49:13
+* @Last Modified by:   Administrator
+* @Last Modified time: 2015-04-02 13:18:03
+*/
+
+/*
+
+@media screen and(max-width:1100px){   
+}*/
+
+/*顶部导航栏*/
+.bcolor(@color_value){
+	background-color:@color_value;
+}
+.bc_img(@imgs){
+	background:url("img/@{imgs}") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.w_h(@w,@h){
+	width:@w;
+	height:@h;
+}
+.l_h(@h){
+	line-height:@h;
+}
+.border(@num,@c){
+	border:@num solid @c;
+}
+.border_b(@num,@c){
+	border-bottom:@num solid @c;
+}
+.bor_r(@radius){
+	 -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+.pos_ab(@l,@t){
+	position:absolute;
+	top:@t;
+	left:@l;
+}
+.b-shadow(){
+	 box-shadow:1px 1px 4px #999;
+   -webkit-box-shadow: 1px 1px 4px #999;
+   -moz-box-shadow: 1px 1px 4px #999;
+}
+@media screen and(min-width:400px){ 
+.itui-navbar_top{
+	display:block;
+}
+}
+.alpha(@ten-num,@num) {  
+      filter:alpha(opacity=@ten-num);  
+      -moz-opacity:@num;  
+      -khtml-opacity: @num;  
+      opacity: @num;  
+} 
+/*顶部导航栏*/
+
+.aw-user-nav .itui-nav-user-userlogo{float:left;}
+.itui-username{
+	float:left;line-height:36px;padding-left:6px;overflow:hidden;
+	span{
+	display:block;
+	float:left;
+	}
+	.itui-username-icon{padding-top:4px;padding-left:4px;}
+}
+
+.notes_p{
+max-width:50px;
+font-size:18px;
+margin-left:12%;
+display:none;
+}
+.aw-container-wrap{
+	margin-top:10px;
+}
+.aw-top-menu-wrap,.btn-primary,.aw-publish-btn .dropdown-list a,.navbar-collapse{
+	.bcolor(#fff);
+}
+.itui-hide-question,.itui-hide-note{display:none;}
+.aw-logo a {
+@imgs:logo.png;
+.bc_img(@imgs);
+.w_h(126px,40px);
+}
+#global_search_form{
+	.border(1px,#cbcbcb);
+}
+.aw-top-menu-wrap{
+	.border_b(1px,#cbcbcb);
+}
+.aw-publish-btn, .aw-user-nav, .aw-top-notification{
+	float:left;
+}
+.itui-search_form input {
+	.w_h(560px,32px);
+}
+.itui-header_publish{
+	color:#555;
+}
+.itui-header_publish{
+	display:block;
+	width:100%;
+}
+.aw-publish-btn{
+	.border(1px,#cbcbcb);
+	.bor_r(4px);
+}
+.btn-primary:hover{
+	.bcolor(#f6f6f6);
+}
+.aw-publish-btn .dropdown-list{
+	.border(1px,#cbcbcb);
+	.bor_r(4px);
+	a{
+	color:#555;
+	&:hover{
+	.bcolor(#cecece);
+	}
+	}
+}
+
+.aw-top-nav > nav > ul > li > a{
+	color:#555;
+	padding-top:10px;
+}
+.glyphicon-bell{
+	font-size:20px;
+}
+.aw-top-nav .badge{
+	.bcolor(#cb4437);
+	.bor_r(4px);
+}
+.aw-top-nav > nav > ul > li > a:hover{
+	.bcolor(#f6f6f6);
+}
+
+.icon_ask,.glyphicon-bell{
+	color:#737373;
+}
+.icon_ask{
+	padding-right:6px;
+}
+.aw-top-nav > nav > ul > li > a:hover{
+	.bcolor(#fff);
+}
+.aw-top-nav > nav > ul > li > a.active {
+	.bcolor(#fff);
+}
+.aw-user-nav img{
+	.w_h(36px,36px);
+	
+}
+
+.aw-user-nav > a img{
+	.bor_r(50%);
+}
+.itui-discover_user_name img,.aw-border-radius-5 img{
+	.bor_r(50%);
+}
+/*用户设置页*/
+.itui-profile-userlogo{.bor_r(50%);}
+/*左侧边栏*/
+.itui-navbar_left{
+	.border(1px,#cbcbcb);
+	.bcolor(#fff);
+	min-width:194px;
+}
+.itui-navbar-nav-ul{
+	float:none;
+}
+.navbar-nav > li {
+	float:none;
+}
+.aw-user-nav .btn-primary{
+	.bcolor(#59B0FF);
+}
+.side-nav{
+	.bcolor(#fff);
+}
+.aw-mod.side-nav ul li a{
+	padding-right:30px;
+	.l_h(40px);
+}
+.itui-navbar_left{
+	.b-shadow();
+}
+.aw-mod.side-nav ul li a.active{
+.bcolor(#fff);
+	color:#666;
+}
+.aw-mod.side-nav ul li a.active i{
+	color:#666;
+}
+.glyphicon-book{
+	color:#999;
+	margin-right:4px;
+}
+.side-nav-left-bottom-hide{
+	display:none;
+}
+.new-Dynamic{
+	display:none;
+}
+.draft-png{
+	margin-right:4px;
+}
+.side-left-bottom{
+	min-width:180px;
+}
+.slogan{
+	font-size:16px;
+	line-height:44px;
+	border-bottom:1px solid #cbcbcb;
+	span{
+	color:#e67917;
+	}
+}
+.manage_rule{
+	padding-left:24px;
+	padding-bottom:16px;
+}
+.itui-navbar_left{z-index:100;}
+.glyphicon-fire{font-size:16px;color:#dd4b39;margin-right:10px;}
+/*左侧边栏结束*/
+
+/*右侧边栏*/
+.today_topic_des{
+	display:block;
+	max-height:44px;
+	overflow:hidden;
+	float:left;
+}
+.aw-side-bar .aw-mod dt img {
+.w_h(40px,40px);
+}
+.pull-left a img{
+	.w_h(40px,40px);
+}
+.aw-side-bar .aw-mod dt, .aw-side-bar .aw-mod dt img {
+    .w_h(40px,40px);
+}
+/*热门用户*/
+.itui_user_name{
+	font-size:16px;
+	line-height:40px;
+	padding-left:4px;
+	color:#666;
+}
+.person_des{
+	display:none;
+}
+.hot_agree{
+	margin-top:44px;
+	color:#666;
+	font-size:14px;
+	b{
+	font-weight:400;
+	}
+}
+/*右侧边栏结束*/
+/*发现页主内容区默认分类隐藏*/
+.default-classify{
+	display:none;
+}
+/*发现页顶部分类tab切换*/
+.nav-top-discover{
+	.w_h(100%,44px);
+	.bcolor(#fff);
+	margin-top:4px;
+	.aw-nav-tabs{
+	padding: 10px 10px 0px;
+	width:44%;
+	margin-left:20%;
+	margin-right:4%;
+	
+	li{
+		margin-left:15%;
+	 }
+	 .bestnew{margin-left:-15%;}
+	}
+	.aw-nav-tabs{
+	max-height:30px;
+	padding:0px;
+	padding-top:10px;
+	border-bottom:none;
+	}
+}
+/*动态页主内容区域开始*/
+.aw-mod .mod-head h4 a{
+	color:#e67917;
+}
+.aw-user-name{font-weight:700;display:block;}
+.main_area_username{
+	display:block;
+}
+/*动态页右侧边栏下半部分*/
+.icon-inverse{
+	font-size:18px;
+}
+.new_argee_from{display:none;}
+/*动态页主内容区域结束*/
+/*发现页主内容区域开始*/
+.itui-discover_user_name{
+	display:inline;
+}
+/*发现页主内容区域结束*/
+
+/*新话题页开始*/
+
+.itui-recommend-topic-name{
+max-height:40px;
+.topic-classify{
+padding-top:10px;
+
+	.itui-recommend-classify{
+		.bcolor(#99CFFF);
+		.bor_r(4px);
+		color:#fff;	
+		padding-left:4px;
+		padding-right:4px;
+	}
+}
+}
+.itui-attention-topic02{
+position: relative;
+float: left;
+width: 46%;
+min-height: 90px;
+padding: 20px 5px 20px 65px;
+margin-left:4%;
+img{
+position: absolute;
+left: 5px;
+top: 20px;
+}
+
+}
+.no-attention-topic{
+	width:100%;
+	p{
+	font-size:20px;
+	color:#999;
+	text-align:center;
+	line-height:160px;
+	}
+	
+}
+.main-attention-topic{
+	overflow:hidden;
+	width:100%;
+	margin-top:10px;	
+}
+.main_title_topic02{
+	color:#999;
+	font-size:18px;
+	overflow:hidden;
+	padding-top:16px;
+	padding-bottom:6px;
+	.title_num{
+	float:right;
+	padding-right:20px;
+	font-size:14px;
+	}
+	.title_name{
+	float:left;
+	padding-left:20px;
+
+	}
+}
+.itui-recommend-p{
+line-height:40px;
+	color:#999;
+	font-size:16px;
+	span{
+	float:left;
+	padding-left:20px;
+	}
+	a{
+	float:right;
+	padding-right:20px;
+	font-size:12px;
+	color:#e67713;
+	&:hover{color:#f9b978;
+	 }
+	}
+	overflow:hidden;
+}
+.recommend--topic-item{
+	width:100%;
+	float:none;
+	.topic-tag .text {
+	color:#444;
+	.bcolor(#fff);
+	font-size:16px;
+	}
+}
+.itui-topic-title{
+	max-width:630px;
+	p{
+	margin:0px;
+	line-height:24px;
+	a{
+	color:#666;
+	&:hover{color:#666;}
+	}
+	}
+}
+.itui-follow-div{
+	max-width:76px;	
+	float:right;
+	margin-right:10%;
+	margin-bottom:24px;
+}
+.follow-btn{
+	.bcolor(#f5f5f5);
+	border:1px solid #cbcbcb;
+	color:#555;
+	overflow:hidden;
+}
+.btn-success{border:1px solid #cbcbcb;
+&:hover{.bcolor(#f5f5f5);}}
+.topic-classify{
+display:block;
+max-width:50%;
+line-height:24px;
+overflow:hidden;
+float:left;
+}
+.aw-topic-list .itui-attention-topic02{width:46%;}
+/*新话题页侧边栏*/
+
+.old-topic-silder{
+	
+}
+.itui-go-on-square{
+	.border(1px,#cbcbcb);
+	.bcolor(#f1f1f1);
+	text-align:center;
+	width:40%;
+	line-height:34px;
+	margin-left:auto;
+	margin-right:auto;
+	.bor_r(4px);
+	font-size:14px;
+	margin-top:10px;
+	a{color:#666;}
+}
+.itui-topic_square-h3{
+	font-size:16px;
+}
+.itui-hide-talkabout{display:none;}
+.itui-find-your-topic{text-align:center;line-height:40px;font-size:14px;}
+.itui-topic-more{
+	float:left;width:100%;
+	a{
+	&:hover{.bcolor(#f6f6f6);}
+	&:hover span{.bcolor(#f6f6f6);color:#666;}
+	}
+}
+.itui-attention-topic-already{line-height:20px;}
+.itui-recommend-attention-topic{
+	border-top: 1px solid #E67713;
+}
+/*新话题页结束*/
+
+/*笔记页主内容区域开始*/
+.aw-article-list .aw-item .mod-body .content-wrap .content .notes-overflow{
+max-height:200px;	
+}
+.itui-btn-note{
+	.bor_r(6px);
+	over-flow:hidden;
+	height:36px;
+	.bcolor(#eee);
+	span{display:block;float:left;line-height:36px;}
+	.itui-note-form{float:left;}
+	.itui-icon_note{font-size:24px;color:#e67713;margin-left:32%;margin-right:2%;}
+	.itui-note-span{font-size:16px;}
+}
+/*笔记页主内容区域结束*/
+/*个人主页开始*/
+.aw-user-detail-box .mod-head img{
+	.bor_r(50%);
+}
+.btn-success, .btn-gray.active{
+	color:#666;
+}
+.personal-sidebar{display:none;}
+.itui-personal-homepage{width:802px !important;padding-left:0px;padding-right:0px;}
+.aw-user-detail-box .itui-personal-mod-head{border:none;}
+.aw-user-detail-box .person-max-img img{top:40px;}
+.itui-personal-mod-head{
+position:absolute;left:0px;top:-300px;
+h1{color:#fff;font-size:20px;}
+.text-color-999,.aw-user-flag ,p{color:#fff;}
+.glyphicon-map-marker{font-size:16px;}
+.person-school{line-height:30px;margin-top:-6px;}
+}
+.itui-person-gai{
+	.w_h(110%,50px);
+	.bcolor(#fff);
+	.alpha(40,0.4);
+	margin-left:-90px;
+	position:relative;
+	margin-top:20px;
+	.bor_r(4px);
+
+}
+#trianle {
+   width: 0;   
+   height: 0;   
+   border-bottom: 20px solid #fff;   
+   border-left: 10px solid transparent;   
+   border-right: 10px solid transparent; 
+   position:absolute;
+   left:16px;
+   top:-16px;
+}
+.itui-person-des{
+max-width:708px;
+	font-size:19px;
+	text-align:center;
+	margin-top:-38px;
+	margin-left:-90px;
+	min-height:24px;
+}
+.itui-person-argee{
+	color:#fff;
+	margin-left:-90px;
+	max-width:708px;
+	i{color:#fff;}
+	span{
+	font-size:22px;
+	.aw-text-color-orange,{
+	font-size:22px;font-weight:400;
+	}
+	}
+	.person-prestige{display:none;}
+	.person-argee-p{margin-left:auto;margin-right:auto;max-width:40%;overflow:hidden;}
+	overflow:hidden;
+	margin-top:40px;
+}
+.aw-user-detail-box .mod-head .aw-user-flag .person-tag{
+	display:block;
+	line-height:30px;
+}
+.aw-user-flag .icon-job{
+	font-size:16px;
+}
+.person-contact{
+	margin-top:16%;
+	.glyphicon-envelope{font-size:16px;padding-right:6px;padding-top:4px;}
+	a,.icon-at{font-size:14px;font-weight:700;}
+	.person-ask{.bcolor(#65abd0);padding:10px;.bor_r(8px);}
+	.person-follow{
+	.bcolor(#24aa98);
+	}
+	.person-follow.active{
+	color:#fff;
+	&:hover{color:#fff;}
+	}
+	.person-follow{color:#fff;height:38px;border:none;.bor_r(8px);}
+	.person-follow.active:hover{color:#fff;.bcolor(#24aa98);}
+	.person-follow span{
+	line-height:38px;
+	}
+}
+.person-mod-body{display:none;}
+.itui-person-mod-footer{border-bottom:1px solid #e67713;margin-top:-308px;
+ul{width:100%;height:68px;}
+li{
+
+a{
+font-size:16px;	}
+}
+white-space:nowrap;
+overflow:auto;
+
+}
+.person-more{}
+.person-ul{
+
+	li{
+	float:none;
+	display:inline-block;
+	}
+}
+.itui-person-mod-footer{width:100%;ul{width:100%;}}
+.itui-person-flag{min-height:90px;}
+.aw-user-detail-box .mod-head .aw-user-flag .itui-hide-person-job{display:none;}
+/*个人主页结束*/
+
+/*登录注册页开始*/
+.itui-btn-login{
+	.bcolor(#f38f34);
+	&:hover{.bcolor(#f38f34);}
+}
+.itui-btn-login.active,.btn-primary:focus{.bcolor(#f38f34);}
+.itui-btn-register{
+	.bcolor(#f38f34);
+	&:hover{.bcolor(#f38f34);}
+}
+.aw-user-nav .itui-nav-login{.bcolor(#f38f34);}
+/*登录注册页结束*/
+
+@media screen and(max-width:1580px){ 
+.nav-top-discover{
+	.aw-nav-tabs{
+	width:54%;
+	}
+}
+}
+@media screen and(max-width:1425px){ 
+.discover-container{
+	margin-right:0px;
+}
+}
+
+@media screen and(max-width:1290px){ 
+.nav-top-discover{
+	.aw-nav-tabs{
+	width:64%;
+	li{
+		margin-left:12%;
+	 }
+	}
+}
+
+}
+@media screen and(max-width:1200px){ 
+.itui-personal-content{margin-top:-40px;}
+}
+@media screen and(max-width:870px){ 
+.nav-top-discover .aw-nav-tabs li {
+    margin-left: 8%;
+}
+}
+@media screen and(max-width:806px){ 
+.itui-personal-homepage{
+	width:100% !important;
+	.row{margin-right:0px;margin-left:5px;}
+	}
+}
+
+@media screen and (min-width:400px) and (max-width:780px){
+	.aw-top-nav .icon-ba{color:#666;}
+	.aw-mod.side-nav ul li a{
+	padding-left:0px;
+	padding-right:0px;
+	}
+	.itui-navbar_left{
+	.border(1px,#cbcbcb);
+	.bcolor(#fff);
+	min-width:194px;
+}
+.itui-person-bg{float:left;}
+.aw-user-detail-box .mod-head .person-logo{
+	position:absolute;
+	margin-top:44%;
+	
+	}
+	.person-item{
+	max-height:200px;
+	margin-top:15%;
+	margin-left:5%;
+	.itui-person-des{font-size:14px;margin-top:-28px;}
+	.itui-person-gai{height:30px;margin-top:-10px;}
+	.itui-person-argee {margin-top:0px;span{font-size:16px;}.aw-text-color-orange{font-size:14px;}}
+	}
+	.itui-person-card{z-index:50;max-height:200px;width:100%;float:left;}
+	.itui-person-mod-footer{width:100%;ul{width:100%;}float:left;margin-top:0px;}
+	.itui-personal-mod-head{top:-210px;}
+	/*20150427*/
+.itui-personal-mod-head .preson-name{max-height:30px;margin-top:180px;}
+.person-tag{max-height:40px;}
+.itui-user-center-tab{float:left;max-width:100%;}
+
+/*20150427*/
+}
+
+	
+@media screen and (min-width:736px) and (max-width:780px){
+.aw-user-detail-box .mod-head .person-logo{
+	position: absolute;
+	margin-top: 30%;
+	margin-left: 0%;
+	}
+	.itui-person-card{max-height:280px;}
+	
+}
+@media screen and (min-width:700px) and (max-width:780px){
+	.itui-personal-mod-head .preson-name {max-height:100px;}
+}
+@media screen and (min-width:680px) and (max-width:720px){
+	.aw-user-detail-box .mod-head .person-logo{margin-top: 36%;}
+}
+@media screen and(max-width:696px){
+	.aw-user-detail-box .mod-head .person-logo{margin-top: 36%;}
+	 .itui-personal-mod-head .preson-name{margin-top:230px;} 
+}
+@media screen and (min-width:474px) and (max-width:690px){
+	.itui-personal-mod-head .preson-name{margin-top:230px;}
+}
+@media screen and(max-width:688px){
+	.itui-person-card{margin-top:-40px;}
+}
+@media screen and (min-width:670px) and (max-width:700px){
+.itui-personal-mod-head .preson-name{margin-top:240px;}
+	.itui-person-card{max-height:250px;margin-top:-40px;}
+	.aw-user-detail-box .mod-head .person-logo {margin-top:38%;}
+}
+@media screen and (min-width:580px) and (max-width:669px){
+	.aw-user-detail-box .mod-head .person-logo {margin-top:43%;}
+}
+@media screen and(max-width:600px){
+	.aw-user-detail-box .mod-head .person-logo{
+	margin-top: 48%;
+	}
+	.itui-person-flag{min-height:40px;}
+	.itui-person-argee .person-argee-p{width:100%;span{font-size:12px;}}
+	.person-contact{margin-top:70px;
+		.person-follow{
+		height:24px;
+		span{display:block;font-size:16px;line-height:24px;margin-top:0px;}
+		}
+	}
+	
+	.person-contact .person-follow span{font-size:12px;line-height:24px;}
+	.person-school span{line-height:20px;}
+	.itui-person-flag{margin-top:10px;}
+	.itui-person-mod-footer li a{font-size:14px;}
+	.itui-personal-mod-head .person-school {line-height:20px;}
+	.aw-user-detail-box .mod-head .aw-user-flag .person-tag {line-height:20px;}
+	.itui-person-flag {margin-top:0px;}
+	.itui-personal-mod-head h1 {margin-bottom:0px;font-size:16px;line-height:20px;}
+	.itui-personal-mod-head .preson-name{margin-top:240px;}
+
+}
+@media screen and(max-width:550px){
+	.aw-user-detail-box .mod-head .person-logo{
+	margin-top: 50%;
+	}
+	.aw-user-detail-box .mod-head .aw-user-flag .person-tag{line-height:22px;}
+	.itui-person-bg{height:210px;}
+}
+@media screen and (min-width:700px) and (max-width:770px){
+	.itui-person-card{.itui-person-bg {margin-top:-40px;}}
+}
+@media screen and(max-width:498px){
+	.aw-user-detail-box .mod-head .person-logo{
+	margin-top: 58%;
+	}
+}
+@media screen and(max-width:468px){
+	.aw-user-detail-box .mod-head .person-logo{margin-top: 70%;}
+}
+@media screen and(max-width:400px){
+	.itui-person-bg{float:left;}
+}
+.aw-explore-list{
+}
+.aw-top-nav .icon-bar{color:#666;}
+.left-new-collapse{
+position:absolute;
+	z-index:9999;
+	.border(1px,#cbcbcb);
+	border-top:none;
+	.b-shadow();
+	padding-right:0px;
+	padding-left:12px;
+}
+@media screen and (min-width:1000px) and (max-width:1212px){
+.aw-search-box input{
+	.w_h(400px,32px);
+	
+}
+.aw-search-box{
+	margin-left:130px;
+}	
+}
