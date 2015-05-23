@@ -933,7 +933,7 @@ itui-copypower {
 }
 .title-pic img {
   width: 100%;
-  height: 100%;
+  
 }
 .title-pic .inner {
   position: absolute;
@@ -968,8 +968,8 @@ itui-copypower {
   bottom:0px;
 }
 .title-pic .inner .article-introduce .introduce-item h2 {
+  padding-left: 8%;
   padding-right: 10px;
-  padding-left: 10px;
  margin-top: 10%; 
 }
 .title-pic .inner .article-introduce .introduce-item h2 a {
@@ -985,9 +985,9 @@ itui-copypower {
   overflow: hidden;
 }
 .title-pic .inner .article-introduce .introduce-item .infos .left {
-  padding-right: 4%;
-  padding-left: 1%;
-  width: 70%;
+  padding-left: 8%;
+  padding-right: 1%;
+  width: 65%;
   float: left;
 }
 .title-pic .inner .article-introduce .introduce-item .infos .left span {
@@ -1134,7 +1134,8 @@ itui-copypower {
 }
 .read_node{
   /*-webkit-width:80px;*/
-  width:80px;
+ white-space: nowrap;
+ min-width: 90px;
 }
 .itui-news-col,
 .itui-news-border {
@@ -1216,7 +1217,7 @@ itui-copypower {
 
 }
 .itui-news-navbar-nav-ul li a {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   padding-left: 30%;
   padding-right: 30%;
 }
