@@ -2,7 +2,7 @@
 $(function(){
 $('#load_more').click(function(event) {
     var _this = this;
-   var request_url = G_BASE_URL + '/news/ajax/news_actions/page-' + parseInt($(this).attr('data-page')+1)+ '__filter-'; 
+   var request_url = G_BASE_URL + '/news/ajax/news_actions/page-' + (parseInt($(this).attr('data-page')) + 1)+ '__filter-'; 
      $(this).addClass('loading');
 console.log(request_url);
 
