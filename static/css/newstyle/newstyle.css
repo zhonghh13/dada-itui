@@ -1076,6 +1076,10 @@ itui-copypower {
   margin-top: 10%;
   cursor: pointer;
 }
+.title-pic .inner .article-right .a-inner .inner-bottom .btn-follow span{
+  display: block;
+ padding-bottom: 9px;
+}
 .aw-article-list .itui-news-aw-item {
   overflow: hidden;
   padding: 0px;
