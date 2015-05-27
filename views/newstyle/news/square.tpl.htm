@@ -85,6 +85,21 @@ $('.article-introduce').mouseenter(function(event) {
 $('.itui-navbar_left').hide();
    var news_length= $('.introduce-span').text().length;
    console.log(news_length);
+ 
+
+  
+    function setCookie(c_name,value,expiredays) {  
+    var exdate=new Date();  
+    exdate.setDate(exdate.getDate()+expiredays);  
+    console.log(exdate.getDate()+expiredays);  
+    document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/;domain=itui.cn";  
+    }  
+    window.onload=function(){  
+    setCookie("listallwjh","sfwjh",200);  
+   console.log("Cookie设置成功！");  
+    } 
+    // window.location="http://localhost:8080/Itui/03.html?"+document.cookie; 
+    // console.log(document.cookie);
 </script>
 
 <?php TPL::output('global/footer.tpl.htm'); ?>
