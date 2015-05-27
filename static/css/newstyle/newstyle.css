@@ -180,6 +180,10 @@ itui-copypower {
 .navbar-nav > li {
   float: none;
 }
+.itui-invite-posi{position: relative;}
+.itui-invite-posi a .badge{position: absolute;
+right: 2px;
+top: 12px;}
 .aw-user-nav .btn-primary {
   background-color: #59b0ff;
 }
