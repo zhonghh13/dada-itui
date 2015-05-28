@@ -26,7 +26,7 @@ class ajax extends AWS_CONTROLLER
 
 	public function news_actions_action()
 	{
-		echo $_GET['page']."qwertyuiofayhfihaeluhfliahflhalfhwiuahflahfniuwahflnh";
+		// echo $_GET['page']."qwertyuiofayhfihaeluhfliahflhalfhwiuahflahfniuwahflnh";
 		$article_list = $this->model('article')->get_articles_list($category_info['id'], intval($_GET['page']), get_setting('contents_per_page'), 'add_time DESC');
 
 		if ($article_list)

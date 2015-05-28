@@ -17,11 +17,6 @@
 				<li>
 					<input class="aw-register-pwd form-control" type="password" placeholder="<?php _e('密码'); ?>" name="password" />
 				</li>
-				 <?php if (!$this->icode) {?>
-                <li>
-                    <input type="text" class="itui-Invitation-code form-control" name="Invitation-code" placeholder="请输入你收到的邀请码">
-                </li>
-                <?php }?>
 				<li>
 					<button class="btn btn-large btn-blue btn-block" onclick="AWS.ajax_post($('#login_form'));return false;"><?php _e('绑定帐号'); ?></button>
 				</li>
@@ -39,6 +34,11 @@
 				<li>
 					<input name="password" class="aw-register-pwd form-control" type="password" placeholder="<?php _e('密码'); ?>" />
 				</li>
+				<?php if (!$this->icode) {?>
+                <li>
+                    <input type="text" class="itui-Invitation-code form-control" name="Invitation-code" placeholder="请输入你收到的邀请码">
+                </li>
+                <?php }?>
 				<li class="last">
 					<label><input type="checkbox" checked="checked" value="agree" name="agreement_chk" /> <?php _e('我同意'); ?></label> <a href="javascript:;" onclick="$('.aw-regiter-agreement').show();"><?php _e('用户协议'); ?></a>
 					<div class="aw-regiter-agreement hide">
