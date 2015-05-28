@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="inner-bottom">
                                         <p class="preson-des"><?php echo $this->headline['user_info']['signature']; ?></p>
-                                        <div  class="btn-follow"><p>关注</p></div>
+                                        <div  class="btn-follow <?php if ($this->user_follow_check) { ?> active<?php } ?>" onclick="AWS.User.itui_follow($(this), 'user', <?php echo $this->headline['user_info']['uid']; ?>);"><span><?php if ($this->user_follow_check) { ?><?php _e('取消关注'); ?><?php } else { ?><?php _e('关注'); ?><?php } ?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -85,6 +85,21 @@ $('.article-introduce').mouseenter(function(event) {
 $('.itui-navbar_left').hide();
    var news_length= $('.introduce-span').text().length;
    console.log(news_length);
+ 
+
+  
+    function setCookie(c_name,value,expiredays) {  
+    var exdate=new Date();  
+    exdate.setDate(exdate.getDate()+expiredays);  
+    console.log(exdate.getDate()+expiredays);  
+    document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/;domain=itui.cn";  
+    }  
+    window.onload=function(){  
+    setCookie("listallwjh","sfwjh",200);  
+   console.log("Cookie设置成功！");  
+    } 
+    // window.location="http://localhost:8080/Itui/03.html?"+document.cookie; 
+    // console.log(document.cookie);
 </script>
 
 <?php TPL::output('global/footer.tpl.htm'); ?>

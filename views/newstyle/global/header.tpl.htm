@@ -78,7 +78,7 @@
 					<?php if ($this->user_id) { ?>
 					<li>
 						<a href="notifications/" class="<?php if ($_GET['app'] == 'notifications') { ?>active<?php } ?>"><span class="glyphicon glyphicon-bell"></span> <?php _e('通知'); ?></a>
-						<span class="badge badge-important" style="display:none" id="notifications_unread"><?php echo $this->user_info['notification_unread']; ?></span>
+						<span class="badge badge-important" style="" id="notifications_unread"><?php echo $this->user_info['notification_unread']; ?>4</span>
 						<div class="aw-dropdown pull-right hidden-xs">
 							<div class="mod-body">
 								<ul id="header_notification_list"></ul>

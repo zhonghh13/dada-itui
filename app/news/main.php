@@ -185,6 +185,8 @@ class main extends AWS_CONTROLLER
 			$headline['user_info'] = $headline_user_info[$headline['uid']];
 		}
 
+		TPL::assign('user_follow_check', $this->model('follow')->user_follow_check($this->user_id, $headline['user_info']['uid']));
+
 		if ($article_list)
 		{
 			foreach ($article_list as $key => $value) 
@@ -252,6 +254,7 @@ class main extends AWS_CONTROLLER
 		TPL::assign('article_topics', $article_topics);
 
 		TPL::assign('posts_list_bit', TPL::output('news/ajax/list', false));
+
 		// echo "string";
 		// echo $headline['title'];
 		TPL::assign('headline', $headline);
