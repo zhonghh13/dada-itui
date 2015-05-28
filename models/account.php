@@ -1348,6 +1348,23 @@ class account_class extends AWS_MODEL
         ), $uid);
     }
 
+    public function update_recommend_status($status)
+    {
+        return  $this->update('users', array(
+            'is_recommend' => $status,
+        ), 'is_recommend = ' . intval(1));
+    }
+
+    public function cancel_former_recommend()
+    {
+        return $this->model('account')->update_recommend_status(0);
+    }
+
+    public function set_recommend($email)
+    {
+        return $this->update('users', array('is_recommend' => 1),"email = '" . $this->quote($email) . "'");
+    }
+
     public function set_default_timezone($time_zone, $uid)
     {
         return $this->update('users', array(

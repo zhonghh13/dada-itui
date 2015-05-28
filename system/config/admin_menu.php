@@ -124,9 +124,14 @@ $config[] = array(
             'url' => 'admin/user/job_list/'
         ),
         array(
-            'id' => 408,
+            'id' => 409,
             'title' => AWS_APP::lang()->_t('邀请码'),
             'url' => 'admin/user/invite_code/'
+        ),
+        array(
+            'id' => 410,
+            'title' => AWS_APP::lang()->_t('达人推荐'),
+            'url' => 'admin/user/recommend_user/'
         )
     )
 );
