@@ -1543,6 +1543,32 @@ class ajax extends AWS_ADMIN_CONTROLLER
         H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('邀请已发送')));
     }
 
+    public function recommend_user_action()
+    {
+        // echo "string".$_POST['recommend_list'];s
+        if ($_POST['recommend_list'])
+        {
+            $this->model('account')->cancel_former_recommend();
+            foreach($_POST['recommend_list'] as $key => $val)
+            {
+                if($this->model('account')->check_email($val))
+                {
+                    $this->model('account')->set_recommend($val); 
+                }
+                else
+                {
+                    H::ajax_json_output(AWS_APP::RSM(null,-1,'邮箱错误，请重新输入'));
+                }
+            }
+        }
+        else
+        {
+            H::ajax_json_output(AWS_APP::RSM(null,-1,AWS_APP::lang()->_t('请输入达人邮箱')));
+        }
+
+        H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('达人推荐更新成功')));
+    }
+
     public function remove_job_action()
     {
         $this->model('work')->remove_job($_POST['id']);

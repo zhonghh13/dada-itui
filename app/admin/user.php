@@ -251,8 +251,17 @@ class user extends AWS_ADMIN_CONTROLLER
 
         $this->crumb(AWS_APP::lang()->_t('邀请码'), "admin/user/invite_code/");
 
-        TPL::assign('menu_list', $this->model('admin')->fetch_menu_list(408));
+        TPL::assign('menu_list', $this->model('admin')->fetch_menu_list(409));
         TPL::output('admin/user/invite_code');
+    }
+
+    public function recommend_user_action()
+    {
+        //TPL::assign('list',$this->model('account')->fetch_all('users','is_recommend = '.intval(1)));
+        $this->crumb(AWS_APP::lang()->_t('达人推荐'),"admin/user/recommend_user/");
+
+        TPL::assign('menu_list',$this->model('admin')->fetch_menu_list(410));
+        TPL::output('admin/user/recommend_user');
     }
 
     public function verify_approval_list_action()

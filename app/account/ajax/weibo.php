@@ -91,6 +91,19 @@ class ajax_weibo extends AWS_CONTROLLER
             ), -1, AWS_APP::lang()->_t('密码长度不符合规则')));
         }
 
+        if (!$_POST['Invitation-code'])
+        {
+            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('请输入邀请码')));
+        }
+
+        if ($_POST['Invitation-code'])
+        {
+            if (!$admininvitation = $this->model('admininvitation')->check_code_available($_POST['Invitation-code']))
+            {
+                H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('邀请码无效或已过期')));
+            }
+        }
+
         if (!$_POST['agreement_chk'])
         {
             H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('你必需同意用户协议才能继续')));
@@ -156,6 +169,11 @@ class ajax_weibo extends AWS_CONTROLLER
             {
                 AWS_APP::session()->valid_email = $user_info['email'];
             }
+        }
+
+        if ($_POST['Invitation-code'])
+        {
+            $admininvitation_id=$this->model('admininvitation')->use_invitation_code($_POST['Invitation-code']);
         }
 
         unset(AWS_APP::session()->weibo_user);
