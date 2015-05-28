@@ -1660,3 +1660,7 @@ top: 12px;}
 .itui-mod-head-old {
   display: none;
 }
+.no-active{display:block;width: 100px;background-color: #F38F34;padding:10px;color:#fff;margin-top: 20px;margin-right: auto;margin-left: auto;}
+.no-active:hover{color:#fff;}
+.no-active:focus{color:#fff;text-decoration: none;}
+.itui-enter{line-height: 34px;}
