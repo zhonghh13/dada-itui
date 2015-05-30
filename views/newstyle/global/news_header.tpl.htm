@@ -22,10 +22,14 @@
       						<span class="caret"></span>
    						</button>
    						<ul class="dropdown-menu dropdown-menu-news" role="menu" aria-labelledby="dropdownMenu1">
+   							<?php if ($this->topic_list) {?>
+   							<?php foreach ($this->topic_list as $key => $value) {?>
       						<li role="presentation">
-         						<a role="menuitem" tabindex="-1" href="">dfhewi话题1</a>
+         						<a role="menuitem" tabindex="-1" href="topic/<?php echo $value['topic_title'];?>"><?php echo $value['topic_title'];?></a>
       						</li>
-      						<li role="presentation">
+      						<?php }?>
+      						<?php }?>
+      						<!--<li role="presentation">
          						<a role="menuitem" tabindex="-1" href="">供热供热话题2</a>
       						</li>
       						<li role="presentation">
@@ -57,7 +61,7 @@
       						</li>
       						<li role="presentation">
          						<a role="menuitem" tabindex="-1" href="#">话但是是的大是题</a>
-      						</li>
+      						</li>-->
       						<div class="clear"></div>
    						</ul>
 					</div>

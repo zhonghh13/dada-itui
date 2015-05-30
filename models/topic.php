@@ -1500,7 +1500,7 @@ class topic_class extends AWS_MODEL
 
 	public function set_admin_recommend($topic_id)
 	{
-		$this->update('topic', array('is_recommend' => 1), 'topic_id= '. intval($topic_id));
+		$this->update('topic', array('is_recommend' => 1, 'add_time' => time()), 'topic_id= '. intval($topic_id));
 		$this->model('posts')->set_posts_index($topic_id, 'topic');
 	}
 }
