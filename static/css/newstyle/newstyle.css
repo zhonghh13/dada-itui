@@ -1145,6 +1145,8 @@ top: 12px;}
  white-space: nowrap;
  min-width: 90px;
 }
+.read_node a{color:#555;}
+.read_node a:hover{color:#EE6E50;}
 .itui-news-col,
 .itui-news-border {
   border: none;
@@ -1288,8 +1290,9 @@ top: 12px;}
   border: 1px solid #cbcbcb;
 }
 .itui-topic-li .dropdown-menu {min-width: 480px;}
-.itui-topic-li .dropdown-menu a{padding-left: 15%;padding-right: 15px;line-height: 30px;overflow: hidden;}
-.itui-topic-li .dropdown #dropdownMenu1{ color: #2A6496;padding-top: 12px;padding-bottom: 15px;}
+.itui-topic-li .dropdown-menu a{padding-left: 15%;padding-right: 15px;line-height: 30px;overflow: hidden;color: #555;}
+.itui-topic-li .dropdown-menu a:hover{color: #EE6E50;}
+.itui-topic-li .dropdown #dropdownMenu1{ color: #555;padding-top: 12px;padding-bottom: 15px;}
 .itui-topic-li .dropdown .btn-default{
   border: none;
 }
@@ -1298,6 +1301,18 @@ top: 12px;}
 .itui-topic-li .dropdown .btn-default:focus{background-color: #fff;}
 .itui-topic-li .dropdown .btn-default:active{background-color: #fff;}
 .open > .dropdown-toggle.btn-default{background-color: #fff;}
+.fa.fa-angle-up {
+    display: block;
+    font-size: 20px;
+    color: #CBCBCB;
+    position: absolute;
+    left: 12px;
+    top: -13px;
+    background-color: #FFF;
+}
+.itui-topic-li .dropdown .dropdown-menu{
+  top: 90%;
+}
 /*20150522*/
 .more_read{
   padding-left: 15px;
