@@ -83,7 +83,7 @@
 			</div>
 			<?php }?>
 			<div id="detail_more_<?php echo $val['answer_info']['answer_id']; ?>" class="hide markitup-box">
-      			<pre><?php echo nl2br(strip_ubb($val['answer_info']['answer_content'])); ?></pre>
+      			<pre><?php echo nl2br(FORMAT::parse_attachs((FORMAT::parse_bbcode($val['answer_info']['answer_content'])))); ?></pre>
 			</div>
 		<!-- end 回复内容 -->
 		</div>
