@@ -78,7 +78,7 @@
 					<?php if ($this->user_id) { ?>
 					<li>
 						<a href="notifications/" class="<?php if ($_GET['app'] == 'notifications') { ?>active<?php } ?>"><span class="glyphicon glyphicon-bell"></span> <?php _e('通知'); ?></a>
-						<span class="badge badge-important" style="" id="notifications_unread"><?php echo $this->user_info['notification_unread']; ?>4</span>
+						<span class="badge badge-important" style="" id="notifications_unread"><?php echo $this->user_info['notification_unread']; ?></span>
 						<div class="aw-dropdown pull-right hidden-xs">
 							<div class="mod-body">
 								<ul id="header_notification_list"></ul>
@@ -162,7 +162,7 @@
 					<li><a href="article/" class="<?php if ($_GET['app'] == 'article') { ?>active<?php } ?>"><?php _e('文章'); ?></a></li> -->
 
 					<li><a href="topic/home/" <?php if ($_GET['app'] == 'topic') { ?>class="active"<?php } ?>><i class="icon icon-topic"></i> <?php _e('话题'); ?></a></li>
-					<li class="itui-news-watch"><a href="news/square/" target="_blank"><span class="fa fa-camera"></span>今日读点</a></li>
+					<li class="itui-news-watch"><a href="news/square/" target="_blank"><span class="fa fa-camera"></span>围观</a></li>
 					<?php if ($this->user_id) { ?>
 					
 					<?php } ?>
