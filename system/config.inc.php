@@ -14,6 +14,7 @@
 
 // 定义 Cookies 作用域
 define('G_COOKIE_DOMAIN','');
+// define('G_COOKIE_DOMAIN','itui.cn');
 
 // 定义 Cookies 前缀
 define('G_COOKIE_PREFIX','tzg_');

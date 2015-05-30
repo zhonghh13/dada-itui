@@ -176,13 +176,13 @@ class main extends AWS_CONTROLLER
 		// 		// 	echo $value['answer_info']['user_info']['signature'];
 		// 		// }
 		// 	}
-		// 	echo nl2br($value['answer_info']['answer_content']);
-		// 	// echo $value['user_info']['uid'];
-		// 	// echo $val['answer_count'];
-		// 	// foreach ($value['answer_users'] as $key => $value) {
-		// 	// 	echo $key."-".$value."**";
-		// 	// // }
-		// 	// echo $value['view_count'];
+		// // 	echo nl2br($value['answer_info']['answer_content']);
+		// // 	// echo $value['user_info']['uid'];
+		// // 	// echo $val['answer_count'];
+		// // 	// foreach ($value['answer_users'] as $key => $value) {
+		// // 	// 	echo $key."-".$value."**";
+		// // 	// // }
+		// // 	// echo $value['view_count'];
 		// }
 
 		TPL::assign('posts_list', $posts_list);

@@ -242,6 +242,10 @@ class posts_class extends AWS_MODEL
 				$where[] = "post_type != 'topic'";
 			}
 
+			if ($sort == 'unresponsive'){
+				$where[] = "post_type = 'question'";
+			}
+
 			$posts_index = $this->fetch_page('posts_index', implode(' AND ', $where), $order_key, $page, $per_page);
 
 			$this->posts_list_total = $this->found_rows();
