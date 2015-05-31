@@ -151,6 +151,12 @@ class main extends AWS_CONTROLLER
 				// 	// $posts_list[$key]['message'] = nl2br(FORMAT::parse_bbcode($val['message']));
 				// }
 
+				if ($val['answer_info'] AND $val['answer_info']['has_attach']){
+					$answer_ids[] = $val['answer_info']['answer_id'];
+					$answer_attachs = $this->model('publish')->get_attachs('answer', $answer_ids, 'min');
+					$posts_list[$key]['answer_info']['attachs'] = $answer_attachs[$val['answer_info']['answer_id']];
+				}
+
 				if ($_GET['sort_type']=='unresponsive' AND !$val['question_id'])
 				{
 					unset($posts_list[$key]);
@@ -168,7 +174,7 @@ class main extends AWS_CONTROLLER
 
 		// foreach ($posts_list as $key => $value) {
 		// 	echo $key.$value."@@";
-		// 	foreach ($value as $key => $val) {
+		// 	foreach ($posts_list['0']['answer_info'] as $key => $val) {
 		// 		// if ($key == "user_info"){
 		// 			// foreach ($val as $key => $value1) {
 		// 				echo $key.":".$val."---";
