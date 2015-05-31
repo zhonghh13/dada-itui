@@ -1,5 +1,8 @@
 <?php TPL::output('global/header_meta.tpl.htm'); ?>
+<style type="text/css">
 
+
+</style>
 <body>
 	<div class="aw-top-menu-wrap">
 	<!-- logo -->
@@ -7,7 +10,7 @@
 		<a href="<?php echo base_url(); ?>"></a>
 	</div>
 	<!-- end logo -->
-		<div class="container">
+		<div class="container container_header">
 			<ul class="nav navbar-nav itui-news-navbar-nav-ul">
 
 				<li class="read_node">
@@ -22,7 +25,7 @@
       						<span class="caret"></span>
    						</button>
    						<ul class="dropdown-menu dropdown-menu-news" role="menu" aria-labelledby="dropdownMenu1">
-
+   							<span class="fa fa-angle-up"></span>
    							<?php if ($this->topic_list) {?>
    							<?php foreach ($this->topic_list as $key => $value) {?>
       						<li role="presentation">
