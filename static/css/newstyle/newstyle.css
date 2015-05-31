@@ -1143,7 +1143,7 @@ top: 12px;}
 .read_node{
   /*-webkit-width:80px;*/
  white-space: nowrap;
- min-width: 90px;
+ min-width: 50px;
 }
 .read_node a{color:#555;}
 .read_node a:hover{color:#EE6E50;}
@@ -1227,12 +1227,17 @@ top: 12px;}
  
 }
 .itui-news-navbar-nav-ul li a {
+  width:;
   font-size: 1.4rem;
-  padding-left: 30%;
-  padding-right: 30%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 .itui-news-navbar-nav-ul .read_node a{
   font-size: 1.8rem;
+  background-color: #fff;
+}
+.itui-news-navbar-nav-ul .read_node a:hover{
+  background-color: #fff;
 }
 .dropdown-menu-news li{
    width: 25%;
@@ -1679,3 +1684,14 @@ top: 12px;}
 .no-active:hover{color:#fff;}
 .no-active:focus{color:#fff;text-decoration: none;}
 .itui-enter{line-height: 34px;}
+.container_header{
+padding-right: 0px;
+  }
+.itui-news-navbar-nav-ul{margin-left:10px;}
+@media (max-width: 1400px){
+  .container_header{margin-right:auto;}
+  .container_header{
+      padding-left:0px;
+      padding-right: 0px;
+  }
+}

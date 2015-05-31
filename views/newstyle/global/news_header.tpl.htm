@@ -1,5 +1,8 @@
 <?php TPL::output('global/header_meta.tpl.htm'); ?>
+<style type="text/css">
 
+
+</style>
 <body>
 	<div class="aw-top-menu-wrap">
 	<!-- logo -->
@@ -7,7 +10,7 @@
 		<a href="<?php echo base_url(); ?>"></a>
 	</div>
 	<!-- end logo -->
-		<div class="container">
+		<div class="container container_header">
 			<ul class="nav navbar-nav itui-news-navbar-nav-ul">
 
 				<li class="read_node">
@@ -22,6 +25,16 @@
       						<span class="caret"></span>
    						</button>
    						<ul class="dropdown-menu dropdown-menu-news" role="menu" aria-labelledby="dropdownMenu1">
+   							<span class="fa fa-angle-up"></span>
+   							<?php if ($this->topic_list) {?>
+   							<?php foreach ($this->topic_list as $key => $value) {?>
+      						<li role="presentation">
+         						<a role="menuitem" tabindex="-1" href="topic/<?php echo $value['topic_title'];?>" target="_blank"><?php echo $value['topic_title'];?></a>
+      						</li>
+      						<?php }?>
+      						<?php }?>
+      						<!--<li role="presentation">
+         						<a role="menuitem" tabindex="-1" href="">供热供热话题2</a>
    							<span class="fa fa-angle-up"></span>
       						<li role="presentation">
          						<a role="menuitem" tabindex="-1" href="" target="_blank">dfhewi话题1</a>
@@ -57,8 +70,9 @@
          						<a role="menuitem" tabindex="-1" href="" target="_blank">话题3</a>
       						</li>
       						<li role="presentation">
-         						<a role="menuitem" tabindex="-1" href="#" target="_blank">话但是是的大是题</a>
-      						</li>
+
+         						<a role="menuitem" tabindex="-1" href="#">话但是是的大是题</a>
+      						</li>-->
       						<div class="clear"></div>
    						</ul>
 					</div>
