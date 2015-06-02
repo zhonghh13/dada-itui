@@ -20,11 +20,12 @@ if (!defined('IN_ANWSION'))
 
 class education_class extends AWS_MODEL
 {
-	public function add_education_experience($uid, $school_name, $years, $departments = '')
+	public function add_education_experience($uid, $school_name, $degree = '', $years, $departments = '')
 	{
 		return $this->insert('education_experience', array(
 			'uid' => intval($uid),
 			'school_name' => htmlspecialchars($school_name),
+			'degree' => htmlspecialchars($degree),
 			'education_years' => intval($years),
 			'departments' => htmlspecialchars($departments),
 			'add_time' => time(),

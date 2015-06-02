@@ -52,7 +52,7 @@
                                 <?php } ?>
                                 <?php if ($this->job_name) { ?>
                                 <span class="person-tag itui-hide-person-job">
-                                    <span class="icon icon-job" ></span>
+                                    <span class="icon icon-job"></span>
                                     <?php echo $this->job_name; ?>
                                 </span>
                                 <?php } ?>
@@ -62,12 +62,13 @@
                                     <span class="fa fa-university"></span>
                                     <?php echo $this->education_experience_list[0]['school_name'];?>
                                     <?php echo $this->education_experience_list[0]['departments'];?>
+                                    <?php echo $this->education_experience_list[0]['degree'];?>
                                 </span>
                                 <?php }?>
                                  <?php
                                 if($this->work_experience_list){?>
                                 <span class="person-tag">
-                                    <i class="icon icon-job"></i>
+                                    <span class="icon icon-job"></span>
                                     <?php echo $this->work_experience_list[0]['company_name'];?>
                                     <?php echo $this->work_experience_list[0]['job_name'];?>
                                 </span>

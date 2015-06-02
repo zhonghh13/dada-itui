@@ -711,12 +711,18 @@ class ajax extends AWS_CONTROLLER
 	function add_edu_action()
 	{
 		$school_name = htmlspecialchars($_POST['school_name']);
+		$degree = htmlspecialchars($_POST['degree']); 
 		$education_years = intval($_POST['education_years']);
 		$departments = htmlspecialchars($_POST['departments']);
 
 		if (!$_POST['school_name'])
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请输入学校名称')));
+		}
+
+		if (!$_POST['degree'])
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请输入学历')));
 		}
 
 		if (!$_POST['departments'])
@@ -734,6 +740,11 @@ class ajax extends AWS_CONTROLLER
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('学校名称不能包含 /')));
 		}
 
+		if (preg_match('/\//is', $_POST['degree']))
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('学历不能包含 /')));
+		}
+
 		if (preg_match('/\//is', $_POST['departments']))
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('院系名称不能包含 /')));
@@ -742,10 +753,11 @@ class ajax extends AWS_CONTROLLER
 		if (get_setting('auto_create_social_topics') == 'Y')
 		{
 			$this->model('topic')->save_topic($_POST['school_name']);
+			$this->model('topic')->save_topic($_POST['degree']);
 			$this->model('topic')->save_topic($_POST['departments']);
 		}
 
-		$edu_id = $this->model('education')->add_education_experience($this->user_id, $school_name, $education_years, $departments);
+		$edu_id = $this->model('education')->add_education_experience($this->user_id, $school_name, $degree, $education_years, $departments);
 
 		if (!$this->model('integral')->fetch_log($this->user_id, 'UPDATE_EDU'))
 		{

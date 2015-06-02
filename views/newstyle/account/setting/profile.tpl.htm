@@ -160,6 +160,7 @@
 					<thead>
 						<tr>
 							<th><?php _e('学校名称'); ?></th>
+							<th><?php _e('学历');?></th>
 							<th><?php _e('专业'); ?></th>
 							<th width="20%"><?php _e('入学年份'); ?></th>
 							<th width="20%"><?php _e('操作'); ?></th>
@@ -169,6 +170,12 @@
 						<tr>
 							<td>
 								<input type="text" class="school form-control" placeholder="<?php _e('如:xx大学'); ?>...">
+							</td>
+							<td>
+								<select class="degree">
+									<option value=""></option>
+									<?php echo H::display_options(array('本科'=>'本科','硕士'=>'硕士', '博士'=>'博士','其他'=>'其他')); ?>
+								</select>
 							</td>
 							<td>
 								<input type="text" class="departments form-control" placeholder="<?php _e('如:新闻传播学'); ?>...">
@@ -198,7 +205,7 @@
 					<thead>
 						<tr>
 							<th width="30%"><?php _e('公司名称'); ?></th>
-							<th><?php _e('所在职位'); ?></th>
+							<th><?php _e('所属行业'); ?></th>
 							<th><?php _e('工作时间'); ?></th>
 							<th width="15%"><?php _e('操作'); ?></th>
 						</tr>

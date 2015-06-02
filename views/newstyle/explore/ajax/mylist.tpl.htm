@@ -80,10 +80,35 @@
 				<?php if (cjk_strlen($val['answer_info']['answer_content']) > 130) { ?>
         		<a href="javascript:;" class="showMore" onclick="AWS.content_switcher($('#detail_<?php echo $val['answer_info']['answer_id']; ?>'), $('#detail_more_<?php echo $val['answer_info']['answer_id']; ?>'));"><?php _e('显示全部'); ?> »</a>
         		<?php } ?>
+
+        		<?php if ($val['answer_info']['attachs']) { ?>
+				<div class="aw-upload-img-list width-auto">
+					<?php foreach($val['answer_info']['attachs'] AS $t_key => $t_val) { ?>
+					<?php if ($t_val['is_image']): ?>
+						<a href="javascript:;" onclick="AWS.content_switcher($('#detail_<?php echo $val['answer_info']['answer_id']; ?>'), $('#detail_more_<?php echo $val['answer_info']['answer_id']; ?>'));">
+							<img class="img-thumbnail" src="<?php echo $t_val[thumb]; ?>" alt="<?php echo $t_val['file_name']; ?>" />
+						</a>
+					<?php endif; ?>
+				  <?php } ?>
+				</div>
+
+				<div class="aw-upload-file-list">
+					<?php foreach($val['answer_info']['attachs'] AS $t_key => $t_val) { ?>
+					<?php if (!$t_val['is_image']): ?>
+						<li><a href="<?php echo download_url($t_val['file_name'], $t_val['attachment']); ?>"><em class="aw-icon i-upload-file"></em><?php echo $t_val['file_name']; ?></a></li>
+					<?php endif; ?>
+				  <?php } ?>
+				</div>
+			<?php } ?>
+
+        		 
 			</div>
 			<?php }?>
 			<div id="detail_more_<?php echo $val['answer_info']['answer_id']; ?>" class="hide markitup-box">
-      			<pre><?php echo nl2br(strip_ubb($val['answer_info']['answer_content'])); ?></pre>
+      			<pre><?php echo nl2br(FORMAT::parse_attachs((FORMAT::parse_bbcode($val['answer_info']['answer_content'])))); ?></pre>
+      			<?php if (cjk_strlen($val['answer_info']['answer_content']) > 130) { ?>
+        		<a href="javascript:;" class="showMore" onclick="AWS.content_switcher($('#detail_more_<?php echo $val['answer_info']['answer_id']; ?>'), $('#detail_<?php echo $val['answer_info']['answer_id']; ?>'));"><?php _e('收起'); ?> »</a>
+        		<?php } ?>
 			</div>
 		<!-- end 回复内容 -->
 		</div>

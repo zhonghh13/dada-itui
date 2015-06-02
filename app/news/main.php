@@ -158,6 +158,10 @@ class main extends AWS_CONTROLLER
 			}
 		}
 
+		$topic_where = 'is_recommend = 1';
+		$recommend_topic_list = $this->model('topic')->get_topic_list($topic_where,'add_time DESC',12);
+		TPL::assign('topic_list', $recommend_topic_list);
+
 		$article_list = $this->model('article')->get_articles_list($category_info['id'], $_GET['page'], get_setting('contents_per_page'), 'add_time DESC');
 
 		$article_list_total = $this->model('article')->found_rows();
@@ -260,7 +264,7 @@ class main extends AWS_CONTROLLER
 		TPL::assign('headline', $headline);
 		TPL::import_js('js/app/news.js');
 
-		$this->crumb(AWS_APP::lang()->_t('媒体'), '/news/');
+		$this->crumb(AWS_APP::lang()->_t('围观-分享知识，激荡思想'), '/news/');
 		TPL::output('news/square');
 		// echo "string";
 	}

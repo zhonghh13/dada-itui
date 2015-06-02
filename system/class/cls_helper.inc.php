@@ -147,23 +147,31 @@ class H
 				'='
 			), $hash_string);
 		}
-
+// echo $hash_string;
 		$hash_string = base64_decode($hash_string);
+		// echo $hash_string;
+		// echo "string".strlen($hash_string);
 
 		for ($i = 1; $i <= strlen($hash_string); $i ++)
 		{
 			$char = substr($hash_string, $i - 1, 1);
+			// echo "char:".$char;
 			$keychar = substr($hash_key, ($i % strlen($hash_key)) - 2, 1);
+			// echo "keychar:".$keychar;
 			$char = chr(ord($char) - ord($keychar));
+			// echo "text:".$char."|";
 			$tmp_str .= $char;
 		}
 
 		$hash_data = array();
 
+		// echo $tmp_str;
+
 		$arr = explode('!;-', $tmp_str);
 
 		foreach ($arr as $value)
 		{
+			// echo $value;
 			list($k, $v) = explode('^]+', $value);
 
 			if ($k)

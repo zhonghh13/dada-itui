@@ -1143,8 +1143,10 @@ top: 12px;}
 .read_node{
   /*-webkit-width:80px;*/
  white-space: nowrap;
- min-width: 90px;
+ min-width: 50px;
 }
+.read_node a{color:#555;}
+.read_node a:hover{color:#EE6E50;}
 .itui-news-col,
 .itui-news-border {
   border: none;
@@ -1225,12 +1227,17 @@ top: 12px;}
  
 }
 .itui-news-navbar-nav-ul li a {
+  width:;
   font-size: 1.4rem;
-  padding-left: 30%;
-  padding-right: 30%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 .itui-news-navbar-nav-ul .read_node a{
   font-size: 1.8rem;
+  background-color: #fff;
+}
+.itui-news-navbar-nav-ul .read_node a:hover{
+  background-color: #fff;
 }
 .dropdown-menu-news li{
    width: 25%;
@@ -1288,8 +1295,9 @@ top: 12px;}
   border: 1px solid #cbcbcb;
 }
 .itui-topic-li .dropdown-menu {min-width: 480px;}
-.itui-topic-li .dropdown-menu a{padding-left: 15%;padding-right: 15px;line-height: 30px;overflow: hidden;}
-.itui-topic-li .dropdown #dropdownMenu1{ color: #2A6496;padding-top: 12px;padding-bottom: 15px;}
+.itui-topic-li .dropdown-menu a{padding-left: 15%;padding-right: 15px;line-height: 30px;overflow: hidden;color: #555;}
+.itui-topic-li .dropdown-menu a:hover{color: #EE6E50;}
+.itui-topic-li .dropdown #dropdownMenu1{ color: #555;padding-top: 12px;padding-bottom: 15px;}
 .itui-topic-li .dropdown .btn-default{
   border: none;
 }
@@ -1298,6 +1306,18 @@ top: 12px;}
 .itui-topic-li .dropdown .btn-default:focus{background-color: #fff;}
 .itui-topic-li .dropdown .btn-default:active{background-color: #fff;}
 .open > .dropdown-toggle.btn-default{background-color: #fff;}
+.fa.fa-angle-up {
+    display: block;
+    font-size: 20px;
+    color: #CBCBCB;
+    position: absolute;
+    left: 12px;
+    top: -13px;
+    background-color: #FFF;
+}
+.itui-topic-li .dropdown .dropdown-menu{
+  top: 90%;
+}
 /*20150522*/
 .more_read{
   padding-left: 15px;
@@ -1659,4 +1679,32 @@ top: 12px;}
 /*用户管理*/
 .itui-mod-head-old {
   display: none;
+}
+.no-active{display:block;width: 100px;background-color: #F38F34;padding:10px;color:#fff;margin-top: 20px;margin-right: auto;margin-left: auto;}
+.no-active:hover{color:#fff;}
+.no-active:focus{color:#fff;text-decoration: none;}
+.itui-enter{line-height: 34px;}
+.container_header{
+padding-right: 0px;
+  }
+.itui-news-navbar-nav-ul{margin-left:0px;}
+@media (min-width: 992px){
+  .container_header{
+    margin-right:auto;  width: 970px !important;
+      padding-left:0px;
+      padding-right: 0px;
+  }
+}
+@media (min-width: 1200px){
+  .container_header{
+    margin-right:auto;  width: 990px !important;}
+}
+@media (max-width: 1400px){
+  .container_header{
+    margin-right:auto;
+    padding-left: 0px; 
+
+   
+  }
+  
 }

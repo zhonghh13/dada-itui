@@ -75,7 +75,7 @@
 	<div class="mod-body clearfix">
 		<!-- 评论内容 -->
 		<div id="detail_<?php echo $val['history_id']; ?>" class="markitup-box">
-      		<?php echo nl2br(strip_ubb(cjk_substr($val['answer_info']['answer_content'], 0, 130, 'UTF-8', '...'))); ?>
+      		<?php echo cjk_substr(strip_tags(FORMAT::parse_attachs(nl2br(FORMAT::parse_bbcode($val['answer_info']['answer_content'])))), 0, 130, 'UTF-8', '...'); ?>
       		<?php if (cjk_strlen($val['answer_info']['answer_content']) > 130) { ?>
         	<a href="javascript:;" class="showMore" onclick="AWS.content_switcher($('#detail_<?php echo $val['history_id']; ?>'), $('#detail_more_<?php echo $val['history_id']; ?>'));"><?php _e('显示全部'); ?> »</a>
         	<?php } ?>
@@ -101,8 +101,8 @@
 			<?php } ?>
 		</div>
 		<div id="detail_more_<?php echo $val['history_id']; ?>" class="hide markitup-box">
-      		<?php echo nl2br(strip_ubb($val['answer_info']['answer_content'])); ?>
-
+      		<?php echo nl2br(FORMAT::parse_attachs((FORMAT::parse_bbcode(($val['answer_info']['answer_content']))))); ?>
+<!-- 
 			<?php if ($val['answer_info']['attachs']) { ?>
 				<div class="aw-upload-img-list active">
 					<?php foreach($val['answer_info']['attachs'] AS $t_key => $t_val) { ?>
@@ -110,7 +110,7 @@
 						<a href="<?php echo $t_val['attachment']; ?>" target="lightbox" data-fancybox-group="thumb" rel="lightbox"><img class="img-thumbnail" src="<?php echo $t_val['attachment']; ?>" alt="" /></a>
 					<?php endif; ?>
 				  <?php } ?>
-				</div>
+				</div> 
 
 				<div class="aw-upload-file-list">
 					<?php foreach($val['answer_info']['attachs'] AS $t_key => $t_val) { ?>
@@ -119,7 +119,7 @@
 					<?php endif; ?>
 				  <?php } ?>
 				</div>
-			<?php } ?>
+			<?php } ?> -->
 		</div>
 		<!-- end 评论内容 -->
 	</div>
