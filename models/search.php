@@ -27,6 +27,7 @@ class search_class extends AWS_MODEL
 		if (in_array('users', $types) AND !$is_recommend)
 		{
 			$result = array_merge((array)$result, (array)$this->search_users($q, $page, $limit));
+			$result = array_merge((array)$result,(array)$this->search_users_by_school_department($q,$page,$limit));
 		}
 
 		if (in_array('topics', $types) AND !$is_recommend)
@@ -64,6 +65,48 @@ class search_class extends AWS_MODEL
 		}
 
 		return $this->query_all('SELECT uid, last_login FROM ' . get_table('users') . ' WHERE ' . implode(' OR ', $where), calc_page_limit($page, $limit));
+	}
+
+	public function search_users_by_school_department($q,$page,$limit = 20)
+	{
+		if (is_array($q) AND sizeof($q) > 1)
+		{
+			$q = htmlspecialchars(implode($q));
+			//utf编码 汉字为3个字符
+			$condition = str_split($q,3);
+			foreach ($condition as $key => $value) {
+				$value .= '%';
+				$search_name .= $value;
+			}
+//			echo "first type search: ".$search_name;
+			$where[] = "b.school_department LIKE '%" . $this->quote($search_name) . "' OR b.school_department LIKE '%" . $this->quote($search_name) . "' GROUP BY b.uid";
+//			$group_by = 'a.'.'uid';
+//			$where[]. = $group_by;
+		}
+		else
+		{
+			if (is_array($q))
+			{
+				$q = htmlspecialchars(implode('', $q));
+//				echo "$q:".$q." ";
+				//utf-8编码 汉字为3个字符
+				$condition = str_split($q,3);
+//				echo "condition:".count($condition)." ";
+				foreach ($condition as $key => $value) {
+					$value.='%';
+//					echo "value".$value." ";
+					$search_name .= $value;
+				}
+			}
+
+			echo "search_name::".$search_name;
+
+			$where[] = "b.school_department LIKE '%" . $this->quote($search_name) ."' GROUP BY b.uid";
+//			$group_by = 'a.'.'uid';
+//			$where[]. = $group_by;
+		}
+
+		return $this->query_all('SELECT a.uid, a.last_login FROM ' . get_table('users') . ' a JOIN '.get_table('education_experience').' b ON a.uid=b.uid'.' WHERE ' . implode(' OR ', $where), calc_page_limit($page, $limit));
 	}
 
 	public function search_topics($q, $page, $limit = 20)

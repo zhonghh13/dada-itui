@@ -27,7 +27,8 @@ class education_class extends AWS_MODEL
 			'school_name' => htmlspecialchars($school_name),
 			'education_years' => intval($years),
 			'departments' => htmlspecialchars($departments),
-			'add_time' => time()
+			'add_time' => time(),
+			'school_department' => htmlspecialchars($school_name.$departments)
 		));
 	}
 
