@@ -398,7 +398,9 @@ var AW_TEMPLATE = {
 
 	'educateEdit' :
 			'<td><input type="text" value="{{school}}" class="school form-control"></td>'+
-			'<td><input type="text" value="{{degree}}" class="degree form-control"></td>'+
+			'<td><select class="degree editDegree">'+
+				'</select>'+
+			'</td>'+
 			'<td><input type="text" value="{{departments}}" class="departments form-control"></td>'+
 			'<td><select class="year edityear">'+
 				'</select> ' + _t('年') + '</td>'+

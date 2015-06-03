@@ -64,7 +64,7 @@
 						<div class="col-lg-8">
 							<a class="btn btn-mini btn-default"><?php _e('上传附件'); ?></a>
 							<span class="text-color-999 upload-url"></span>
-							<p class="text-color-999"><?php _e('请提交对应的身份证或者组织机构代码证件扫描'); ?></p>
+							<p class="text-color-999"><?php _e('请提交对应的学生证或者组织机构代码证件扫描'); ?></p>
 							<input name="attach" type="file" class="upload-attach form-control hide" onchange="$('.upload-url').html($(this).val());"/>
 						</div>
 					</div>  
@@ -85,7 +85,7 @@
 		$('#type_personal').click(function()
 		{
 			$('.verify-name span').html(_t('真实姓名'));
-			$('.verify-code span').html(_t('身份证号码'));
+			$('.verify-code span').html(_t('学生证号码'));
 		});
 		
 		$('#type_enterprise').click(function()

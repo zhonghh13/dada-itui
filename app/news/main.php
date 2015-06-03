@@ -26,10 +26,10 @@ class main extends AWS_CONTROLLER
 			$this->model('notify')->read_notification($_GET['notification_id'], $this->user_id);
 		}
 
-		if (is_mobile())
-		{
-			HTTP::redirect('/m/news/' . $_GET['id']);
-		}
+		// if (is_mobile())
+		// {
+		// 	HTTP::redirect('/m/news/' . $_GET['id']);
+		// }
 
 		if (! $article_info = $this->model('article')->get_article_info_by_id($_GET['id']))
 		{
@@ -141,10 +141,10 @@ class main extends AWS_CONTROLLER
 
 	public function square_action()
 	{
-		if (is_mobile())
-		{
-			HTTP::redirect('/m/news/');
-		}
+		// if (is_mobile())
+		// {
+		// 	HTTP::redirect('/m/news/');
+		// }
 		
 		if ($_GET['category'])
 		{
@@ -264,7 +264,7 @@ class main extends AWS_CONTROLLER
 		TPL::assign('headline', $headline);
 		TPL::import_js('js/app/news.js');
 
-		$this->crumb(AWS_APP::lang()->_t('围观-分享知识，激荡思想'), '/news/');
+		$this->crumb(AWS_APP::lang()->_t('围观'), '/news/');
 		TPL::output('news/square');
 		// echo "string";
 	}
