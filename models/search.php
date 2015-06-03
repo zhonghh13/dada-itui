@@ -52,6 +52,7 @@ class search_class extends AWS_MODEL
 	{
 		if (is_array($q) AND sizeof($q) > 1)
 		{
+			// echo "string".implode(' ', $q);
 			$where[] = "user_name = '" . $this->quote(implode(' ', $q)) . "' OR user_name = '" . $this->quote(implode('', $q)) . "'";
 		}
 		else
@@ -71,15 +72,15 @@ class search_class extends AWS_MODEL
 	{
 		if (is_array($q) AND sizeof($q) > 1)
 		{
-			$q = htmlspecialchars(implode($q));
+			$q = htmlspecialchars(implode('', $q));
 			//utf编码 汉字为3个字符
 			$condition = str_split($q,3);
 			foreach ($condition as $key => $value) {
 				$value .= '%';
 				$search_name .= $value;
 			}
-//			echo "first type search: ".$search_name;
-			$where[] = "b.school_department LIKE '%" . $this->quote($search_name) . "' OR b.school_department LIKE '%" . $this->quote($search_name) . "' GROUP BY b.uid";
+			// echo "first type search: ".$search_name;
+			$where[] = "b.school_department LIKE '%" . $this->quote($search_name) . "' GROUP BY b.uid";
 //			$group_by = 'a.'.'uid';
 //			$where[]. = $group_by;
 		}
@@ -99,7 +100,7 @@ class search_class extends AWS_MODEL
 				}
 			}
 
-			echo "search_name::".$search_name;
+			// echo "search_name::".$search_name;
 
 			$where[] = "b.school_department LIKE '%" . $this->quote($search_name) ."' GROUP BY b.uid";
 //			$group_by = 'a.'.'uid';
