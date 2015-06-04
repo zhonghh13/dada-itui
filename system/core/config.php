@@ -25,7 +25,7 @@ class core_config
 				case 'database':
 					return (object)array(
 						'charset' => 'utf8',
-						'prefix' => 'aws_',
+						'prefix' => 'aws_itui_',
 						'driver' => 'PDO_MYSQL',
 						'master' => array(
 							'host' => SAE_MYSQL_HOST_M . ':' . SAE_MYSQL_PORT,
