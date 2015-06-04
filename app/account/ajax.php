@@ -841,6 +841,11 @@ class ajax extends AWS_CONTROLLER
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请输入学校名称')));
 		}
 
+		if (!$_POST['degree'])
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请输入学历')));
+		}
+
 		if (!$_POST['departments'])
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请输入院系')));
@@ -852,12 +857,18 @@ class ajax extends AWS_CONTROLLER
 		}
 
 		$update_data['school_name'] = htmlspecialchars($_POST['school_name']);
+		$update_data['degree'] = htmlspecialchars($_POST['degree']);
 		$update_data['education_years'] = intval($_POST['education_years']);
 		$update_data['departments'] = htmlspecialchars($_POST['departments']);
 
 		if (preg_match('/\//is', $_POST['school_name']))
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('学校名称不能包含 /')));
+		}
+
+		if (preg_match('/\//is', $_POST['degree']))
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('学历不能包含 /')));
 		}
 
 		if (preg_match('/\//is', $_POST['departments']))
@@ -868,6 +879,7 @@ class ajax extends AWS_CONTROLLER
 		if (get_setting('auto_create_social_topics') == 'Y')
 		{
 			$this->model('topic')->save_topic($_POST['school_name']);
+			$this->model('topic')->save_topic($_POST['degree']);
 			$this->model('topic')->save_topic($_POST['departments']);
 		}
 
