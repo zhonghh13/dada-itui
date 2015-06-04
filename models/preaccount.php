@@ -37,7 +37,7 @@ class preaccount_class extends AWS_MODEL
 
         if (H::valid_email($email))
         {
-            $previous_uid = $this->is_exist($email);
+            $previous_uid = $this->is_exist($email, $password);
         }
 
         if (! $previous_uid)
@@ -63,14 +63,15 @@ class preaccount_class extends AWS_MODEL
      * @param boolean
      * @return int
      */
-    public function is_exist($email, $cache_result = true)
+    public function is_exist($email, $password, $cache_result = true)
     {
         if (!$email)
         {
             return false;
         }
 
-        if ($uid = $this->fetch_one('previous_users', 'id', "email = '" . $this->quote($email) . "'"))
+        $password = md5($password);
+        if ($uid = $this->fetch_one('previous_users', 'id', "email = '" . $this->quote($email) . "' AND password = '" . $this->quote($password)."'" ))
         {
             // return $this->get_user_info_by_uid($uid, $attrb, $cache_result);
             return $uid;
@@ -175,6 +176,7 @@ class preaccount_class extends AWS_MODEL
                 'reputation_group' => 5,
                 'invitation_available' => get_setting('newer_invitation_num'),
                 'is_first_login' => 1, 
+                //设置valid_email为1，绕过邮箱验证
                 'valid_email' => 1
             ), 'uid = ' . intval($uid));
 
