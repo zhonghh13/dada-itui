@@ -295,11 +295,20 @@ class ajax extends AWS_CONTROLLER
 		else
 		{
 			$user_info = $this->model('account')->check_login($_POST['user_name'], $_POST['password']);
+
 		}
 
 		if (! $user_info)
 		{
-			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('请输入正确的帐号或密码')));
+			$previous_user_uid = $this->model('preaccount')->check_login($_POST['user_name'],$_POST['password']);
+			if($previous_user_uid)
+			{
+                $user_info = $this->model('account')->check_login($_POST['user_name'], $_POST['password']);
+			}
+			else
+			{
+				H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('请输入正确的帐号或密码')));
+			}	
 		}
 		else
 		{
