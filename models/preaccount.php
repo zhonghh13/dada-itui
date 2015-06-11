@@ -46,8 +46,8 @@ class preaccount_class extends AWS_MODEL
         }
         else
         {
-        	$init_user_name = $email;
-        	$uid = $this->previous_user_register($init_user_name, $password, $email);
+        	$init_user_name = explode('@', $email);
+        	$uid = $this->previous_user_register($init_user_name[0], $password, $email);
             return $uid;
         }
 
