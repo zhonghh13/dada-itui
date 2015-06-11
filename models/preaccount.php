@@ -172,7 +172,7 @@ class preaccount_class extends AWS_MODEL
             }
 
             $this->update('users', array(
-                'group_id' => 3,
+                'group_id' => 4,
                 'reputation_group' => 5,
                 'invitation_available' => get_setting('newer_invitation_num'),
                 'is_first_login' => 1, 
