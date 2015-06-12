@@ -9,6 +9,8 @@
 @media screen and(max-width:1100px){   
 }*/
 /*顶部导航栏*/
+a{text-decoration: none;}
+a:hover{text-decoration: none;}
 @media screen and (min-width: 400px) {
   .itui-navbar_top {
     display: block;
@@ -1728,3 +1730,4 @@ padding-right: 0px;
   -o-border-radius: 50%;
   border-radius: 50%;
 }
+.aw-question-content p a{text-decoration: none;}
