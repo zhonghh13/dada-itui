@@ -66,7 +66,7 @@
 					</dd>
 				</dl>
 				<dl>
-					<dt><label><?php _e('现居'); ?>:</label></dt>
+					<dt><label><?php _e('籍贯'); ?>:</label></dt>
 					<dd>
 						<select name="province" class="select_area"></select> <select name="city" class="select_area"></select>
 					</dd>
@@ -205,7 +205,7 @@
 					<thead>
 						<tr>
 							<th width="30%"><?php _e('公司名称'); ?></th>
-							<th><?php _e('所在职位'); ?></th>
+							<th><?php _e('所属行业'); ?></th>
 							<th><?php _e('工作时间'); ?></th>
 							<th width="15%"><?php _e('操作'); ?></th>
 						</tr>
@@ -249,7 +249,7 @@
 				<ul>
 					<li>
 						<label for="input-qq">QQ :</label>
-					    <input class="form-control" type="text" id="input-qq" name="qq" value="<?php echo $this->user_info['qq']; ?>" />
+					    <input class="form-control" type="text" id="input-qq" name="qq" value="<?php if ($this->user_info['qq']) echo $this->user_info['qq']; ?>" />
 					</li>
 					<li>
 						<label for="input-mobile"><?php _e('手机号码'); ?> :</label>

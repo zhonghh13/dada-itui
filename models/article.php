@@ -494,7 +494,8 @@ class article_class extends AWS_MODEL
 	public function set_admin_recommend($article_id)
 	{
 		$this->update('article', array(
-			'is_recommend' => 2
+			'is_recommend' => 2,
+			'recommend_time' => time()
 		), 'id = ' . intval($article_id));
 
 		$this->model('posts')->set_posts_index($article_id, 'article');

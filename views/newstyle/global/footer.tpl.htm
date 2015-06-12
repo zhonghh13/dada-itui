@@ -2,7 +2,7 @@
 	<div class="aw-footer">
 		<span class="hidden-xs itui-copyright">Copyright © <?php echo date('Y'); ?><?php if(get_setting('icp_beian')){ ?> - <?php echo get_setting('icp_beian'); ?><?php } ?>, All Rights Reserved</span>
 
-		<span class="hidden-xs itui-copypower">Powered By <a href="http://www.wecenter.com/?copyright" target="blank">WeCenter <?php echo G_VERSION; ?></a></span>
+		<!-- <span class="hidden-xs itui-copypower">Powered By <a href="http://www.wecenter.com/?copyright" target="blank">WeCenter <?php echo G_VERSION; ?></a></span> -->
 
 		<?php if (is_mobile(true)) { ?>
 			<div class="container">
@@ -16,7 +16,7 @@
 
 <a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i class="icon icon-up"></i></a>
 
-<?php echo get_setting('statistic_code'); ?>
+<div style="display:none;"><?php echo get_setting('statistic_code'); ?></div>
 
 <!-- DO NOT REMOVE -->
 <div id="aw-ajax-box" class="aw-ajax-box"></div>
