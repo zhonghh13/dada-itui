@@ -53,7 +53,8 @@ class main extends AWS_CONTROLLER
 		}
 		else if (! $return_url)
 		{
-			$url = '/';
+			// $url = '/';
+			$url="http://www.itui.cn";
 		}
 		else
 		{
@@ -97,7 +98,8 @@ class main extends AWS_CONTROLLER
 			}
 			else
 			{
-				HTTP::redirect('/');
+				// HTTP::redirect('/');
+				HTTP::redirect('http://www.itui.cn');
 			}
 		}
 
