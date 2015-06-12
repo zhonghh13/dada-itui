@@ -1731,3 +1731,10 @@ padding-right: 0px;
   border-radius: 50%;
 }
 .aw-question-content p a{text-decoration: none;}
+#search_result .aw-item .aw-user-img img{
+-webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
