@@ -108,7 +108,7 @@ class main extends AWS_CONTROLLER
 
 		TPL::assign('user_follow_check', $this->model('follow')->user_follow_check($this->user_id, $user['uid']));
 
-		$this->crumb(AWS_APP::lang()->_t('%s 的个人主页', $user['user_name']), 'people/' . $user['url_token']);
+		$this->crumb(AWS_APP::lang()->_t('%s', $user['user_name']), 'people/' . $user['url_token']);
 
 		TPL::import_css('css/user.css');
 
