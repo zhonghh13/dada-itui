@@ -497,7 +497,8 @@ var AW_TEMPLATE = {
 						'<dl>'+
 							'<dt></dt>'+
 							'<dd>'+
-								'<a href="javascript:;" class="btn btn-primary btn-green save">保存</a>'+
+								// '<a href="javascript:;" class="btn btn-primary btn-green save">保存</a>'+
+								'<a href="javascript:;" class="btn btn-default save">保存</a>'+
 								'<a href="javascript:;" class="btn btn-default cancel">取消</a>'+
 							'</dd>'+
 						'</dl>'+

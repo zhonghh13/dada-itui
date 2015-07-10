@@ -139,6 +139,11 @@ class preaccount_class extends AWS_MODEL
             $dir3 = substr($uid_t, 5, 2);
 
             $path = get_setting('upload_dir') . '/avatar/' . $dir1 . '/' . $dir2 . '/' . $dir3 . '/' . substr($uid_t, - 2) . '_avatar_';
+            $avatar_dir = dirname($path) . '/';
+            if(!file_exists($avatar_dir))
+            {
+                make_dir($avatar_dir);
+            }
             copy(get_setting('upload_dir') . '/avatar/'.$rand_index."min.jpg", $path."min.jpg");
             copy(get_setting('upload_dir') . '/avatar/'.$rand_index."mid.jpg", $path."mid.jpg");
             copy(get_setting('upload_dir') . '/avatar/'.$rand_index."max.jpg", $path."max.jpg");

@@ -254,6 +254,9 @@ class posts_class extends AWS_MODEL
 		// foreach ($posts_index as $key => $value) {
 		// 	echo $key.":".$value."&&";
 		// }
+        // $result1=$this->process_explore_list_data($posts_index);
+        // var_dump($result1);
+        // return $result1;
 		return $this->process_explore_list_data($posts_index);
 	}
 

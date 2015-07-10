@@ -136,6 +136,7 @@ class ajax extends AWS_CONTROLLER
 			AWS_APP::upload()->initialize(array(
 				'allowed_types' => 'jpg,jpeg,png',
 				'upload_path' => get_setting('upload_dir') . '/project',
+//				'upload_path' => 'D:\Software\Xampp\setup\htdocs\dada-itui\project',
 				'is_image' => TRUE
 			))->do_upload('cover');
 
