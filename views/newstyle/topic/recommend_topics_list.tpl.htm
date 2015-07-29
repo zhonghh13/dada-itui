@@ -15,8 +15,8 @@
         <!-- end 话题内容 -->
         </p>
         <?php foreach ($val['questions'] as $key => $value) {?>
-        <h4 class="question" style="padding-right:20px;"><a href="question/<?php echo $value['question_id']; ?>"><?php echo $value['question_content']; ?></a></h4>
-        <?php }?>                    		
+        <h4 class="question" style="padding-right:20px;"><a href="question/<?php echo $value['question_id']; ?>"><?php if(mb_strlen($value['question_content'],'utf-8')>35){echo mb_substr($value['question_content'], 0,35,'utf-8').'...';} else{echo $value['question_content'];} ?></a></h4>
+        <?php } ?>                    		
         <p class="text-color-999 itui-hide-talkabout">
             <span><?php _e('%s 个讨论', $val['discuss_count']); ?></span>
             <span><?php _e('%s 个关注', $val['focus_count']); ?></span>

@@ -79,6 +79,22 @@ class preaccount_class extends AWS_MODEL
     }
 
     /**
+     * 检查电子邮件地址是否已经存在
+     *
+     * @param string
+     * @return boolean
+     */
+    public function check_email($email)
+    {
+        if (! H::valid_email($email))
+        {
+            return TRUE;
+        }
+
+        return $this->fetch_one('previous_users', 'id', "email = '" . $this->quote($email) . "'");
+    }
+
+    /**
      * 老用户数据
      *
      * @param string

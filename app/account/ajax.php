@@ -570,7 +570,7 @@ class ajax extends AWS_CONTROLLER
 			H::ajax_json_output(AWS_APP::RSM(null, '-1',  AWS_APP::lang()->_t('请填写正确的验证码')));
 		}
 
-		if (!$user_info = $this->model('account')->get_user_info_by_email($_POST['email']))
+		if ((!$user_info = $this->model('account')->get_user_info_by_email($_POST['email'])) && (($previous_user_uid = $this->model('preaccount')->check_email($_POST['email']))<0))
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, -1,  AWS_APP::lang()->_t('邮箱地址错误或帐号不存在')));
 		}
