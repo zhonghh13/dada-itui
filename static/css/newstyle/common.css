@@ -982,6 +982,13 @@ blockquote {margin: 0 0 16px;padding: 0 15px;font-size: 14px;color: #777;border-
 /* noscript 提示 */
 .aw-noscript{position: absolute;z-index: 100;width: 100%;height: 100%;background-color: #f5f5f5;overflow: hidden;}
 
+/*围观页面图片居中*/
+.content.markitup-box.itui-news-markitup-box .aw-upload-img-list{text-align: center;}
+.content.markitup-box.itui-news-markitup-box .aw-upload-img-list img{margin: 0 auto;}
+/*笔记页面图片居中*/
+.content.markitup-box.aw-upload-img-list{text-align: center;}
+.content.markitup-box.aw-upload-img-list img{margin: 0 auto;}
+
 @media not all, (min-resolution: 192dpi) {
 	.aw-logo a {
 	    background-image: url("img/logo@2x.png");

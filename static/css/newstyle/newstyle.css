@@ -1338,6 +1338,15 @@ top: 12px;}
 .ul-topic-list li{width: 100%;}
 .clear{clear:both;}
 #load_more{cursor: pointer;}
+
+/*围观页面图片居中*/
+.content.markitup-box.itui-news-markitup-box .aw-upload-img-list{text-align: center;}
+.content.markitup-box.itui-news-markitup-box .aw-upload-img-list img{margin: 0 auto;}
+
+/*笔记页面图片居中*/
+.content.markitup-box.aw-upload-img-list{text-align: center;}
+.content.markitup-box.aw-upload-img-list img{margin: 0 auto;}
+
 /*end20150522*/
 /*20150525*/
 

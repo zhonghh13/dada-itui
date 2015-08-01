@@ -145,7 +145,7 @@ class main extends AWS_CONTROLLER
 			$_GET['page'] = 1;
 		}
 
-		$this->crumb(AWS_APP::lang()->_t('用户列表'), '/people/');
+		$this->crumb(AWS_APP::lang()->_t('推荐用户列表'), '/people/');
 
 		if ($_GET['topic_id'])
 		{
@@ -179,7 +179,9 @@ class main extends AWS_CONTROLLER
 
 			TPL::assign('pagination', AWS_APP::pagination()->initialize(array(
 				'base_url' => get_js_url('/people/group_id-' . $_GET['group_id']),
-				'total_rows' => $this->model('account')->get_user_count(implode(' AND ', $where)),
+				// 'total_rows' => $this->model('account')->get_user_count(implode(' AND ', $where)),
+				//用户推荐只显示90位用户
+				'total_rows' => 90,
 				'per_page' => get_setting('contents_per_page')
 			))->create_links());
 		}
