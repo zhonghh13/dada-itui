@@ -120,7 +120,7 @@ class ajax extends AWS_CONTROLLER
 
 		if (!preg_match('/^\d+(\.\d{1,2})?$/', $_POST['amount']) OR floatval($_POST['amount']) <= 0)
 		{
-			H::ajax_json_output(AWS_APP::RSM(null, - 1, AWS_APP::lang()->_t('活动金额错误')));
+			H::ajax_json_output(AWS_APP::RSM(null, - 1, AWS_APP::lang()->_t('活动人数错误')));
 		}
 
 		if (!is_array($_POST['project_product']) AND $_POST['project_type'] == 'DEFAULT')
@@ -259,6 +259,16 @@ class ajax extends AWS_CONTROLLER
 			H::ajax_json_output(AWS_APP::RSM(null, - 1, AWS_APP::lang()->_t('活动结束时间必须大于开始时间')));
 		}
 
+		if((!preg_match('/^\d+(\.\d{1,2})?$/', $_POST['fee']) OR floatval($_POST['fee']) < 0) AND $_POST['project_type'] == 'EVENT')
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('参加费用错误')));
+		}
+
+		if (!preg_match('/^\d+(\.\d{1,2})?$/', $_POST['amount']) OR floatval($_POST['amount']) <= 0)
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, - 1, AWS_APP::lang()->_t('活动人数错误')));
+		}
+
 		if ($_POST['video_link'])
 		{
 			if (!load_class('Services_VideoUrlParser')->parse($_POST['video_link']))
@@ -315,6 +325,11 @@ class ajax extends AWS_CONTROLLER
 
 				$this->model('project')->add_product($_POST['project_id'], $val['title'], $val['amount'], $val['stock'], $val['description']);
 			}
+		}
+
+		//把活动内容更新到project_product表中
+		if (floatval($_POST['fee']) >= 0 AND $_POST['project_type'] == 'EVENT') {
+			$this->model('project')->update_event_product($_POST['project_id'], $_POST['title'], $_POST['fee'], -99, $_POST['summary'], $_POST['project_type']);
 		}
 
 		if ($upload_data)

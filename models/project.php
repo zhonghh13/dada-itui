@@ -255,11 +255,11 @@ class project_class extends AWS_MODEL
             return false;
         }
 
-        if (!preg_match('/^\d+(\.\d{1,2})?$/', $amount) OR intval($amount) == 0)
+        if (!preg_match('/^\d+(\.\d{1,2})?$/', $amount) OR floatval($amount) == 0)
         {
             $amount = '0.00';
         }
-
+      
         return $this->insert('project_product', array(
             'project_id' => intval($project_id),
             'title' => htmlspecialchars($title),
@@ -268,6 +268,28 @@ class project_class extends AWS_MODEL
             'description' => htmlspecialchars($description),
             'project_type' => $project_type
         ));
+    }
+
+    //把活动内容更新到project_product表中
+    public function update_event_product($project_id, $title, $amount, $stock, $description, $project_type)
+    {
+        if ((!$title AND !$amount) OR !$project_id)
+        {
+            return false;
+        }
+
+        if (!preg_match('/^\d+(\.\d{1,2})?$/', $amount) OR floatval($amount) == 0)
+        {
+            $amount = '0.00';
+        }
+      
+        return $this->update('project_product', array(
+            'project_id' => intval($project_id),
+            'title' => htmlspecialchars($title),
+            'amount' => $amount,
+            'stock' => intval($stock),
+            'description' => htmlspecialchars($description),
+            'project_type' => $project_type),'project_id ='.intval($project_id));
     }
 
     public function get_products_by_project_id($project_id)

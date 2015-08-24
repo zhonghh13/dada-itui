@@ -268,7 +268,7 @@ class main extends AWS_CONTROLLER
 		TPL::assign('headline', $headline);
 		TPL::import_js('js/app/news.js');
 
-		$this->crumb(AWS_APP::lang()->_t('围观'), '/news/');
+		$this->crumb(AWS_APP::lang()->_t('资料'), '/news/');
 		TPL::output('news/square');
 		// echo "string";
 	}
