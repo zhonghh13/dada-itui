@@ -176,6 +176,10 @@ class main extends AWS_CONTROLLER
 					unset($article_list[$key]);
 					break;
 				}
+				else
+				{
+					$headline = $this->model('article')->get_headline_article();
+				}
 			}
 		}
 

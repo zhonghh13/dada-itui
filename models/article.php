@@ -538,4 +538,10 @@ class article_class extends AWS_MODEL
 
 		return $topics_by_articles_ids;
 	}
+
+    //获取围观页 头条文章
+	public function get_headline_article()
+	{
+		return $this->fetch_row('article', 'is_headline = 1');
+	}
 }

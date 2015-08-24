@@ -70,6 +70,8 @@ class main extends AWS_CONTROLLER
 				}
 			}
 
+			$project_products = $this->model('project')->get_products_by_project_id($project_info['id']);
+
 			$this->crumb($project_info['title'], '/project/' . $project_info['id']);
 
 			$project_info['attachs'] = $this->model('publish')->get_attach('project', $project_info['id'], 'min');
@@ -86,7 +88,7 @@ class main extends AWS_CONTROLLER
 
 			TPL::assign('project_topics', $project_topics);
 
-			TPL::assign('project_products', $this->model('project')->get_products_by_project_id($project_info['id']));
+			TPL::assign('project_products', $project_products);
 
 			foreach ($project_topics AS $key => $val)
 			{
@@ -95,7 +97,7 @@ class main extends AWS_CONTROLLER
 
 			TPL::assign('question_related_list', $this->model('posts')->get_posts_list('question', 1, 10, null, $project_topics_ids));
 
-			TPL::assign('sponsored_users', $this->model('project')->get_sponsored_users($project_info['id'], $project_info['sponsored_users'], $project_info['project_type']));
+			TPL::assign('sponsored_users', $this->model('project')->get_sponsored_users($project_info['id'], $project_info['sponsored_users'], $project_info['project_type'], $project_products[0]['amount']));
 
 			if ($this->user_id)
 			{

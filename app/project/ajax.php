@@ -113,7 +113,12 @@ class ajax extends AWS_CONTROLLER
 			H::ajax_json_output(AWS_APP::RSM(null, - 1, AWS_APP::lang()->_t('活动结束时间必须大于开始时间')));
 		}
 
-		if (!preg_match('/^\d+(\.\d{1,2})?$/', $_POST['amount']) OR intval($_POST['amount']) <= 0)
+		if((!preg_match('/^\d+(\.\d{1,2})?$/', $_POST['fee']) OR floatval($_POST['fee']) < 0) AND $_POST['project_type'] == 'EVENT')
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('参加费用错误')));
+		}
+
+		if (!preg_match('/^\d+(\.\d{1,2})?$/', $_POST['amount']) OR floatval($_POST['amount']) <= 0)
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, - 1, AWS_APP::lang()->_t('活动金额错误')));
 		}
@@ -185,7 +190,12 @@ class ajax extends AWS_CONTROLLER
 				$val['stock'] = -99;
 			}
 
-			$this->model('project')->add_product($project_id, $val['title'], $val['amount'], $val['stock'], $val['description']);
+			$this->model('project')->add_product($project_id, $val['title'], $val['amount'], $val['stock'], $val['description'], $_POST['project_type']);
+		}
+
+        //把活动内容增加到project_product表中
+		if ($_POST['fee'] AND $_POST['project_type'] == 'EVENT') {
+			$this->model('project')->add_product($project_id, $_POST['title'], $_POST['fee'], -99, $_POST['summary'], $_POST['project_type']);
 		}
 
 		AWS_APP::image()->initialize(array(
@@ -364,7 +374,7 @@ class ajax extends AWS_CONTROLLER
 					H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('指定商品不存在')));
 				}
 
-				if ($_POST['is_donate'] != 1 AND (!$_POST['shipping_name'] OR !$_POST['shipping_address'] OR !$_POST['shipping_province'] OR !$_POST['shipping_city'] OR !$_POST['shipping_mobile'] OR !$_POST['shipping_zipcode']))
+				if ($_POST['is_donate'] != 1 AND (!$_POST['shipping_name'] OR !$_POST['shipping_address'] OR !$_POST['shipping_province'] OR !$_POST['shipping_city'] OR !$_POST['shipping_mobile'] OR !$_POST['shipping_zipcode'] OR !$_POST['shipping_mail']))
 				{
 					H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请完善收货信息')));
 				}
@@ -374,7 +384,7 @@ class ajax extends AWS_CONTROLLER
 					H::ajax_json_output(AWS_APP::RSM(null, - 1, AWS_APP::lang()->_t('请输入正确的金额')));
 				}
 
-				if ($order_id = $this->model('project')->add_project_order($this->user_id, $product_info['id'], $_POST['shipping_name'], $_POST['shipping_province'], $_POST['shipping_city'], $_POST['shipping_address'], $_POST['shipping_zipcode'], $_POST['shipping_mobile'], $_POST['is_donate'], $_POST['note'], $_POST['amount']))
+				if ($order_id = $this->model('project')->add_project_order($this->user_id, $product_info['id'], $_POST['shipping_name'], $_POST['shipping_province'], $_POST['shipping_city'], $_POST['shipping_address'], $_POST['shipping_zipcode'], $_POST['shipping_mobile'], $_POST['shipping_mail'], $_POST['is_donate'], $_POST['note'], $_POST['amount']))
 				{
 					// Modify by wecenter
 					ACTION_LOG::save_action($this->user_id, $product_info['project_id'], ACTION_LOG::CATEGORY_QUESTION, ACTION_LOG::ADD_SUPPORT_PROJECT, '', $product_info['id']);
@@ -415,19 +425,78 @@ class ajax extends AWS_CONTROLLER
 			break;
 
 			case 'EVENT':
-				if (!$_POST['name'] OR !$_POST['mobile'] OR !$_POST['email'] OR !$_POST['address'])
+			    if (!$product_info = $this->model('project')->get_product_info_by_id($_POST['product_id']))
 				{
-					H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请完善报名信息')));
+					H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('活动不存在')));
 				}
 
-				if ($this->model('project')->get_single_project_order_by_uid($this->user_id, $project_info['id']))
-				{
-					H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('一个活动只允许报名一次, 你已经报名')));
+			    if (!(floatval($product_info['amount']) >0))
+			    {
+					if (!$_POST['name'] OR !$_POST['mobile'] OR !$_POST['email'] OR !$_POST['address'])
+					{
+						H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请完善报名信息')));
+					}
+
+					if ($this->model('project')->get_single_project_order_by_uid($this->user_id, $project_info['id']))
+					{
+						H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('一个活动只允许报名一次, 你已经报名')));
+					}
+
+					$this->model('project')->add_project_event($project_info['id'], $this->user_id, 0, $_POST['name'], $_POST['mobile'], $_POST['email'], $_POST['address']);
+
+					H::ajax_json_output(AWS_APP::RSM(null, 1, null));
 				}
+				else
+				{
+					if ((!$_POST['shipping_name'] OR !$_POST['shipping_address'] OR !$_POST['shipping_province'] OR !$_POST['shipping_city'] OR !$_POST['shipping_mobile'] OR !$_POST['shipping_zipcode'] OR !$_POST['shipping_mail']))
+					{
+						H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请完善报名信息')));
+					}
 
-				$this->model('project')->add_project_event($project_info['id'], $this->user_id, 0, $_POST['name'], $_POST['mobile'], $_POST['email'], $_POST['address']);
+					if ($this->model('project')->get_single_project_order_by_uid($this->user_id, $project_info['id']))
+					{
+						H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('一个活动只允许报名一次, 你已经报名')));
+					}
 
-				H::ajax_json_output(AWS_APP::RSM(null, 1, null));
+					if ($order_id = $this->model('project')->add_project_order($this->user_id, $product_info['id'], $_POST['shipping_name'], $_POST['shipping_province'], $_POST['shipping_city'], $_POST['shipping_address'], $_POST['shipping_zipcode'], $_POST['shipping_mobile'], $_POST['shipping_mail'], 0, $_POST['note'], $_POST['amount']))
+					{
+						// Modify by wecenter
+						ACTION_LOG::save_action($this->user_id, $product_info['project_id'], ACTION_LOG::CATEGORY_QUESTION, ACTION_LOG::ADD_SUPPORT_PROJECT, '', $product_info['id']);
+
+						if ($this->model('project')->get_like_status_by_uid($product_info['project_id'], $this->user_id))
+						{
+							$this->model('project')->unset_project_like($product_info['project_id'], $this->user_id);
+						}
+
+						if (floatval($product_info['amount']) == 0 AND floatval($_POST['amount']) == 0)
+						{
+							$this->model('payment')->set_order_payment_time($order_id);
+
+							H::ajax_json_output(AWS_APP::RSM(array(
+								'url' => get_js_url('/project/sponsored/')
+							), 1, null));
+						}
+						else
+						{
+							/*if (is_mobile())
+							{
+								$url = get_js_url('/m/add_project_order/' . $order_id);
+							}
+							else
+							{*/
+								$url = get_js_url('/project/order/init_payment/' . $order_id);
+							//}
+
+							H::ajax_json_output(AWS_APP::RSM(array(
+								'url' => $url
+							), 1, null));
+						}
+					}
+					else
+					{
+						H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('订单生产失败,库存不足')));
+					}
+				}
 			break;
 
 			case 'STOCK':

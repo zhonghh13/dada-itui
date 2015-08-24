@@ -27,13 +27,17 @@ class ajax extends AWS_CONTROLLER
 	public function news_actions_action()
 	{
 		// echo $_GET['page']."qwertyuiofayhfihaeluhfliahflhalfhwiuahflahfniuwahflnh";
-		$article_list = $this->model('article')->get_articles_list($category_info['id'], intval($_GET['page']), get_setting('contents_per_page'), 'add_time DESC');
+		// echo "page:".$_GET['page'];
+		// echo "category:".$category_info['id'];
+		// echo "per_page:".get_setting('contents_per_page');
+		$article_list = $this->model('article')->get_articles_list($category_info['id'], intval($_GET['page']), get_setting('contents_per_page'), 'recommend_time DESC');
+		// echo "  list size:".sizeof($article_list);
 
 		if ($article_list)
 		{
 			foreach ($article_list as $key => $value) 
 			{
-				if ($value['is_recommend'] != '2')
+				if ($value['is_recommend'] != '2' OR $value['is_headline'] == '1')
 				{
 					unset($article_list[$key]);
 					$article_list_total--;

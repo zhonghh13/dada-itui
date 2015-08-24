@@ -123,7 +123,7 @@ class export extends AWS_CONTROLLER
                         ->setCellValue('B' . $i, ($order_info['shipping_name']) ?: '')
                         ->setCellValue('C' . $i, (date('Y-m-d H:i:s', $order_info['add_time'])) ?: '')
                         ->setCellValue('D' . $i, ($order_info['shipping_mobile']) ?: '')
-                        ->setCellValue('E' . $i, ($order_info['project_type'] == 'DEFAULT') ? $users[$order_info['uid']]['email'] : $order_info['shipping_address'])
+                        ->setCellValue('E' . $i, ($order_info['project_type'] == 'DEFAULT') ? $users[$order_info['uid']]['email'] : $order_info['shipping_mail'])
                         ->setCellValue('F' . $i, ($order_info['project_type'] == 'DEFAULT') ? $order_info['shipping_province'] . $order_info['shipping_city'] . $order_info['shipping_address'] : $order_info['address'])
                         ->setCellValue('G' . $i, ($order_info['shipping_zipcode']) ?: '')
                         ->setCellValue('H' . $i, ($order_info['amount']) ?: '')

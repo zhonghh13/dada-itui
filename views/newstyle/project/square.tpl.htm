@@ -74,20 +74,24 @@
 									<div class="mod-body">
 										<h3><a href="project/<?php echo $val['id']; ?>" title="<?php echo $val['title']; ?>"><?php echo $val['title']; ?></a></h3>
 										<div class="progress">
+										<?php if ($val['project_type'] == 'DEFAULT') { ?>
 										  <div class="progress-bar progress-bar-success progress-bar-green" role="progressbar" aria-valuenow="<?php echo get_paid_progress_bar($val['amount'], $val['paid']); ?>" aria-valuemin="0" aria-valuemax="<?php echo get_paid_progress_bar($val['amount'], $val['paid']); ?>" style="width: <?php echo get_paid_progress_bar($val['amount'], $val['paid']); ?>%">
 										  	<span class="sr-only"></span>
 										  </div>
+										<?php } ?>
 										</div>
 									</div>
 									<div class="mod-footer">
 										<div class="status clearfix">
 											<span>
-												<b><?php echo get_paid_progress_bar($val['amount'], $val['paid']); ?>%</b>
+											    <?php if ($val['project_type'] == 'DEFAULT') { ?>
+												<b><?php echo get_paid_progress_bar($val['amount'], $val['sponsored_users']); ?>%</b>
 												已达到
+												<?php } ?>
 											</span>
 											<span>
 												<?php if ($val['project_type'] == 'EVENT') { ?>
-												<b><?php echo intval($val['paid']); ?></b>
+												<b><?php echo intval($val['sponsored_users']); ?></b>
 												报名人数
 												<?php } else { ?>
 												<b>¥ <?php echo $val['paid']; ?></b>

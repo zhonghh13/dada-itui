@@ -75,9 +75,9 @@
 												<?php if ($val['project_type'] == 'DEFAULT') { ?>
 													<?php _e('收货地址'); ?>: <?php echo $val['shipping_province']; ?> <?php echo $val['shipping_city']; ?> <?php echo $val['shipping_address']; ?>, <?php _e('邮编'); ?>: <?php echo $val['shipping_zipcode']; ?>, <?php _e('收件人'); ?>: <?php echo $val['shipping_name']; ?> <?php _e('手机'); ?>: <?php echo $val['shipping_mobile']; ?>
 												<?php } else { ?>
-													<?php _e('报名信息'); ?>: <?php _e('邮箱'); ?>: <?php echo $val['shipping_address']; ?>, <?php _e('联系人'); ?>: <?php echo $val['shipping_name']; ?>, <?php _e('手机'); ?>: <?php echo $val['shipping_mobile']; ?>
+													<?php _e('报名信息'); ?>: <?php _e('邮箱'); ?>: <?php echo $val['shipping_mail']; ?>, <?php _e('联系人'); ?>: <?php echo $val['shipping_name']; ?>, <?php _e('手机'); ?>: <?php echo $val['shipping_mobile']; ?>
 													<?php if ($val['project_type'] == 'EVENT') { ?>
-														<?php _e('地址'); ?>: <?php echo $val['address']; ?>
+														<?php _e('地址'); ?>: <?php echo $val['shipping_address']; ?>
 
 														<?php if ($val['attach']) { ?>
 														<a href="<?php echo $val['attach']['attachment']; ?>" target="_blank"><?php _e('查看资料'); ?></a>

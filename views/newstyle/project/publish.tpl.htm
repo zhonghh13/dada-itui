@@ -91,10 +91,11 @@
 										<dd>
 											<a href="javascript:;" class="btn btn-default"><?php if ($this->project_info['id']) { ?>添加图片<?php } else { ?>添加图片<?php } ?></a>
 											<span class="aw-text-color-999 upload-url"></span>
-											<input type="file" onchange="$('.upload-url').html($(this).val());" class="upload-attach form-control hide" name="cover" />
+										<!--	<input type="file" onchange="$('.upload-url').html($(this).val());" class="upload-attach form-control hide" name="cover"/> -->
+											<input type="file" onchange="$('.upload-url').html($(this).val());" class="" name="cover"/>
 										</dd>
 									</dl>
-									<dl class="clearfix">
+									<!-- <dl class="clearfix">
 										<dt><strong>&nbsp</strong>封面视频:</dt>
 										<dd>
 											<input type="text"  class="form-control" placeholder="http://"/>
@@ -102,7 +103,7 @@
 												支持: 优酷、酷六、土豆、56、新浪播客、乐视、Youtube 与 SWF 文件
 											</p>
 										</dd>
-									</dl>
+									</dl> -->
 									<dl class="clearfix">
 										<dt><strong>*</strong>活动详情:</dt>
 										<dd>
@@ -139,6 +140,15 @@
 										<div class="col-sm-8">
 											<label class="label label-danger hide">请输入众筹总额</label>
 										</div>
+									</dl>
+									<dl class="clearfix fee">
+									    <dt></dt>
+									    <dd>
+									    	<div class="col-sm-5 clpadding">
+												<input type="text" name="fee" class="form-control" value="<?php echo $this->project_info['fee']; ?>" placeholder="若活动免费，请输入0"/>
+											</div>
+
+									    </dd>
 									</dl>
 									<dl class="clearfix">
 										<dt><strong>*</strong>开始时间:</dt>
@@ -464,8 +474,9 @@ $(function()
 	$('.aw-publish-tabs li').click(function(){
 		$('.fire .payback dt').html('<strong>*</strong>项目简介:');
 		$('.tab-content .raise').show();
-		$('.aw-project-return-form').show()
-		$('.lump').show();
+		$('.aw-project-return-form').show();
+		$('.lump').show();		
+		$('.fee').hide();
 		$('#projectPost').attr("value",'DEFAULT');
 
 	})
@@ -476,6 +487,8 @@ $(function()
 		if($(this).index() == 1){
 			$('.fire .payback dt').html('<strong>*</strong>活动摘要:');
 			$('.lump dt').html('<strong>*</strong>活动人数:');
+			$('.fee').show();
+			$('.fee dt').html('<strong>*</strong>参加费用:');
 			$('#projectPost').attr("value",'EVENT');
 		}
 
@@ -495,7 +508,13 @@ $(function()
 	if($('.lump dt').text()=='*活动人数:')
 	{
 		var $num = parseInt($('.lump dd').find("input").val());
-		$('.lump dd').find("input").val($num)
+		$('.lump dd').find("input").val($num);
+	}
+
+	if($('.fee dt').text()=='*参加费用:')
+	{
+		var $price = parseInt($('.fee dd').find("input").val());
+		$('.fee dd').find("input").val($price);
 	}
 
 	// 默认展开话题编辑框和回报设置框

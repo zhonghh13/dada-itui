@@ -156,22 +156,29 @@
                     <div class="mod aw-project-title">
                         <div class="mod-head">
                         <?php if ($this->project_info['project_type'] == 'EVENT') { ?>
+                        <?php if ($this->project_products) { ?>
                             <div class="tile">
                                 <a class="btn-blue-large" href="javascript:;"><?php _e('活动'); ?> | <?php if (!$this->project_info['approved']) { ?><?php _e('待审核'); ?><?php } else if ($this->project_info['end_time'] < time()) { ?><?php _e('已结束'); ?><?php } else if ($this->project_info['start_time'] > time()) { ?><?php _e('预热中'); ?><?php } else { ?><?php if ($this->project_info['paid'] > 0) { if ($this->project_info['project_type'] == 'STOCK') { ?><?php _e('已筹到'); ?><?php } else { ?><?php _e('进行中'); ?><?php } } else if ($this->project_info['paid'] >= $this->project_info['amount']) { ?><?php _e('已成功'); ?><?php } else { ?><?php _e('进行中'); ?><?php } ?><?php } ?>
                                     <i></i>
                                 </a>
                             </div>
-                            <p><?php _e('报名人数'); ?>:</p>
-                            <p><strong><?php echo intval($this->project_info['paid']); ?></strong></p>
+                            <!-- <p><?php _e('报名人数'); ?>:</p>
+                            <p><strong><?php echo intval($this->project_info['paid']); ?></strong></p> -->
+                            <p><?php _e('报名费用'); ?>:</p>
+                            <?php if (floatval($this->project_products[0]['amount']) > 0) { ?>
+                            <p><strong>￥<?php echo floatval($this->project_products[0]['amount']) ?></strong>
+                            <?php } else { ?><p><strong>免费</strong></p><?php } ?>
                             <p><?php _e('截止日期'); ?>: <?php echo date('Y年m月d日', $this->project_info['end_time']); ?></p>
                             <div class="progress-box">
-                            <div class="progress">
+                            <?php if ($this->project_info['project_type'] == 'DEFAULT') { ?>
+                            <div class="progress">                                
                                 <div class="progress-bar progress-bar-success progress-bar-green" role="progressbar" aria-valuenow="<?php echo get_paid_progress_bar($this->project_info['amount'], $this->project_info['paid']); ?>" aria-valuemin="0" aria-valuemax="<?php echo get_paid_progress_bar($this->project_info['amount'], $this->project_info['paid']); ?>" style="width: <?php echo get_paid_progress_bar($this->project_info['amount'], $this->project_info['paid']); ?>%">
-
                                 </div>
                             </div>
                             <span><?php echo get_paid_progress_bar($this->project_info['amount'], $this->project_info['paid']); ?>%</span>
                             </div>
+                            <?php } ?>
+                        <?php } ?>
                         <?php } else { ?>
                             <div class="tile oragin">
                                 <a href="javascript:;"><?php _e('众筹'); ?> | <?php if (!$this->project_info['approved']) { ?><?php _e('待审核'); ?> <?php } else if ($this->project_info['end_time'] < time()) { ?><?php _e('已结束'); ?><?php } else if ($this->project_info['start_time'] > time()) { ?><?php _e('预热中'); ?><?php } else { ?><?php if ($this->project_info['paid'] > 0) { if ($this->project_info['project_type'] == 'STOCK') { ?><?php _e('已筹到'); ?><?php } else { ?><?php _e('进行中'); ?><?php } } else if ($this->project_info['paid'] >= $this->project_info['amount']) { ?><?php _e('已成功'); ?><?php } else { ?><?php _e('进行中'); ?><?php } ?><?php } ?>
@@ -227,14 +234,22 @@
                                             ?>class="pull-right btn-blue"<?php
                                         }
                                     ?>
-                                <?php if ($this->user_id AND !$this->project_order){
-                                    ?>onclick="AWS.dialog('project<?php
-                                    if ($this->project_info['project_type'] == 'EVENT') {
-                                        ?>Event<?php
+                                <?php if ($this->user_id AND !$this->project_order){ ?>
+                                //    onclick="AWS.dialog('project<?php
+                                //    if ($this->project_info['project_type'] == 'EVENT' AND $this->project_products[0]['amount'] == 0) { 
+                                //        ?>Event<?php
+                                //    }
+                                //     else {
+                                //         ?>Stock<?php
+                                //    } ?>Form', {project_id:<?php echo $this->project_info['id']; ?>, contact_money:<?php echo $this->project_products[0]['amount'] ?>, contact_name:'<?php echo $this->user_info['user_name']; ?>', contact_tel:'<?php echo $this->user_info['mobile']; ?>', contact_email:'<?php echo $this->user_info['email']; ?>'})" 
+
+                                    <?php
+                                    if ($this->project_info['project_type'] == 'EVENT' AND $this->project_products[0]['amount'] == 0) { 
+                                        ?>onclick="AWS.dialog('projectEventForm', {project_id:<?php echo $this->project_info['id']; ?>, contact_money:<?php echo $this->project_products[0]['amount'] ?>, contact_name:'<?php echo $this->user_info['user_name']; ?>', contact_tel:'<?php echo $this->user_info['mobile']; ?>', contact_email:'<?php echo $this->user_info['email']; ?>'})"<?php
                                     }
-                                    else {
-                                        ?>Stock<?php
-                                    } ?>Form', {project_id:<?php echo $this->project_info['id']; ?>, contact_name:'<?php echo $this->user_info['user_name']; ?>', contact_tel:'<?php echo $this->user_info['mobile']; ?>', contact_email:'<?php echo $this->user_info['email']; ?>'})"
+                                     else {
+                                         ?>href="project/order/add/<?php echo $this->project_info['id']; ?>"<?php
+                                    } ?>
                                 <?php } else {
                                     if ($this->project_order) {
                                          ?>onclick="javascript:;"<?php

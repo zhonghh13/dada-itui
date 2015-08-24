@@ -64,6 +64,12 @@
 											<?php } else { ?>
 											<?php _e('等待回报'); ?>
 											<?php } ?>
+											<?php } else if ($val['project_type'] == 'EVENT' AND $val['amount'] > 0) { ?>
+											<?php if ($val['order_status'] == 'pay') { ?>
+											<a href="project/order/init_payment/<?php echo $val['id']; ?>"><?php _e('未支付,点击支付'); ?></a> | <a onclick="AWS.ajax_request(G_BASE_URL + '/project/ajax/cancel_project_order/', 'id=<?php echo $val['id']; ?>');"><?php _e('取消订单'); ?></a>
+											<?php } else { ?>
+											<?php _e('报名成功') ?>
+											<?php } ?>
 											<?php } else { ?>
 											-
 											<?php } ?>
@@ -82,9 +88,9 @@
 												<?php _e('发货时间'); ?>: <?php echo date_friendly($val['shipping_time']); ?> <?php _e('物流公司'); ?>: <?php echo $val['track_branch']; ?> <?php _e('物流单号'); ?>: <?php echo $val['track_no']; ?>
 											<?php } ?>
 										<?php } else { ?>
-											<?php _e('报名信息'); ?>: <?php _e('邮箱'); ?>: <?php echo $val['shipping_address']; ?>, <?php _e('联系人'); ?>: <?php echo $val['shipping_name']; ?>, <?php _e('手机'); ?>: <?php echo $val['shipping_mobile']; ?>
+											<?php _e('报名信息'); ?>: <?php _e('邮箱'); ?>: <?php echo $val['shipping_mail']; ?>, <?php _e('联系人'); ?>: <?php echo $val['shipping_name']; ?>, <?php _e('手机'); ?>: <?php echo $val['shipping_mobile']; ?>
 											<?php if ($val['project_type'] == 'EVENT') { ?>
-												<?php _e('地址'); ?>: <?php echo $val['address']; ?>
+												<?php _e('地址'); ?>: <?php echo $val['shipping_address']; ?>
 											<?php } ?>
 										<?php } ?>
 										</td>

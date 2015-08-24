@@ -597,14 +597,16 @@ var AW_TEMPLATE = {
 					'<div class="modal-content">'+
 						'<div class="formBox">'+
 							'<div class="title">'+
-								'<h3>预约投资 <i class="icon icon-delete pull-right" data-dismiss="modal" aria-hidden="true"></i></h3>'+
+								// '<h3>预约投资 <i class="icon icon-delete pull-right" data-dismiss="modal" aria-hidden="true"></i></h3>'+
+								'<h3>活动报名 <i class="icon icon-delete pull-right" data-dismiss="modal" aria-hidden="true"></i></h3>'+
 							'</div>'+
 
 							'<div class="main ">'+
 								'<form class="form-horizontal" action="' + G_BASE_URL + '/project/ajax/add_product_order/" onsubmit="return false" role="form" id="projectEventForm" method="post">'+
 								'<input type="hidden" name="project_id" value="{{project_id}}">'+
 								 ' <div class="form-group">'+
-								    '<label  class="col-sm-4 control-label">预计投资:</label>'+
+								    // '<label  class="col-sm-4 control-label">预计投资:</label>'+
+								    '<label  class="col-sm-4 control-label">报名费用:</label>'+
 								   ' <div class="col-sm-7">'+
 								     ' <input  type="text" class="form-control" name="amount" value="{{contact_money}}">'+
 								    '</div>'+

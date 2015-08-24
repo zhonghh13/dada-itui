@@ -248,7 +248,7 @@ class project_class extends AWS_MODEL
         return true;
     }
 
-    public function add_product($project_id, $title, $amount, $stock, $description)
+    public function add_product($project_id, $title, $amount, $stock, $description, $project_type)
     {
         if ((!$title AND !$amount) OR !$project_id)
         {
@@ -265,7 +265,8 @@ class project_class extends AWS_MODEL
             'title' => htmlspecialchars($title),
             'amount' => $amount,
             'stock' => intval($stock),
-            'description' => htmlspecialchars($description)
+            'description' => htmlspecialchars($description),
+            'project_type' => $project_type
         ));
     }
 
@@ -342,7 +343,7 @@ class project_class extends AWS_MODEL
         return $this->fetch_row('project_product', 'id = ' . intval($product_id));
     }
 
-    public function add_project_order($uid, $product_id, $shipping_name, $shipping_province, $shipping_city, $shipping_address, $shipping_zipcode, $shipping_mobile, $is_donate, $note, $amount = null)
+    public function add_project_order($uid, $product_id, $shipping_name, $shipping_province, $shipping_city, $shipping_address, $shipping_zipcode, $shipping_mobile, $shipping_mail, $is_donate, $note, $amount = null)
     {
         if (!$product_info = $this->get_product_info_by_id($product_id))
         {
@@ -368,6 +369,11 @@ class project_class extends AWS_MODEL
             $amount = $product_info['amount'];
         }
 
+        if ($product_info['project_type'] == 'EVENT' AND floatval($product_info['amount']) > 0)
+        {
+            $amount = $product_info['amount'];
+        }
+
         return $this->insert('product_order', array(
             'uid' => intval($uid),
             'project_type' => $project_info['project_type'],
@@ -382,6 +388,7 @@ class project_class extends AWS_MODEL
             'shipping_city' => htmlspecialchars($shipping_city),
             'shipping_address' => htmlspecialchars($shipping_address),
             'shipping_mobile' => htmlspecialchars($shipping_mobile),
+            'shipping_mail' => htmlspecialchars($shipping_mail),
             'shipping_zipcode' => htmlspecialchars($shipping_zipcode),
             'is_donate' => intval($is_donate),
             'note' => htmlspecialchars($note),
@@ -419,13 +426,14 @@ class project_class extends AWS_MODEL
             'shipping_name' => htmlspecialchars($name),
             'shipping_province' => '',
             'shipping_city' => '',
-            'shipping_address' => htmlspecialchars($email),
+            'shipping_mail' => htmlspecialchars($email),
             'shipping_mobile' => htmlspecialchars($mobile),
             'shipping_zipcode' => '',
             'is_donate' => 1,
             'note' => '',
             'add_time' => time(),
-            'address' => htmlspecialchars($address)
+            'address' => htmlspecialchars($address),
+            'shipping_address' => htmlspecialchars($address)
         ));
     }
 
@@ -483,7 +491,7 @@ class project_class extends AWS_MODEL
             break;
 
             case 'event':
-                $where[] = "project_type = 'EVENT'";
+                $where[] = "project_type = 'EVENT' AND cancel_time = 0";
             break;
 
             case 'stock':
@@ -560,11 +568,12 @@ class project_class extends AWS_MODEL
             break;
 
             case 'pay':
-                $where[] = "payment_order_id = 0 AND project_type = 'DEFAULT'";
+                // $where[] = "payment_order_id = 0 AND project_type = 'DEFAULT'";
+                $where[] = "payment_order_id = 0 AND amount > 0";
             break;
 
             case 'event':
-                $where[] = "project_type = 'EVENT'";
+                $where[] = "project_type = 'EVENT' AND cancel_time = 0";
             break;
 
             case 'stock':
@@ -615,9 +624,14 @@ class project_class extends AWS_MODEL
         return 'preparing';
     }
 
-    public function get_sponsored_users($project_id, $sponsored_users = null, $project_type = null)
+    public function get_sponsored_users($project_id, $sponsored_users = null, $project_type = null, $amount)
     {
+
         if ($project_type == 'DEFAULT')
+        {
+            $order_uids = $this->query_all("SELECT DISTINCT uid FROM " . get_table('product_order') . " WHERE payment_time > 0 AND project_id = " . intval($project_id));
+        }
+        elseif ($project_type == 'EVENT' AND floatval($amount) > 0) 
         {
             $order_uids = $this->query_all("SELECT DISTINCT uid FROM " . get_table('product_order') . " WHERE payment_time > 0 AND project_id = " . intval($project_id));
         }

@@ -9,7 +9,10 @@
                     <div class="mod aw-payment-content clearfix">
                         <input type="hidden" name="project_id" value="<?php echo $this->product_info['project_id']; ?>" />
                         <input type="hidden" name="product_id" value="<?php echo $this->product_info['id']; ?>" />
+                        <?php if ($this->product_info['project_type'] == 'DEFAULT') { ?>
                         <h1><?php _e('支持'); ?> ¥<?php echo intval($this->product_info['amount']); ?></h1>
+                        <?php }else { ?><h1><?php _e('支付') ?> ¥<?php echo floatval($this->product_info['amount']); ?>报名费用</h1><?php } ?>
+                        <?php if ($this->product_info['project_type'] == 'DEFAULT') { ?>                      
                         <div class="mod-head content">
                             <div class="mod-body">
                                     <h2><?php _e('回报内容'); ?></h2>
@@ -27,9 +30,10 @@
                                 </dl>
                             </div>
                             <?php } ?>
-
-
                         </div>
+                        <?php } ?>
+                        
+                        <?php if ($this->product_info['project_type'] == 'DEFAULT') { ?> 
                         <div class="mod-body address">
                                 <h2><?php _e('收货信息'); ?></h2>
                                 <dl class="dl-horizontal">
@@ -54,8 +58,42 @@
                                     <dt><?php _e('收件人手机'); ?>:</dt>
                                     <dd><input type="text" class="form-control form-normal" name="shipping_mobile" /></dd>
                                 </dl>
-
+                                <dl class="dl-horizontal">
+                                    <dt><?php _e('邮箱'); ?>:</dt>
+                                    <dd><input type="text" class="form-control form-normal" name="shipping_mail" /></dd>
+                                </dl>
                         </div>
+                        <?php } else{ ?>
+                        <div class="mod-body address">
+                                <h2><?php _e('报名信息'); ?></h2>
+                                <dl class="dl-horizontal">
+                                    <dt><?php _e('姓名'); ?>:</dt>
+                                    <dd><input type="text" class="form-control form-normal" name="shipping_name" /></dd>
+                                </dl>
+                                <dl class="dl-horizontal">
+                                    <dt><?php _e('省份/直辖市'); ?>:</dt>
+                                    <dd>
+                                        <select name="shipping_province" class="select_area"></select> <select name="shipping_city" class="select_area"></select>
+                                    </dd>
+                                </dl>
+                                <dl class="dl-horizontal">
+                                    <dt><?php _e('详细地址'); ?>:</dt>
+                                    <dd><input type="text" class="form-control form-normal" name="shipping_address" /></dd>
+                                </dl>
+                                <dl class="dl-horizontal">
+                                    <dt><?php _e('邮政编码'); ?>:</dt>
+                                    <dd><input type="text" class="form-control form-normal" name="shipping_zipcode" /></dd>
+                                </dl>
+                                <dl class="dl-horizontal">
+                                    <dt><?php _e('手机'); ?>:</dt>
+                                    <dd><input type="text" class="form-control form-normal" name="shipping_mobile" /></dd>
+                                </dl>
+                                <dl class="dl-horizontal">
+                                    <dt><?php _e('邮箱'); ?>:</dt>
+                                    <dd><input type="text" class="form-control form-normal" name="shipping_mail" /></dd>
+                                </dl>
+                        </div>
+                        <?php } ?>
                         <div class="mod-footer remark">
                             <h2><?php _e('备注信息'); ?></h2>
                             <textarea class="form-control" rows="4" placeholder="<?php _e('在此填写关于回报内容的具体选择或者任何你想告诉项目发起人的话'); ?>" name="note"></textarea>
@@ -88,11 +126,15 @@
                                                 <?php _e('已达到'); ?>
                                     </span>
                                     <span href="">
+                                    <?php if ($this->product_info['project_type'] == 'DEFAULT') { ?>
                                         <b>¥ <?php echo $this->project_info['paid']; ?></b>
                                                 <?php _e('已获支持'); ?>
+                                    <?php } else { ?>
+                                        <b><?php echo floor($this->project_info['paid']); ?></b>
+                                                <?php _e('报名人数'); } ?>
                                     </span>
                                     <span href="" class="pull-right">
-                                                <b><?php echo get_left_days($this->project_info['end_time']); ?></b>
+                                                <b><?php echo get_left_days($this->project_info['end_time']); ?> 天</b>
                                                 <?php _e('剩余时间'); ?>
                                     </span>
                                 </div>

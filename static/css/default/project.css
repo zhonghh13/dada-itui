@@ -235,6 +235,8 @@
 .aw-event-publish .aw-publish-desc #upload-attach dd{position: relative;}
 .aw-event-publish .aw-publish-desc #upload-attach .upload-attach{position:absolute;top:6px;left:0;width:70px;height:25px;font-size: 100px;opacity: 0;filter:alpha(opacity=0);cursor: pointer;}
 .aw-event-publish .aw-publish-desc #upload-attach .upload-url{margin-left: 10px;}
+/*下面一行专为input上传图片*/
+.aw-event-publish .aw-publish-desc #upload-attach input{display:block;width: 80px;height: 40px;-moz opacity: 0;filter:alpha(opacity=0); opacity:0;margin:0;position: absolute;top:0;left:0;z-index:20;cursor: pointer; }
 .aw-event-publish .aw-publish-desc .aw-edit-topic-box{margin:0;}
 .aw-event-publish .aw-publish-desc .aw-edit-topic-box a {margin: 0 0 0 10px;}
 .aw-event-publish .aw-publish-desc .aw-topic-bar{margin:0;}
