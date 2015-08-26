@@ -632,9 +632,28 @@ class ajax extends AWS_CONTROLLER
             H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('你所在的用户组不允许发布站外链接')));
         }
 
-        if (!$this->model('publish')->insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids']))
+        //给超级管理员和前台管理员编辑发布文章插入非当前页附件权限操作
+        if ($this->user_info['permission']['is_administortar'] OR $this->user_info['permission']['is_moderator'])
         {
-            H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('只允许插入当前页面上传的附件')));
+            if (!$this->model('publish')->insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids']))
+            {
+                $admin_finish_insert_attach_result = $this->model('publish')->admin_insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids'], $_POST['attach_access_key']);
+                if (!$admin_finish_insert_attach_result)
+                {
+                    H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('插入的非当前页面附件不存在')));
+                }
+                else
+                {
+                    $_POST['message'] = $admin_finish_insert_attach_result;
+                }
+            }
+        }
+        else
+        {
+            if (!$this->model('publish')->insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids']))
+            {
+                H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('只允许插入当前页面上传的附件')));
+            }
         }
 
         if (human_valid('question_valid_hour') AND !AWS_APP::captcha()->is_validate($_POST['seccode_verify']))
@@ -759,9 +778,28 @@ class ajax extends AWS_CONTROLLER
             H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('请填写正确的验证码')));
         }
 
-        if (!$this->model('publish')->insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids']))
+        //给超级管理员和前台管理员编辑发布文章插入非当前页附件权限操作
+        if ($this->user_info['permission']['is_administortar'] OR $this->user_info['permission']['is_moderator'])
         {
-            H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('只允许插入当前页面上传的附件')));
+            if (!$this->model('publish')->insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids']))
+            {
+                $admin_finish_insert_attach_result = $this->model('publish')->admin_insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids'], $_POST['attach_access_key']);
+                if (!$admin_finish_insert_attach_result)
+                {
+                    H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('插入的非当前页面附件不存在')));
+                }
+                else
+                {
+                    $_POST['message'] = $admin_finish_insert_attach_result;
+                }
+            }
+        }
+        else
+        {
+            if (!$this->model('publish')->insert_attach_is_self_upload($_POST['message'], $_POST['attach_ids']))
+            {
+                H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('只允许插入当前页面上传的附件')));
+            }
         }
 
         // !注: 来路检测后面不能再放报错提示
