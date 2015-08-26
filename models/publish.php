@@ -748,4 +748,40 @@ class publish_class extends AWS_MODEL
 
 		return true;
 	}
+
+    //管理员发布文章插入非本页附件操作
+	public function admin_insert_attach_is_self_upload($message, $attach_ids = null, $attach_access_key)
+	{
+		if (!$message)
+		{
+			return true;
+		}
+
+		if (!$attach_ids)
+		{
+			$attach_ids = array();
+		}
+
+		if ($question_attachs_ids = FORMAT::parse_attachs($message, true))
+		{
+			foreach ($question_attachs_ids AS $attach_id)
+			{
+				if (!in_array($attach_id, $attach_ids))
+				{
+					if (!$attach_info = $this->fetch_row('attach', 'id = '.$attach_id))
+					{
+						return false;
+					}
+					else
+					{
+					    $new_attach_id = $this->add_attach('article', $attach_info['file_name'], $attach_access_key, time(), $attach_info['file_location'], $attach_info['is_image']);
+					    //将原来的附件id替换成新的附件id
+					    $message = preg_replace('/\[attach\]'.$attach_id.'\[\/attach]/', '[attach]'.$new_attach_id.'[/attach]', $message);
+					}
+				}
+			}
+		}
+
+		return $message;
+	}
 }

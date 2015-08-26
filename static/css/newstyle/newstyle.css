@@ -1107,7 +1107,6 @@ top: 12px;}
 }
 .itui-news-item {
   float: left;
-  width: 70%;
 }
 .item-infos a {
   color: #EE6E50;
@@ -1118,6 +1117,7 @@ top: 12px;}
 .item-introduce {
   color: #808080;
   font-size: 1.6rem;
+  width: 90%;
 }
 .item-news-tag .glyphicon-tags {
   padding-right: 10px;

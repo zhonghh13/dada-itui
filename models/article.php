@@ -483,7 +483,13 @@ class article_class extends AWS_MODEL
 	}
 
 	public function set_headline($article_id)
-	{
+	{ 
+		//将原先的头条文章置为2
+		$this->update('article',array(
+			'is_headline' => 2
+		), 'is_headline = 1');
+        
+        //设置新的头条文章
 		$this->update('article', array(
 			'is_headline' => 1
 		), 'id = ' . intval($article_id));

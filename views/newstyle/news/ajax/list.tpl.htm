@@ -1,9 +1,9 @@
 <?php if ($this->article_list) { ?>
 <?php foreach ($this->article_list AS $key => $val) { ?>
 <div class="aw-item itui-news-aw-item">
-    <div class="itui-news-pic">
+    <!-- <div class="itui-news-pic">
         <a href="news/<?php echo $val['id']; ?>" target="_blank"><img class="img-responsive" src="<?php $url =FORMAT::parse_attachs($val['message'], TRUE); $url = AWS_APP::model('publish')->get_attach_by_id($url['0']); echo $url['attachment'];?>" alt=""></a>
-    </div>
+    </div> -->
     <div class="itui-news-item">
        <h4>
            <a href="news/<?php echo $val['id']; ?>" target="_blank"><?php echo $val['title']; ?></a>
@@ -14,7 +14,7 @@
            <span><?php echo date_friendly($val['add_time']); ?></span>
        </div>
        <p class="item-introduce" id="detail_<?php echo $val['id']; ?>">
-           <?php echo cjk_substr(strip_tags(FORMAT::parse_attachs(nl2br(FORMAT::parse_bbcode($val['message'])))),0,130,'UTF-8','...'); ?>
+           <?php echo cjk_substr(strip_tags(FORMAT::parse_attachs(nl2br(FORMAT::parse_bbcode($val['message'])))),0,165,'UTF-8','...'); ?>
        </p>
        <div class="item-news-tag">
            <span class="glyphicon glyphicon-tags"></span>
